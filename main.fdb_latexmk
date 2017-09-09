@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1504957674 "main.tex" "main.pdf" "main" 1504957674
+["pdflatex"] 1504967606 "main.tex" "main.pdf" "main" 1504967606
   "/etc/texmf/web2c/texmf.cnf" 1499338588 1101 af7716885e081ab43982cab7b4672c1a ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labi1200.tfm" 1499337787 3592 9415307df98650ffeddaa22e262436dc ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1494161900 3308 eee81981029f67083258db36df06e523 ""
@@ -99,9 +99,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1499338691 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1499338756 3859297 bb1e70cac6101c8240393ab02e68dece ""
   "Preamble.tex" 1504898181 606 1289f3db1fee523fd5aa196e09275f75 ""
-  "main.aux" 1504957406 2684 50481861a16eaed7c3fc0b712031cbd0 ""
-  "main.tex" 1504957674 11057 8190ce3e06930057d2e4ec90473f7e75 ""
+  "main.aux" 1504967562 2734 626b61f653c95f4badda130261f225ff ""
+  "main.tex" 1504967606 14425 5c420eba6893de6de57249064f77328e ""
   (generated)
-  "main.log"
   "main.aux"
+  "main.log"
   "main.pdf"
