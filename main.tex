@@ -2,15 +2,27 @@
 
 \input{Preamble.tex}
 
+\usepackage{titlesec}
+
+% for appendix environment
+\usepackage[titletoc,toc,title,page]{appendix}
+
 \newcommand{\lb}{\left(}
 \newcommand{\rb}{\right)}
+
+\newcommand{\mf}{\mathbf}
+
+\usepackage{dsfont}
+
+\newcommand{\bbS}{\mathds{S}}
+
+\newcommand{\mL}{\mathcal{L}}
 
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 
-%\makeatletter
-%\def\BState{\State\hskip-\ALG@thistlm}
-%\makeatother
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
 
 \begin{document}
 
@@ -62,11 +74,78 @@
 То есть, если вероятность в новой точке будет мала по сравнению с текущей, то и переход в нее будет маловероятен. \par
 Вид вероятности перехода в новую точку из текущей определяется \textit{условием детального баланса} [2]. Последнее гарантирует, что полученная Марковская цепь в действительности будет удовлетворять заданной плотности вероятности.
 
+\subsection{Точные формулы для двухатомной системы}
+
+Рассмотрим вектор, соединяющий центры атомов. Обозначим $\mf{r}$ его координаты в лабораторной системе координат, $\mf{R}$ -- в молекулярной системе координат. Производные $\mf{r}$ и $\mf{R}$ связаны при помощи матрицы эйлеровых углов $\bbS$ и угловой скорости $\mf{\Omega}$:
+\begin{gather}
+		\dot{\mf{r}} = \bbS^{-1} \lb \dot{\mf{R}} + \left[ \mf{\Omega} \times \mf{R} \right] \rb. \label{1} 
+\end{gather}
+
+Пусть атомы в молекулярной системе координат расположены на оси $Z$, в таком случае правая часть выражения \eqref{1} превращается в 
+\begin{gather}
+\dot{\mf{r}} = \bbS^{-1} \left\{
+\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{R}
+\end{bmatrix}
++
+\begin{bmatrix}
+		\Omega_y R \\
+		- \Omega_x R \\
+		0
+\end{bmatrix}
+\right\} \notag \\
+\bbS \dot{\mf{r}} =
+\begin{bmatrix}
+\Omega_y R \\
+- \Omega_x R \\
+\dot{R}
+\end{bmatrix}. \label{2}
+\end{gather}
+
+Лагранжиан в молекулярной системе координат имеет следующий вид:
+\begin{gather}
+\mL = \frac{1}{2} \mu \dot{R}^2 + \frac{1}{2} \mf{\Omega}^\top
+\begin{bmatrix}
+		\mu R^2 & 0 & 0 \\
+		0 & \mu R^2 & 0 \\
+		0 & 0 & 0
+\end{bmatrix}
+\mf{\Omega} \notag
+\end{gather}
+
+Используя теорему Донкина, находим связь гамильтоновых переменных $\mf{J}$ и $\mf{p} = \left[ p_R \right]$ с лагранжевыми переменными $\mf{\Omega}$ и $\mf{q} = \left[ R \right]$:
+\begin{gather}
+\begin{aligned}
+\mf{J} &= \frac{\partial \mL}{\partial \mf{\Omega}} = \bbI \mf{\Omega} \\
+\mf{p} &= \frac{\partial \mL}{\partial \dot{\mf{q}}} = \bba \dot{\mf{q}}
+\end{aligned}
+\quad \implies \quad
+\begin{aligned}
+		J_x &= \mu R^2 \Omega_x \\
+		J_y &= \mu R^2 \Omega_y \\
+		p_R &= \mu \dot{R}
+\end{aligned} \label{3}
+\end{gather}
+
+Выкладка в приложении \ref{app1} показывает, что каждая компонента $\dot{\mf{r}}$ имеет нормальное распределение $\dot{\mf{r}} \sim \mathcal{N} \lb 0, \displaystyle \frac{kT}{\mu} \rb$. Таким образом, 
+
 \newpage
 \section{Литература}
 \begin{enumerate}
 	\item Yildirim I. Bayesian Inference: Metropolis-Hastings Sampling. MIT Online Library
 	\item Gilks, W.R., Richardson, S., \& Spiegelhalter, D.J. (1996). \textit{Markov Chain Monte Carlo in Practice}. London: Chapman and Hall.
 \end{enumerate}
+
+\newpage
+
+\titleformat{\section}{\large\bfseries}{\appendixname~\thesection .}{0.5em}{}
+
+\begin{appendices}
+\section{Приложение А. Распределения в лабораторной системе координат} \label{app1}
+
+\end{appendices}
+
 
 \end{document}
