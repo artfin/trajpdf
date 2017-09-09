@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+
+\input{Preamble.tex}
+
+\begin{document}
+
+\section{Начальные распределения для задачи двух тел}
+
+\input{diatomics_exact.tex}
+
+\subsection{Равномерно распределенная матрица поворота}
+
+\input{mcmc_diatomics.tex}
+
+\newpage
+\section{Литература}
+\begin{enumerate}
+	\item Yildirim I. Bayesian Inference: Metropolis-Hastings Sampling. MIT Online Library
+	\item Gilks, W.R., Richardson, S., \& Spiegelhalter, D.J. (1996). \textit{Markov Chain Monte Carlo in Practice}. London: Chapman and Hall.
+\end{enumerate}
+
+\newpage
+
+\titleformat{\section}{\large\bfseries}{\appendixname~\thesection .}{0.5em}{}
+
+\begin{appendices}
+\section{Приложение А. Распределения в лабораторной системе координат} \label{app1}
+
+\input{app_distr_laboratory.tex}
+
+\end{appendices}
+
+
+\end{document}

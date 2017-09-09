@@ -1,0 +1,76 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{graphicx}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% blackboar lettering
+\usepackage{dsfont}
+\usepackage{bbm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+
+% for appendix environment
+\usepackage[titletoc,toc,title,page]{appendix}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+
+\newcommand{\mf}{\mathbf}
+
+\usepackage{dsfont}
+
+\newcommand{\bbS}{\mathds{S}}
+
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\intty}{\int\limits_{-\infty}^{+\infty}}
+
+\usepackage{dsfont}
+\usepackage{bbm}
+
+\newcommand{\bbI}{\mathds{I}}
+\newcommand{\bba}{\mathbbm{a}}
+\newcommand{\bbA}{\mathds{A}}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+% adding code samples
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset
+{
+	language=C++,
+	backgroundcolor=\color{black!5},
+	basicstyle=\footnotesize,
+	tabsize=2,
+	breaklines=true,
+	numbers=left
+}
+
+
+
