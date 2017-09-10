@@ -75,7 +75,7 @@ R =
 \end{gather}
 Следовательно $p$ равномерно распределен на сфере, т.к. азимутальный угол и косинус полярного угла $\cos \varphi = 2 x_3 - 1$ распределены равномерно на $[-1, 1]$. Для упрощения компонент вектора переобозначим $\sqrt{z} = \sqrt{x_3 \lb 1 - x_3 \rb}, \sqrt{1 - z} = 2 x_3 - 1 $. Итак, схема алгоритма представлена ниже.
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \begin{algorithmic}[1]
 \caption{Scheme of [3]} \label{randrot}
 \State $x_1$, $x_2$, $x_3$ $\gets$ 3 random variables uniformly distributed over $[0, 1]$  
@@ -163,7 +163,7 @@ int main( int argc, char* argv[] )
 Пример программы на C++ с применением библиотеки линейной алгебры $Eigen$. Программа принимает на вход количество рассчитываемых векторов $n$. Внутри главного цикла генерируется по описанному алгоритму случайная матрица поворота и применяется для поворота вектора $v = \left[ 0, 0, 1 \right]$. На выходе получаем $n$ равномерно распределенных на сфере векторов.
 
 \begin{figure}[ht!]
-		\includegraphics[width=\textwidth]{../pictures/sphere_dots.png}
+		\includegraphics[width=\textwidth]{../pictures/sphere_dots_trimmed.png}
 		\caption{Пример равномерно распределенных на сфере точек, полученных в результате приведенной выше программы. 2000 точек.}
 \end{figure}
 
