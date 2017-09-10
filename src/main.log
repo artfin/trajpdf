@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.24)  10 SEP 2017 21:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.24)  11 SEP 2017 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -894,25 +894,43 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
                    _
 l.45 \end{gather}
                  
-? 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
 ! Missing } inserted.
 <inserted text> 
                 }
 l.45 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 ! Missing { inserted.
 <to be read again> 
                    _
 l.45 \end{gather}
                  
-? 
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
 ! Missing } inserted.
 <inserted text> 
                 }
 l.45 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 
 Overfull \hbox (33.2668pt too wide) in paragraph at lines 45--45
 [] 
@@ -923,13 +941,20 @@ Overfull \hbox (33.2668pt too wide) in paragraph at lines 45--45
                 $
 l.87 \begin{bmatrix}
                     
-? 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
 ! Missing $ inserted.
 <inserted text> 
                 $
 l.91 \end{bmatrix}
                   
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 [4]
 
 ! Package inputenc Error: Unicode char \u8:â\expandafter\lst@FillFixed@ not set
@@ -942,7 +967,10 @@ Type  H <return>  for immediate help.
 l.112 //a Mersenne Twister pseudoâˆ’random 
                                            generator of 32âˆ’bit numbers wit...
 
-? 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -954,7 +982,9 @@ Type  H <return>  for immediate help.
 l.112 //a Mersenne Twister pseudoâˆ’random 
                                            generator of 32âˆ’bit numbers wit...
 
-? 
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -966,7 +996,9 @@ Type  H <return>  for immediate help.
 l.112 //a Mersenne Twister pseudoâˆ’random 
                                            generator of 32âˆ’bit numbers wit...
 
-? 
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
 
 ! Package inputenc Error: Unicode char \u8:â\lst@FillFixed@\lst@ECˆ not set up 
 for use with LaTeX.
@@ -978,7 +1010,10 @@ Type  H <return>  for immediate help.
 l.112 ...er pseudoâˆ’random generator of 32âˆ’bit 
                                                   numbers with a state size ...
 
-? 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 
 ! Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `utf8'.
@@ -990,98 +1025,141 @@ Type  H <return>  for immediate help.
 l.112 ...er pseudoâˆ’random generator of 32âˆ’bit 
                                                   numbers with a state size ...
 
-? 
-[5] <../pictures/sphere_dots_trimmed.png, id=39, 597.6729pt x 389.5353pt>
-File: ../pictures/sphere_dots_trimmed.png Graphic file (type png)
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
 
-<use ../pictures/sphere_dots_trimmed.png>
-Package pdftex.def Info: ../pictures/sphere_dots_trimmed.png used on input line
- 166.
-(pdftex.def)             Requested size: 500.484pt x 326.19696pt.
-) (./mcmc_diatomics.tex
-Overfull \hbox (4.80286pt too wide) in paragraph at lines 4--22
-[]\T2A/cmr/m/n/12 Ðàññìîòðèì àë-ãî-ðèòì Ìåòðîïîëèñà-Ãàñòèíãñà, ïîç-âî-ëÿ-þ-ùèé 
-ïî-ëó-÷àòü ïî-ñëå-äî-âà-òåëü-íîñòü
- []
+[5] <../pictures/sphere_dots.png, id=39, 597.6729pt x 389.5353pt>
+File: ../pictures/sphere_dots.png Graphic file (type png)
 
-[6 <../pictures/sphere_dots_trimmed.png>] [7]) [8] [9]
-(./app_distr_laboratory.tex
+<use ../pictures/sphere_dots.png>
+Package pdftex.def Info: ../pictures/sphere_dots.png used on input line 167.
+(pdftex.def)             Requested size: 250.24199pt x 163.09848pt.
+) (./mcmc_diatomics.tex [6 <../pictures/sphere_dots.png>] [7]) [8] [9] (./app_d
+istr_laboratory.tex
 ! Extra }, or forgotten \right.
 <template> }
             $}\ifdim \wdz@ >\totwidth@ \global \totwidth@ \wdz@ \fi \endtemp...
 l.22 \end{gather}
                  
-? 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 ! Missing \right. inserted.
 <inserted text> 
                 \right .
 l.22 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 ! Missing } inserted.
 <inserted text> 
                 }
 l.22 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 ! Missing } inserted.
 <inserted text> 
                 }
 l.22 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 ! Extra \right.
 <argument> ...z - x \rb ^2}{2 k T} \rb dx \right .
                                                    \label {r_distr} 
 l.22 \end{gather}
                  
-? 
+I'm ignoring a \right that had no matching \left.
+
 ! Missing { inserted.
 <inserted text> 
                 {
 l.22 \end{gather}
                  
-? 
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
 ! Extra }, or forgotten \right.
 <template> }
             $}\calc@shift@gather \set@gather@field \endtemplate 
 l.22 \end{gather}
                  
-? 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 ! Missing \right. inserted.
 <inserted text> 
                 \right .
 l.22 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 ! Missing } inserted.
 <inserted text> 
                 }
 l.22 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 ! Missing } inserted.
 <inserted text> 
                 }
 l.22 \end{gather}
                  
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 ! Extra \right.
 <argument> ...z - x \rb ^2}{2 k T} \rb dx \right .
                                                    \label {r_distr} 
 l.22 \end{gather}
                  
-? 
+I'm ignoring a \right that had no matching \left.
+
 ! Missing { inserted.
 <inserted text> 
                 {
 l.22 \end{gather}
                  
-? 
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
 [10]) [11] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  7855 strings out of 493089
- 101097 string characters out of 6134842
+ 101057 string characters out of 6134842
  326794 words of memory out of 5000000
  11143 multiletter control sequences out of 15000+600000
  23088 words of font info for 70 fonts, out of 8000000 for 9000
@@ -1110,7 +1188,7 @@ fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr
 /local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (11 pages, 499303 bytes).
+Output written on main.pdf (11 pages, 501616 bytes).
 PDF statistics:
  134 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream
