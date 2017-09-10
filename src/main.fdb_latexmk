@@ -1,6 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1505034076 "main.tex" "main.pdf" "main" 1505034076
+["pdflatex"] 1505064327 "main.tex" "main.pdf" "main" 1505064327
   "../pictures/diatomicsDistributions.png" 1504985725 61913 e41681f5feaaa68897734b98813c8af7 ""
+  "../pictures/sphere_dots.png" 1505061454 310484 58e11f050dfca20bafc639e2cb1568b2 ""
   "/etc/texmf/web2c/texmf.cnf" 1499338588 1101 af7716885e081ab43982cab7b4672c1a ""
   "/home/artfin/.texmf-var/fonts/pk/ljfour/public/bbm/bbm12.600pk" 1494248969 8424 33080ae6bfc48843115d53d13af61e54 ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labi1200.tfm" 1499337787 3592 9415307df98650ffeddaa22e262436dc ""
@@ -143,12 +144,12 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1499338756 3859297 bb1e70cac6101c8240393ab02e68dece ""
   "Preamble.tex" 1504989535 1499 31adc5d60dc5a44bc5e9579a1cfea5ad ""
   "app_distr_laboratory.tex" 1504986690 3316 47943d18fd3c732fc5a69c0f17d680a8 ""
-  "diatomics_exact.tex" 1504990385 5363 0ae70dd4f1b6d9aa007bb1753b423c10 ""
-  "main.aux" 1505033837 4203 18837a9c9ff99d6fa725fe99fa1d21b2 ""
+  "diatomics_exact.tex" 1505064326 5367 9aaf876d46707910e886bfef75711f7a ""
+  "main.aux" 1505064295 5668 36cabd6f37067501ba686893f4e4851b ""
   "main.tex" 1505033442 943 868ef0299e0fb46fc56c4abc57c1fd2b ""
-  "mcmc_diatomics.tex" 1504989938 7437 7bd8734ee05b7572505444e175d3962c ""
-  "rotation_matrix.tex" 1505034074 1241 fc9542c6a4207cba2c7208f20f1f4ca7 ""
+  "mcmc_diatomics.tex" 1505060456 7437 31946d7cb7739b95e513501b9a426fec ""
+  "rotation_matrix.tex" 1505064292 8395 5f67b0d56b1eea5567fce1add43b2fce ""
   (generated)
-  "main.aux"
-  "main.log"
   "main.pdf"
+  "main.log"
+  "main.aux"
