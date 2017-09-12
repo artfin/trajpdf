@@ -184,7 +184,6 @@ INPUT ../pictures/diatomicsDistributions.png
 INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm
 INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm
 INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/lati1000.tfm
-INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
@@ -202,6 +201,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bbm/bbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bbm/bbm7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bbm/bbm5.tfm
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 INPUT rotation_matrix.tex
@@ -217,6 +217,8 @@ INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm
 INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm
 INPUT app_distr_laboratory.tex
 INPUT app_distr_laboratory.tex
+INPUT app_gauss.tex
+INPUT app_gauss.tex
 INPUT main.aux
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc
 INPUT /home/artfin/.texmf-var/fonts/pk/ljfour/public/bbm/bbm12.600pk

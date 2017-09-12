@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1505138140 "main.tex" "main.pdf" "main" 1505138140
+["pdflatex"] 1505253829 "main.tex" "main.pdf" "main" 1505253828
   "../pictures/diatomicsDistributions.png" 1504985725 61913 e41681f5feaaa68897734b98813c8af7 ""
   "../pictures/sphere_dots.png" 1505137963 122239 90ea05ad192bf4031f2d1ef14ae6a729 ""
   "/etc/texmf/web2c/texmf.cnf" 1499338588 1101 af7716885e081ab43982cab7b4672c1a ""
@@ -142,14 +142,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1499338691 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1499338756 3859297 bb1e70cac6101c8240393ab02e68dece ""
-  "Preamble.tex" 1505071950 1546 6a05bc0845c2f876f8207d2aa0af6d50 ""
+  "Preamble.tex" 1505251669 1576 f171c84c7719ea8873f7fc197b172b52 ""
   "app_distr_laboratory.tex" 1504986690 3316 47943d18fd3c732fc5a69c0f17d680a8 ""
-  "diatomics_exact.tex" 1505064326 5367 9aaf876d46707910e886bfef75711f7a ""
-  "main.aux" 1505137963 5697 b044f01bf718f88cdfe5a342a2145131 ""
-  "main.tex" 1505137963 1091 e843a5b741860cc003664c053b676a5c ""
-  "mcmc_diatomics.tex" 1505137963 9175 cd3bf39a97ef447bddb0831b33405b9d ""
+  "app_gauss.tex" 1505253029 2342 11cb43d9b0951cd4ffa5d6c93dd95d64 ""
+  "diatomics_exact.tex" 1505250562 5242 75437ba844e26b9c20481fa65d4c32e7 ""
+  "main.aux" 1505253459 6837 742d1cf1035cc74408a6a7bea920ebbc ""
+  "main.tex" 1505253053 1297 be5c01eea967ffee1fad6eb21889fecd ""
+  "mcmc_diatomics.tex" 1505253828 12142 222e35dfade82d4c7ff48c4cf4991569 ""
   "rotation_matrix.tex" 1505137963 8470 61d7ebeea829d7d721e2327cbd3f33a0 ""
   (generated)
+  "main.pdf"
   "main.aux"
   "main.log"
-  "main.pdf"
