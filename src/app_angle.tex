@@ -1,0 +1,42 @@
+Пусть $\boldsymbol{\xi} = \lb \xi_1, \dots, \xi_n \rb \in \mN \lb \boldsymbol{0}, \bbE \rb$ -- нормальный случайный вектор с нулевым средним и единичной ковариационной матрицей. Тогда вектор
+\begin{gather}
+	\mf{e} = \frac{ \boldsymbol{\xi} }{ \sqrt{ \xi_1^2 + \dots + \xi_n^2} } \notag
+\end{gather}
+
+имеет равномерное распределение на $n$-мерной сфере единичного радиуса (на этом основан алгоритм Marsaglia [5] эффективной генерации точек равномерно распределенных на $n$-сфере). Заметим также, что $n$-мерное распределение случайного вектора $\mf{e}$ инвариантно относительно поворотов в $n$-мерном пространстве (это несложно показать, основываясь на подходе, описанном в приложении $\ref{app2}$ ). \par
+
+Рассмотрим два нормальных независимых вектора $\boldsymbol{\xi}$ и $\boldsymbol{\eta}$. Построим, основываясь на определенных векторах, равномерные на сфере вектора $\boldsymbol{e}_1$ и $\boldsymbol{e}_2$. Угол между ними равен скалярному произведению
+\begin{gather}
+\cos \alpha = \boldsymbol{e}_1 \cdot \boldsymbol{e}_2 = \frac{ \xi_1 \eta_1 + \dots + \xi_n \eta_n}{ \sqrt{\xi_1^2 + \dots + \xi_n^2} \sqrt{ \eta_1^2 + \dots + \xi_n^2} } \notag
+\end{gather}
+
+Распределение косинуса будем искать по определению. Пусть $x \in \lb -1, 1 \rb$, тогда
+\begin{gather}
+	\bbP \lb \cos \alpha < x \rb = \int_{\mathbb{R}^n} \bbP \lb \frac{\mf{c} \cdot \boldsymbol{\eta} }{ || \mf{c} || \sqrt{\eta_1^2 + \dots + \eta_n^2} } < x \rb f_\xi (\mf{c}) d \mf{c} = \notag \\
+= \int_{\mathbb{R}^n} \bbP \lb \frac{ \eta_1 }{ \sqrt{\eta_1^2 + \dots + \eta_n^2} } < x \rb \delta \lb \mf{c} = 
+\begin{bmatrix}
+1 \\
+0 \\
+\dots \\
+0
+\end{bmatrix}
+\rb f_\xi (\mf{c}) d \mf{c} \notag
+\end{gather}
+
+Здесь сначала была использована независимость векторов $\boldsymbol{\eta}$ и $\boldsymbol{\xi}$, а затем изотропность распределения вектора $\boldsymbol{\eta}$, в силу которой произвольный вектор $\mf{c}$ заменен на конкретный вектор $\lb 1, 0, \dots, 0 \rb$. Дельта-функционал в интеграле справа означает, что распределение по вектору $\mf{c}$ было сведено к дельта-распределению. Итак, это выкладка приводит к следующему
+\begin{gather}
+\bbP \lb \cos \alpha < x \rb = \bbP \lb \frac{ \eta_1 }{ \sqrt{ \eta_1^2 + \dots + \eta_n^2} } < x \rb, \notag
+\end{gather}
+
+то есть, угол между произвольными векторами на сфере распределен так же, как угол между одним случайным вектором и каким-нибудь фиксированным направлением, в данном случае $\lb 1, 0, \dots, 0 \rb$. \par
+	Однако
+\begin{gather}
+	\phi_1 = \arccos \frac{ \eta_1^2 }{ \eta_1^2 + \dots + \eta_n^2 } \notag
+\end{gather}
+
+есть угол-координата в $n$-мерной сферической системе координат, плотность распределения которой равна
+\begin{gather}
+	f(x) = \frac{ \sin^{n-2} x }{ \displaystyle \int\limits_{0}^{\pi} \sin^{n-2} x dx }, x \in \lb 0, \pi \rb \notag
+\end{gather}
+
+что при $n = 2$ дает $f(x) = \displaystyle \frac{1}{\pi}$ (равномерное распределение), а при $n = 3$: $ f(x) = \displaystyle \frac{1}{2} \sin \lb x \rb$.

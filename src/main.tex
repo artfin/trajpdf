@@ -2,7 +2,12 @@
 
 \input{Preamble.tex}
 
+\usepackage{bm}
+
 \begin{document}
+
+\tableofcontents
+\newpage
 
 \section{Начальные распределения для задачи двух тел}
 
@@ -12,13 +17,21 @@
 
 \input{mcmc_diatomics.tex}
 
+\input{parallel_mh.tex}
+
+\input{co2ar_exact.tex}
+
+\input{weights.tex}
+
 \newpage
 \section{Литература}
 \begin{enumerate}
 	\item Yildirim I. Bayesian Inference: Metropolis-Hastings Sampling. MIT Online Library
 	\item Gilks, W.R., Richardson, S., \& Spiegelhalter, D.J. (1996). \textit{Markov Chain Monte Carlo in Practice}. London: Chapman and Hall.
-	\item  D. Kirk. Graphics Gems III. III. 4. Fast random rotation matrices. 
+	\item  Kirk D. Graphics Gems III. III. 4. Fast random rotation matrices. 
 	\item Н. А. Смирнова. Методы статистической термодинамики в физической химии. (гл. 4)
+
+	\item Marsaglia G. (1972). "Choosing a Point from the Surface of a Sphere". \textit{Annals of Mathematical Statistics}. \textbf{42} (2): 645-645.
 \end{enumerate}
 
 \newpage
@@ -33,6 +46,14 @@
 \section{Приложение B. О действии равномерно распределенной матрицы поворота на гауссов вектор} \label{app2}
 
 \input{app_gauss.tex}
+
+\section{Приложение C. О равномерном на сфере распределении} \label{app3}
+
+\input{app_sphere.tex}
+
+\section{Приложение D. Угол между равномерно на сфере распределенных векторах} \label{app4}
+
+\input{app_angle.tex}
 
 \end{appendices}
 
