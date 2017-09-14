@@ -39,6 +39,8 @@
 \titleformat{\section}{\large\bfseries}{\appendixname~\thesection .}{0.5em}{}
 
 \begin{appendices}
+\addtocontents{toc}{\setcounter{tocdepth}{-1}}
+
 \section{Приложение А. Распределения в лабораторной системе координат} \label{app1}
 
 \input{app_distr_laboratory.tex}
@@ -51,7 +53,7 @@
 
 \input{app_sphere.tex}
 
-\section{Приложение D. Угол между равномерно на сфере распределенных векторах} \label{app4}
+\section{Приложение D. Угол между равномерно на сфере распределенными векторами} \label{app4}
 
 \input{app_angle.tex}
 
