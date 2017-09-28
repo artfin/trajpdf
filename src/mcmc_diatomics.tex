@@ -9,7 +9,7 @@
 Перейдем к рассмотрению алгоритма Метрополиса-Гастингса, представляющего собой один из простейших алгоритмов для построения Марковской цепи с заданным стационарным распределением $\pi \lb \cdot \rb$.
 
 \begin{algorithm}
-\begin{algorithmic}[2]
+\begin{algorithmic}[1]
 		\caption{Scheme of Metropolis-Hastings algorithm from [1]}\label{metropolis}
 \State Initialize $x^{(0)} \sim q(x)$
 \State \textbf{for} iteration $i = 1, 2, \dots$ \textbf{do}
@@ -20,7 +20,7 @@
 \State \quad \textbf{if} $u < \alpha$ \textbf{then}
 \State \qquad Accept the proposal: $x^{(i)} \gets x^{cand}$
 \State \quad \textbf{else}
-\State \qquad Reject the proposal: $X^{(i)} \gets x^{(i-1)}$
+\State \qquad Reject the proposal: $x^{(i)} \gets x^{(i-1)}$
 \State \quad \textbf{end if}
 \State \textbf{end for}
 \end{algorithmic}

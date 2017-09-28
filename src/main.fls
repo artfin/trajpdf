@@ -241,6 +241,17 @@ INPUT ../pictures/co2arDistributions1.png
 INPUT ../pictures/co2arDistributions2.png
 INPUT ../pictures/co2arDistributions2.png
 INPUT ../pictures/co2arDistributions2.png
+INPUT co2ar_bound.tex
+INPUT co2ar_bound.tex
+INPUT ../pictures/r_bound_distribution.png
+INPUT ../pictures/r_bound_distribution.png
+INPUT ../pictures/r_bound_distribution.png
+INPUT ../pictures/theta_bound_distribution.png
+INPUT ../pictures/theta_bound_distribution.png
+INPUT ../pictures/theta_bound_distribution.png
+INPUT ../pictures/j_bound_distribution.png
+INPUT ../pictures/j_bound_distribution.png
+INPUT ../pictures/j_bound_distribution.png
 INPUT weights.tex
 INPUT weights.tex
 INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm2488.tfm
