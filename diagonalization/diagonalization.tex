@@ -1,0 +1,487 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{graphicx}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% blackboar lettering
+\usepackage{dsfont}
+\usepackage{bbm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+
+% for appendix environment
+\usepackage[titletoc,toc,title,page]{appendix}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\intty}{\int\limits_{-\infty}^{+\infty}}
+
+\usepackage{dsfont}
+\usepackage{bbm}
+
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfJ}{\mathbf{J}}
+
+\newcommand{\mf}{\mathbf}
+
+\newcommand{\dR}{\dot{R}}
+\newcommand{\dT}{\dot{\Theta}}
+\newcommand{\pT}{p_\Theta}
+
+\newcommand{\bbI}{\mathds{I}}
+\newcommand{\bba}{\mathbbm{a}}
+\newcommand{\bbA}{\mathds{A}}
+
+\newcommand{\JacL}{\left[ \, Jac \, \right]_{lagr}}
+\newcommand{\JacH}{\left[ \, Jac \, \right]_{ham}}
+
+\newcommand{\dtone}{\dot{\Theta}_1}
+\newcommand{\dttwo}{\dot{\Theta}_2}
+\newcommand{\dphi}{\dot{\varphi}}
+
+\newcommand{\ptone}{p_{\Theta_1}}
+\newcommand{\pttwo}{p_{\Theta_2}}
+\newcommand{\pphi}{p_{\varphi}}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+% tikz packages
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning, decorations.markings}
+\usetikzlibrary{fit}
+\usepackage{microtype}
+\usepackage{framed}
+\usetikzlibrary{decorations.pathmorphing,calc,backgrounds}
+
+
+\title{О диагонализации гамильтониана}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Рассмотрим набор систем по возрастанию количества внутренних переменных. Для каждой из них выпишем лагранжиан в некоторой молекулярной системе отсчета и найдем такое преобразование переменных, которое диагонализует лагранжиан. Используем найденное преобразование для диагонализации гамильтониана. Затем выпишем якобианы замены переменных в лагранжиане и в гамильтониане.
+
+\section{Двухатомная система}
+Пусть совокупное движение двух тел происходит в плоскости $Oyz$. Выберем молекулярную систему отсчета таким образом, чтобы рассматриваемые тела находились на оси $Z$. В таком случае, плоскости молекулярной системы $OYZ$ и лабораторной системы $Oyz$ совпадают в любой момент времени. При этом угол между осями $Oy$ и $OY$ (равный, конечно, углу между $Oz$ и $OZ$) равен эйлеровому углу $\theta$ (в рамках стандартного определения эйлеровых углов по Голдстейну). Остальные два эйлеровых угла, $\phi$ и $\psi$, равны 0.
+
+Понятно, что угловая скорость, соответсвующая повороту на угол $\theta$, направлена вдоль оси вращения $x$ = $X$. Следовательно, $\Omega_x = \dot{\theta}$. Аналогичный результат можно получить, взяв матрицу $\bbV$, связывающую компоненты угловой скорости с эйлеровыми скоростями, в общем случае и подставив в нее $\phi = \psi = 0$:
+\begin{gather}
+	\begin{bmatrix}
+	\Omega_x \\
+	\Omega_y \\
+	\Omega_z 
+	\end{bmatrix} = \bbV 
+	\begin{bmatrix}
+		\dot{\varphi} \\
+		\dot{\theta} \\
+		\dot{\psi}
+	\end{bmatrix} \notag \\
+	\bbV = \begin{bmatrix}
+		\sin \theta \sin \psi & \cos \psi & 0 \\
+		\sin \theta \cos \psi & - \sin \psi & 0 \\
+		\cos \theta & 0 & 1
+	\end{bmatrix} \rightarrow
+	\begin{bmatrix}
+		0 & 1 & 0 \\
+		\sin \theta & 0 & 0 \\
+		\cos \theta & 0 & 1
+	\end{bmatrix} \notag
+\end{gather}
+
+Т.к. $\dot{\varphi} = \dot{\psi} = 0$, то $\Omega_x = \dot{\theta}$, $\Omega_y = 0$, $\Omega_z = 0$.
+
+
+Выведем кинетическую энергию в лагранжевой форме в предложенной системе координат. Обозначим массы тел за $m_1$ и $m_2$, расстояние между телами -- за $R$. Тогда координаты тел равны
+\begin{gather}
+	\begin{aligned}
+			x_1 &= 0 \\
+			y_1 &= 0 \\
+			z_1 &= - \frac{m_2}{m_1 + m_2} R
+	\end{aligned}
+	\quad \quad \quad
+	\begin{aligned}
+			x_2 &= 0 \\
+			y_2 &= 0 \\
+			z_2 &= \frac{m_1}{m_1 + m_2} R 
+	\end{aligned} \notag
+\end{gather}
+
+Тензор инерции будет иметь лишь две ненулевые компоненты, а именно, $I_{xx} = I_{yy} = \mu R^2$, где $\mu$ -- приведенная масса системы, $\mu = \displaystyle \frac{m_1 m_2}{m_1 + m_2}$. Приведенные выше рассуждения показывают, что вектор угловой скорости направлен вдоль оси $x = X$:
+\begin{gather}
+	\mf{\Omega} = \begin{bmatrix}
+		\Omega_x \\
+		0 \\ 
+		0
+	\end{bmatrix} \notag
+\end{gather}
+
+Итак, кинетическая энергия в лагранжевой форме в рассматриваемой молекулярной системе отсчета имеет следующий вид
+\begin{gather}
+		T_\mL = \frac{1}{2} \mu \dot{R}^2 + \frac{1}{2} \mu R^2 \Omega_x^2 \notag 
+\end{gather}
+
+Осуществим следующую тривиальную замену переменных
+\begin{gather}
+	\begin{aligned}
+		x_1^2 &= \frac{1}{2} \mu \dR^2 \\
+		x_2^2 &= \frac{1}{2} \mu R^2 \Omega_x^2
+	\end{aligned}, \label{diatom1}
+\end{gather}
+
+приводящую лагранжиан к сумме квадратов
+\begin{gather}
+		T_\mL = x_1^2 + x_2^2. \label{diatom2}
+\end{gather}
+
+Осуществим стандартную процедуру перехода от лагранжевой кинетической энергии к гамильтоновой, однако будем выполнять промежуточные преобразования через переменные $x_1$ и $x_2$. Выразим лагранжевы переменные $\dR$, $\Omega_x$ и гамильтоновые переменные $p_R$, $J_x$ через $x_1$ и $x_2$. 
+\begin{gather}
+	\begin{aligned}
+			\dR &= \sqrt{\frac{2}{\mu}} x_1 \\
+			\Omega_x &= \sqrt{\frac{2}{\mu R^2}} x_2 \\
+	\end{aligned}
+	\quad \quad \quad
+	\begin{aligned}
+			p_R &= \frac{\partial T_\mL}{\partial \dR} = \mu \dR = \sqrt{2 \mu} x_1 \\
+			J_x &= \frac{\partial T_\mL}{\partial \Omega_x} = \mu R^2 \Omega_x = \sqrt{2 \mu R^2} x_2
+	\end{aligned} \notag
+\end{gather}
+
+Получим выражение для гамильтоновой формы кинетической энергии
+\begin{gather}
+	T_\mH = \dR p_R + \Omega_x J_x - x_1^2 - x_2^2 \notag \\
+	\begin{aligned}
+			\dR \cdot p_R &= \sqrt{\frac{\mu}{2}} x_1  \cdot \sqrt{2 \mu} x_1 = 2 x_1^2 \\
+			\Omega_x \cdot J_x &= \sqrt{\frac{2}{\mu R^2}} x_2 \cdot \sqrt{2 \mu R^2} x_2 = 2 x_2^2
+	\end{aligned} \notag \\
+	T_\mH = 2 x_1^2 + 2 x_2^2 - x_1^2 - x_2^2 = x_1^2 + x_2^2 \notag
+\end{gather}
+
+Итак, кинетическая энергия в гамильтоновой форме выражается в виде суммы квадратов таким же образом, как и кинетическая энергия в лагранжевой форме. Однако в выражениях переменных $x_1$ и $x_2$ необходимо лагранжевые переменные преобразовать в гамильтоновы переменные:
+\begin{gather}
+	x_1^2 = \frac{1}{2} \mu \dR^2 \quad \longrightarrow \quad x_1^2 = \frac{p_R^2}{2 \mu} \notag \\
+	x_2^2 = \frac{1}{2} \mu R^2 \Omega_x^2 \quad \longrightarrow \quad x_2^2 = \frac{J_x^2}{2 \mu R^2} \notag \\
+	T_\mL = x_1^2 + x_2^2 \quad \longrightarrow \quad T_\mH = x_1^2 + x_2^2 \notag
+\end{gather}
+
+Получим выражения для якобианов замены переменных в лагранжиане и гамильтониане. 
+\begin{gather}
+		\left[ \, Jac \, \right]_{lagr} = \Bigg{|} \frac{\partial ( \dR, \Omega_x )}{\partial ( x_1, x_2 )} \Bigg{|}  =  
+	\begin{vmatrix}
+			\displaystyle \frac{\partial \dR}{\partial x_1} & \displaystyle \frac{\partial \dR}{\partial x_2} \\[2ex]
+		\displaystyle \frac{\partial \Omega_x}{\partial x_1} & \displaystyle \frac{\partial \Omega_x}{\partial x_2}
+\end{vmatrix} =
+\begin{vmatrix}
+		\displaystyle \sqrt{\frac{2}{\mu}} & 0 \\
+	0 & \displaystyle \sqrt{\frac{2}{\mu R^2}}
+\end{vmatrix} = 2 \sqrt{\frac{1}{\mu}} \, \sqrt{\frac{1}{\mu R^2}} = \frac{2}{\mu R} \notag \\
+\left[ \, Jac \, \right]_{ham} = \Bigg{|} \frac{\partial ( p_R, J_x )}{\partial x_1, x_2 )} \Bigg{|} = 
+\begin{vmatrix}
+		\displaystyle \frac{\partial p_R}{\partial x_1} & \displaystyle \frac{\partial p_R}{\partial x_2} \\[2ex]
+	\displaystyle \frac{\partial J_x}{\partial x_1} & \displaystyle \frac{\partial J_x}{\partial x_2}
+\end{vmatrix} =
+\begin{vmatrix}
+	\sqrt{2 \mu} & 0 \\
+	0 & \sqrt{2 \mu R^2}
+\end{vmatrix} = \sqrt{2 \mu} \, \sqrt{2 \mu R^2} = 2 \mu R \notag
+\end{gather}
+
+Отметим, что якобианы связаны следующим соотношением
+\begin{gather}
+	\JacL \cdot \JacH = 2^2 \notag	
+\end{gather}
+
+\section{Система CO$_2-$Ar}
+
+Используем стандартную молекулярную систему отсчета для этой системы. Направим ось $OZ$ вдоль линии $C-Ar$, ось $OX$ перпендикулярно ей в плоскости системы. 
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+	[oxygen/.style={ball color = red, circle, text = white}, 
+	carbon/.style={ball color = black!30, circle, text = white},
+	argon/.style={ball color = blue, circle, text = white}]
+	\node (z1) at (4.5, 3) {OZ};
+	\node (z2) at (-1.5, -1) {}
+		edge [->, thick] (z1);
+
+	\node (x1) at (-1, 3.5) {OX};
+	\node (x2) at (3.5, -1) {}
+		edge [->, thick] (x1); 
+
+	\node (carbon) [carbon] {C};
+	\node (oxygen1) [oxygen, below right of = carbon] {O}
+		edge [double, thick] (carbon);
+	\node (oxygen2) [oxygen, above left of = carbon] {O}
+		edge [double, thick] (carbon);
+	\node[argon] (argon) at (3, 2) {Ar};
+
+	\begin{scope}[on background layer]
+	\node [fill=yellow!30,fit=(z1) (z2) (x1) (x2) (carbon) (oxygen1) (oxygen2)] {};
+\end{scope}
+\end{tikzpicture}
+\caption{Молекулярная система отсчета для системы $Ar-CO_2$.}
+\end{figure}
+
+Лагранжиан в описанной молекулярной системе отсчета имеет вид
+\begin{gather}
+		\mL = \frac{1}{2} \mu_2 \dR^2 + \frac{1}{2} \mu_1 l^2 \dT^2 + \mu_1 l^2 \Omega_y^2 \dT + \frac{1}{2} \lb \mu_1 l^2 \cos^2 \Theta + \mu_2 R^2 \rb \Omega_x^2 + \frac{1}{2} \lb \mu_1 l^2 + \mu_2 R^2 \rb \Omega_y^2 + \notag \\ 
+	+ \frac{1}{2} \mu_1 l^2 \Omega_z^2 \sin^2 \Theta - \mu_1 l^2 \Omega_x \Omega_z \sin \Theta \cos \Theta, \notag
+\end{gather}
+
+где приведенные массы $\mu_1, \mu_2$ связаны с массами кислорода $m_1$, аргона $m_2$ и углерода $m_3$ следующим образом
+\begin{gather}
+	\mu_1 = \frac{m_1}{2}, \quad \quad \quad \mu_2 = \frac{m_2 (2 m_1 + m_3)}{2 m_1 + m_2 + m_3} \notag 
+\end{gather}
+
+Будем использовать следующую замену для диагонализации лагранжиана
+\begin{gather}
+	\begin{aligned}
+			x_1^2 &= \frac{1}{2} \mu_2 \dR^2 \\
+			x_2^2 &= \frac{1}{2} \mu_1 l^2 \lb \dT + \Omega_y \rb^2 \\
+			x_3^2 &= \frac{1}{2} \mu_2 R^2 \Omega_y^2 \\
+			x_4^2 &= \frac{1}{2} \mu_1 l^2 \lb \Omega_x \cos \Theta - \Omega_z \sin \Theta \rb^2 \\
+			x_5^2 &= \frac{1}{2} \mu_2 R^2 \Omega_x^2
+	\end{aligned} \label{co2ar1}
+\end{gather}
+
+Следующим шагом процедуры является получение выражений лагранжевых и гамильтоновых переменных через $x_1, \dots, x_5$. Для нахождения первых решим систему линейных соотношений \eqref{co2ar1} относительно $\dR, \dT, \Omega_x, \Omega_y$ и $\Omega_z$.   
+\begin{gather}
+	\begin{aligned}
+			\dR &= x_1 \sqrt{\frac{2}{\mu_2}} \\
+			\dT &= x_2 \sqrt{\frac{2}{\mu_1 l^2}} - x_3 \sqrt{\frac{2}{\mu_2 R^2}} \\
+			\Omega_x &= x_5 \sqrt{\frac{2}{\mu_2 R^2}} \\
+			\Omega_y &= x_3 \sqrt{\frac{2}{\mu_2 R^2}} \\
+			\Omega_z &= x_5 \sqrt{\frac{2}{\mu_2 R^2}} \cot{\Theta} - \frac{x_4}{\sin \Theta} \sqrt{\frac{2}{\mu_1 l^2}} 
+	\end{aligned} \notag
+\end{gather}
+
+Действуя блочной матрицей $\bbB$ на вектор лагранжевых переменных, получаем вектор гамильтоновых переменных. Подставляя в это выражение лагранжевы переменные через $x_1, \dots, x_5$, мы получаем связь гамильтоновых перменных и $x_1, \dots, x_5$:
+\begin{gather}
+	\begin{aligned}
+	\mf{J} &= \frac{\partial T_\mL}{\partial \mf{\Omega}} = \bbI \mf{\Omega} + \bbA \dot{\mf{q}} \\
+		\mf{p} &= \frac{\partial T_\mL}{\partial \dot{\mf{q}}} = \bbA^\top \mf{\Omega} + \bba \dot{\mf{q}}
+	\end{aligned}
+	\quad \implies \quad
+	\begin{bmatrix}
+		\mf{J} \\
+		\mf{p}
+	\end{bmatrix} =
+	\begin{bmatrix}
+		\bbI & \bbA \\
+		\bbA^\top & \bba
+	\end{bmatrix}
+	\begin{bmatrix}
+		\mf{\Omega} \\
+		\dot{\mf{q}}
+	\end{bmatrix} =
+	\bbB
+	\begin{bmatrix}
+		\mf{\Omega} \\
+		\dot{\mf{q}}
+	\end{bmatrix} \\
+	\begin{aligned}
+		p_R &= \mu_2 \dR \\
+		\pT &= \mu_1 l^ 2\lb \dT + \Omega_y \rb \\
+		J_x &= \lb \mu_1 l^2 \cos^2 \Theta + \mu_2 R^2 \rb \Omega_x - \mu_1 l^2 \Omega_z \sin \Theta \cos \Theta \\
+		J_y &= \mu_1 l^2 \dT + \lb \mu_1 l^2 + \mu_2 R^2 \rb \Omega_y \\
+		J_z &= - \mu_1 l^2 \Omega_x \sin \Theta \cos \Theta + \mu_1 l^2 \Omega_z \sin^2 \Theta 
+	\end{aligned} 
+	\quad \implies \quad 
+	\begin{aligned}
+		p_R &= x_1 \sqrt{2 \mu_2} \\
+		\pT &= x_2 \sqrt{2 \mu_1 l^2} \\
+		J_x &= x_4 \sqrt{2 \mu_1 l^2} \cos \Theta + x_5 \sqrt{2 \mu_2 R^2} \\
+		J_y &= x_2 \sqrt{2 \mu_1 l^2} + x_3 \sqrt{2 \mu_2 R^2} \\
+		J_z &= - x_4 \sqrt{2 \mu_1 l^2} \sin \Theta
+\end{aligned} \label{co2ar2}
+\end{gather}
+
+Получим выражение для кинетической энергии в гамильтоновой форме
+\begin{gather}
+	T_\mH = \dR p_R + \dT \pT + \Omega_x J_x + \Omega_y J_y + \Omega_z J_z - T_\mL = \left[ 2 x_1^2 \right] + \left[ 2 x_2^2 - 2 x_2 x_3 \sqrt{\frac{\mu_1 l^2}{\mu_2 R^2}} \right] + \notag \\
+	+ \left[ 2 x_5^2 + 2 x_4 x_5 \cos \Theta \sqrt{\frac{\mu_1 l^2}{\mu_2 R^2}} \right] + \left[ 2 x_3^2 + 2 x_2 x_3 \sqrt{\frac{\mu_1 l^2}{\mu_2 R^2}} \right] + \left[ 2 x_4^2 - 2 x_4 x_5 \cos \Theta \sqrt{\frac{\mu_1 l^2}{\mu_2 R^2}} \right] - T_\mL = \notag \\
+	= 2 \left( x_1 ^2 + \ldots + x_5^2 \right) - \left( x_1^2 + \ldots + x_5^2 \right) = x_1^2 + \ldots + x_5^2 \notag   
+\end{gather}
+
+Используя левый столбец формул в \eqref{co2ar2}, выразим лагранжевы переменные через гамильтоновы, чтобы использовать их для преобразования выражений $x_1, \dots x_5$.
+\begin{gather}
+	\begin{aligned}
+		\dR &= \frac{1}{\mu_2} p_R \\
+		\dT &= - \frac{1}{\mu_2 R^2} J_y + \pT \lb \frac{1}{\mu_2 R^2} + \frac{1}{\mu_1 l^2} \rb \\
+		\Omega_x &= \frac{1}{\mu_2 R^2} J_x + \frac{\cot \Theta}{\mu_2 R^2} J_z \\
+		\Omega_y &= \frac{J_y - \pT}{\mu_2 R^2} \\
+		\Omega_z &= \frac{\cot \Theta}{\mu_2 R^2} J_x + \frac{\cot^2 \Theta}{\mu_2 R^2} J_z + \frac{1}{\mu_1 l^2 \sin^2 \Theta} J_z
+	\end{aligned} \notag \\
+	\begin{aligned}
+		x_1^2 &= \frac{1}{2} \mu_2 \dR^2 \\ 
+		x_2^2 &= \frac{1}{2} \mu_1 l^2 \lb \dT + \Omega_y \rb^2 \\ 
+		x_3^2 &= \frac{1}{2} \mu_2 R^2 \Omega_y^2 \\
+		x_4^2 &= \frac{1}{2} \mu_1 l^2 \lb \Omega_x \cos \Theta - \Omega_z \sin \Theta \rb^2 \\	
+		x_5^2 &= \frac{1}{2} \mu_2 R^2 \Omega_x^2 
+	\end{aligned}
+	\quad \Longleftrightarrow \quad \quad \quad 
+	\begin{aligned}
+		x_1^2 &= \frac{1}{2 \mu_2} p_R^2 \\
+		x_2^2 &= \frac{1}{2 \mu_1 l^2} \pT^2 \\ 
+		x_3^2 &= \frac{1}{2 \mu_2 R^2} \lb \pT - J_y \rb^2 \\
+		x_4^2 &= \frac{1}{2 \mu_1 l^2 \sin^2 \Theta} J_z^2 \\ 
+		x_5^2 &= \frac{1}{2 \mu_2 R^2} \lb J_x + J_z \cot \Theta \rb^2 
+	\end{aligned} \notag \\
+	T_\mL = x_1^2 + x_2^2 + x_3^2 + x_4^2 + x_5^2 \quad \quad \quad \Longleftrightarrow \quad \quad \quad T_\mH = x_1^2 + x_2^2 + x_3^2 + x_4^2 + x_5^2 \notag 
+\end{gather}
+
+Выпишем выражения для якобианов замены переменных в лагранжиане и гамильтониане
+\begin{gather}
+	\JacL = \Bigg{|} \frac{\partial (\dR, \dT, \Omega_x, \Omega_y, \Omega_z )}{\partial (x_1, x_2, x_3, x_4, x_5)} \Bigg{|} =
+	\begin{vmatrix}
+			\displaystyle \sqrt{\frac{2}{\mu_2}} & 0 & 0 & 0 & 0 \\[2ex]
+			0 & \displaystyle \sqrt{\frac{2}{\mu_1 l^2}} & -\displaystyle \sqrt{\frac{2}{\mu_2 R^2}} & 0 & 0 \\[2ex]
+			0 & 0 & 0 & 0 & \displaystyle \sqrt{\frac{2}{\mu_2 R^2}} \\[2ex]
+			0 & 0 & \displaystyle \sqrt{\frac{2}{\mu_2 R^2}} & 0 & 0 \\[2ex]
+		0 & 0 & 0 & -\displaystyle \sqrt{\frac{2}{\mu_1 l^2 \sin^2 \Theta}} & \displaystyle \sqrt{\frac{2}{\mu_2 R^2}} \cot \Theta 
+	\end{vmatrix} = \notag \\
+	= 2^{5/2} \displaystyle \sqrt{\frac{1}{\mu_2}} \sqrt{\frac{1}{\mu_1 l^2}} \sqrt{\frac{1}{\mu_1 l^2 \sin^2 \Theta}} \frac{1}{\mu_2 R^2} = 2^{5/2} \mu_1^{-1} \mu_2^{-3/2} l^{-2} R^{-2} \sin^{-1} \Theta \notag \\
+	\JacH = \Bigg{|} \frac{\partial (p_R, \pT, J_x, J_y, J_z)}{\partial (x_1, x_2, x_3, x_4, x_5)} \Bigg{|} = 
+	\begin{vmatrix}
+		\displaystyle \sqrt{2 \mu_2} & 0 & 0 & 0 & 0 \\
+		0 & \displaystyle \sqrt{2 \mu_1 l^2} & 0 & 0 & 0 \\
+		0 & 0 & 0 & \displaystyle \sqrt{2 \mu_2 R^2} & - \displaystyle \sqrt{2 \mu_1 l^2} \cos \Theta \\
+		0 & \displaystyle \sqrt{2 \mu_1 l^2} & - \displaystyle \sqrt{2 \mu_2 R^2} & 0 & 0 \\
+		0 & 0 & 0 & 0 & \displaystyle \sqrt{2 \mu_1 l^2} \sin \Theta 
+	\end{vmatrix} = \notag \\
+	= 2^{5/2} \mu_1 \mu_2^{3/2} l^2 R^2 \sin \Theta \notag
+\end{gather}
+
+Якобианы связаны следующим соотношением
+\begin{gather}
+	\JacL \cdot \JacH = 2^5 \notag
+\end{gather}
+
+\section{Система N$_2-$N$_2$}
+
+%Omega[x]^2*mu[2]*l[2]^2 + 
+%Omega[x]^2*mu[3]*q[4]^2 + 
+%Omega[y]^2*mu[1]*l[1]^2 + 
+%Omega[y]^2*mu[3]*q[4]^2 + 
+%Omega[z]^2*mu[2]*l[2]^2 + 2.*Omega[x]*Omega[y]*mu[2]*l[2]^2*cos(q[2])*sin(q[2])*cos(q[3])^2 - 
+%2.*v[2]*Omega[x]*mu[2]*l[2]^2*cos(q[2])*sin(q[3])*cos(q[3]) - 
+%2.*v[2]*Omega[y]*mu[2]*l[2]^2*sin(q[2])*sin(q[3])*cos(q[3]) - 
+%2.*Omega[x]*Omega[z]*mu[2]*l[2]^2*cos(q[2])*sin(q[3])*cos(q[3]) - 
+%2.*Omega[y]*Omega[z]*mu[2]*l[2]^2*sin(q[2])*sin(q[3])*cos(q[3]) - 
+%2.*Omega[x]*Omega[z]*mu[1]*l[1]^2*sin(q[1])*cos(q[1]) - 
+%2.*Omega[x]*Omega[y]*mu[2]*l[2]^2*cos(q[2])*sin(q[2]) + 
+%2.*v[2]*Omega[z]*mu[2]*l[2]^2 + 
+%v[2]^2*mu[2]*l[2]^2 + 
+%Omega[x]^2*mu[1]*l[1]^2*cos(q[1])^2 - 
+%1.*Omega[x]^2*mu[2]*l[2]^2*cos(q[2])^2 + 
+%Omega[y]^2*mu[2]*l[2]^2*cos(q[2])^2 + 
+%Omega[y]^2*mu[2]*l[2]^2*cos(q[3])^2 - 
+%1.*Omega[z]^2*mu[1]*l[1]^2*cos(q[1])^2 - 
+%1.*Omega[z]^2*mu[2]*l[2]^2*cos(q[3])^2 - 
+%1.*v[2]^2*mu[2]*l[2]^2*cos(q[3])^2 + 
+%2.*v[1]*Omega[y]*mu[1]*l[1]^2 + 
+%v[1]^2*mu[1]*l[1]^2 + 
+%Omega[z]^2*mu[1]*l[1]^2 + 
+%mu[3]*v[4]^2 + 
+%Omega[x]^2*mu[2]*l[2]^2*cos(q[2])^2*cos(q[3])^2 - 
+%1.*Omega[y]^2*mu[2]*l[2]^2*cos(q[2])^2*cos(q[3])^2 - 
+%2.*v[2]*Omega[z]*mu[2]*l[2]^2*cos(q[3])^2 - 
+%2.*v[3]*Omega[x]*mu[2]*l[2]^2*sin(q[2]) +
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2.*v[3]*Omega[y]*mu[2]*l[2]^2*cos(q[2]) + 
+% v[3]^2*mu[2]*l[2]^2
+
+Используем следующую замену для диагонализации лагранжиана
+\begin{gather}
+	\begin{aligned}
+			x_1^2 &= \frac{1}{2} \mu_2 l_2^2 \lb - \dot{\varphi} \sin \theta_2 + \Omega_x \cos \varphi \cos \theta_2 + \Omega_y \sin \varphi \cos \theta_2 - \Omega_z \sin \theta_2 \rb^2 \\
+			x_2^2 &= \frac{1}{2} \mu_2 l_2^2 \lb \dot{\theta}_2 - \Omega_x \sin \varphi + \Omega_y \cos \varphi \rb^2 \\
+			x_3^2 &= \frac{1}{2} \mu_1 l_1^2 \lb \Omega_x \cos \theta_1 - \Omega_z \sin \theta_1 \rb^2 \\
+			x_4^2 &= \frac{1}{2} \mu_3 R^2 \Omega_x^2 \\
+			x_5^2 &= \frac{1}{2} \mu_3 R^2 \Omega_y^2 \\
+			x_6^2 &= \frac{1}{2} \mu_1 l_1^2 \lb \dot{\theta}_1  + \Omega_y \rb^2 \\
+			x_7^2 &= \frac{1}{2} \mu_3 \dot{R}^2 
+	\end{aligned} \label{n2n2_1}
+\end{gather}
+
+Выражаем лагранжевы переменные через $x_1, \dots, x_7$:
+\begin{gather}
+	\begin{aligned}
+			\dtone &= x_6 \sqrt{\frac{2}{\mu_1 l_1^2}} - x_5 \sqrt{\frac{2}{\mu_3 R^4}} \\ 
+		\dphi &= - \frac{x_1}{\sin \Theta_2} \sqrt{\frac{2}{\mu_2 l_2^2}} + \frac{x_4 \cos \varphi \cos \Theta_2}{\sin \Theta_2} \sqrt{\frac{2}{\mu_3 R^2}} + \frac{x_5 \sin \varphi \cos \Theta_2}{\sin \Theta_2} \sqrt{\frac{2}{\mu_3 R^2}} + \frac{x_3}{\sin \Theta_1} \sqrt{\frac{2}{\mu_1 l_1^2}}
+	- \frac{x_4 \cos \Theta_1}{\sin \Theta_1} \sqrt{\frac{2}{\mu_3 R^2}} \\
+	\dttwo &= x_2 \sqrt{\frac{2}{\mu_2 l_2^2}} + x_4 \sin \varphi \sqrt{\frac{2}{\mu_3 R^2}} - x_5 \cos \varphi \sqrt{\frac{2}{\mu_3 R^2}} \\
+	\dR &= x_7 \sqrt{\frac{2}{\mu_3}} \\
+	\Omega_x &= x_4 \sqrt{\frac{2}{\mu_3 R^2}} \\
+	\Omega_y &= x_5 \sqrt{\frac{2}{\mu_3 R^2}} \\
+	\Omega_z &= - \frac{x_3}{\sin \Theta_1} \sqrt{\frac{2}{\mu_1 l_1^2}} + \frac{x_4 \cos \Theta_1}{\sin \Theta_1} \sqrt{\frac{2}{\mu_3 R^2}}
+	\end{aligned} \notag
+\end{gather}
+
+Действуем матрицей $\bbB$ на вектор лагранжевых переменных и подставляем их выражения через $x_1, \dots x_7$:
+\begin{gather}
+	\begin{aligned}
+		J_x &= x_4 \sqrt{2 \mu_3 R^2} + x_3 \sqrt{2 \mu_1 l_1^2} \cos \Theta_1 + x_1 \sqrt{2 \mu_2 l_2^2} \cos \varphi \cos \Theta_2 - x_2 \sqrt{2 \mu_2 l_2^2} \sin \varphi \\
+		J_y &= x_5 \sqrt{2 \mu_3 R^2} + x_6 \sqrt{2 \mu_1 l_1^2} + x_1 \sqrt{2 \mu_2 l_2^2} \sin \varphi \cos \Theta_2 + x_2 \sqrt{2 \mu_2 l_2^2} \cos \varphi\\
+		J_z &= - x_3 \sqrt{2 \mu_1 l_1^2} \sin \Theta_1 - x_1 \sqrt{2 \mu_2 l_2^2} \sin \Theta_2 \\
+		\ptone &= x_6 \sqrt{2 \mu_1 l_1^2} \\
+		\pphi &= - x_1 \sqrt{2 \mu_2 l_2^2} \sin \Theta_2 \\
+		\pttwo &= x_2 \sqrt{2 \mu_2 l_2^2} \\
+		p_R &= \sqrt{2 \mu_3} x_7
+	\end{aligned} \notag
+\end{gather}
+
+Правильность полученных выражений подтверждается следующей связью
+\begin{gather}
+		T_\mH = \Omega_x J_x + \Omega_y J_y + \Omega_z J_z + \ptone \dtone + \pttwo \dttwo + \pphi \dot{\varphi} + p_R \dot{R} - T_\mL = \notag \\
+	= \left[ 2 x_1 ^2 + \ldots + 2 x_7^2 \right] - \left[ x_1^2 + \ldots + x_7^2 \right] = x_1^2 + \ldots + x_7^2 \notag
+\end{gather}
+
+Выражения, свящывающие лагранжевы переменные с гамильтоновыми приводить здесь не буду, они слишком громоздки, однако руками мне удалось получить компактный вид для 6 из 7 выражений. Подставив эти выражения в \eqref{n2n2_1}, получаем новые переменные $x_1, \ldots, x_7$, выражененные уже в гамильтоновых переменных. Опять же, производя упрощения руками, можно получить (относительно) компактный вид этих выражений, но особенного смысла в этом нет.  
+
+Несмотря на значительный размер выражений, якобианы замены переменных как вслучае лагранжиана так и в случае гамильтониана могут быть получены в компактном виде без дополнительных упрощений руками. Представлю конечный результат:
+\begin{gather}
+		\JacL = \Bigg{|} \frac{\partial ( \dR, \dot{\Theta}_1, \dot{\Theta}_2, \dot{\varphi}, \Omega_x, \Omega_y, \Omega_z )}{\partial ( x_1, x_2, x_3, x_4, x_5, x_6, x_7 0} \Bigg{|} = 2^{7/2} \mu_1^{-1} l_1^{-2} \mu_2^{-1} l_2^{-2} \mu_3^{-3/2} R^{-2} \sin^{-1} \Theta_1 \sin^{-1} \Theta_2 \notag \\
+		\JacH = \Bigg{|} \frac{\partial ( p_R, p_{\Theta_1}, p_{\Theta_2}, p_\varphi, J_x, J_y, J_z )}{\partial ( x_1, x_2, x_3, x_4, x_5, x_6, x_7) } \Bigg{|} = 2^{7/2} \mu_1 l_1^2 \mu_2 l_2^2 \mu_3^{3/2} R^2 \sin \Theta_1 \sin \Theta_2 \notag \\
+		\JacL \cdot \JacH = 2^7 \notag
+\end{gather}
+
+\end{document}
