@@ -230,45 +230,30 @@
 
 \section{Система CO$_2-$Ar}
 
-Используем стандартную молекулярную систему отсчета для этой системы. Направим ось $OZ$ вдоль линии $C-Ar$, ось $OX$ перпендикулярно ей в плоскости системы. 
+Используем стандартную молекулярную систему отсчета для этой системы. Направим ось $OZ$ вдоль линии $C-Ar$, ось $OX$ перпендикулярно ей в плоскости системы. Координаты, в которых молекула CO$_2$ заменена виртуальной частицей, выглядят следующим образом
 
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}
-	[oxygen/.style={ball color = red, circle, text = white}, 
-	carbon/.style={ball color = black!30, circle, text = white},
-	argon/.style={ball color = blue, circle, text = white}]
-	\node (z1) at (4.5, 3) {OZ};
-	\node (z2) at (-1.5, -1) {}
-		edge [->, thick] (z1);
-
-	\node (x1) at (-1, 3.5) {OX};
-	\node (x2) at (3.5, -1) {}
-		edge [->, thick] (x1); 
-
-	\node (carbon) [carbon] {C};
-	\node (oxygen1) [oxygen, below right of = carbon] {O}
-		edge [double, thick] (carbon);
-	\node (oxygen2) [oxygen, above left of = carbon] {O}
-		edge [double, thick] (carbon);
-	\node[argon] (argon) at (3, 2) {Ar};
-
-	\begin{scope}[on background layer]
-	\node [fill=yellow!30,fit=(z1) (z2) (x1) (x2) (carbon) (oxygen1) (oxygen2)] {};
-\end{scope}
-\end{tikzpicture}
-\caption{Молекулярная система отсчета для системы $Ar-CO_2$.}
-\end{figure}
-
-Лагранжиан в описанной молекулярной системе отсчета имеет вид
 \begin{gather}
-		\mL = \frac{1}{2} \mu_2 \dR^2 + \frac{1}{2} \mu_1 l^2 \dT^2 + \mu_1 l^2 \Omega_y^2 \dT + \frac{1}{2} \lb \mu_1 l^2 \cos^2 \Theta + \mu_2 R^2 \rb \Omega_x^2 + \frac{1}{2} \lb \mu_1 l^2 + \mu_2 R^2 \rb \Omega_y^2 + \notag \\ 
-	+ \frac{1}{2} \mu_1 l^2 \Omega_z^2 \sin^2 \Theta - \mu_1 l^2 \Omega_x \Omega_z \sin \Theta \cos \Theta, \notag
+	\begin{aligned}
+		X_1 &= 0 \\
+		Y_1 &= 0 \\
+		Z_1 &= R
+	\end{aligned}
+	\quad \quad \quad
+	\begin{aligned}
+		X_2 &= l \sin \Theta \\
+		Y_2 &= 0 \\
+		Z_2 &= l \cos \Theta
+	\end{aligned}, \notag
 \end{gather}
-
 где приведенные массы $\mu_1, \mu_2$ связаны с массами кислорода $m_1$, аргона $m_2$ и углерода $m_3$ следующим образом
 \begin{gather}
 	\mu_1 = \frac{m_1}{2}, \quad \quad \quad \mu_2 = \frac{m_2 (2 m_1 + m_3)}{2 m_1 + m_2 + m_3} \notag 
+\end{gather}
+
+Лагранжиан в этой системе отсчета имеет вид
+\begin{gather}
+		\mL = \frac{1}{2} \mu_2 \dR^2 + \frac{1}{2} \mu_1 l^2 \dT^2 + \mu_1 l^2 \Omega_y^2 \dT + \frac{1}{2} \lb \mu_1 l^2 \cos^2 \Theta + \mu_2 R^2 \rb \Omega_x^2 + \frac{1}{2} \lb \mu_1 l^2 + \mu_2 R^2 \rb \Omega_y^2 + \notag \\ 
+	+ \frac{1}{2} \mu_1 l^2 \Omega_z^2 \sin^2 \Theta - \mu_1 l^2 \Omega_x \Omega_z \sin \Theta \cos \Theta, \notag
 \end{gather}
 
 Будем использовать следующую замену для диагонализации лагранжиана
@@ -397,37 +382,26 @@
 
 \section{Система N$_2-$N$_2$}
 
-%Omega[x]^2*mu[2]*l[2]^2 + 
-%Omega[x]^2*mu[3]*q[4]^2 + 
-%Omega[y]^2*mu[1]*l[1]^2 + 
-%Omega[y]^2*mu[3]*q[4]^2 + 
-%Omega[z]^2*mu[2]*l[2]^2 + 2.*Omega[x]*Omega[y]*mu[2]*l[2]^2*cos(q[2])*sin(q[2])*cos(q[3])^2 - 
-%2.*v[2]*Omega[x]*mu[2]*l[2]^2*cos(q[2])*sin(q[3])*cos(q[3]) - 
-%2.*v[2]*Omega[y]*mu[2]*l[2]^2*sin(q[2])*sin(q[3])*cos(q[3]) - 
-%2.*Omega[x]*Omega[z]*mu[2]*l[2]^2*cos(q[2])*sin(q[3])*cos(q[3]) - 
-%2.*Omega[y]*Omega[z]*mu[2]*l[2]^2*sin(q[2])*sin(q[3])*cos(q[3]) - 
-%2.*Omega[x]*Omega[z]*mu[1]*l[1]^2*sin(q[1])*cos(q[1]) - 
-%2.*Omega[x]*Omega[y]*mu[2]*l[2]^2*cos(q[2])*sin(q[2]) + 
-%2.*v[2]*Omega[z]*mu[2]*l[2]^2 + 
-%v[2]^2*mu[2]*l[2]^2 + 
-%Omega[x]^2*mu[1]*l[1]^2*cos(q[1])^2 - 
-%1.*Omega[x]^2*mu[2]*l[2]^2*cos(q[2])^2 + 
-%Omega[y]^2*mu[2]*l[2]^2*cos(q[2])^2 + 
-%Omega[y]^2*mu[2]*l[2]^2*cos(q[3])^2 - 
-%1.*Omega[z]^2*mu[1]*l[1]^2*cos(q[1])^2 - 
-%1.*Omega[z]^2*mu[2]*l[2]^2*cos(q[3])^2 - 
-%1.*v[2]^2*mu[2]*l[2]^2*cos(q[3])^2 + 
-%2.*v[1]*Omega[y]*mu[1]*l[1]^2 + 
-%v[1]^2*mu[1]*l[1]^2 + 
-%Omega[z]^2*mu[1]*l[1]^2 + 
-%mu[3]*v[4]^2 + 
-%Omega[x]^2*mu[2]*l[2]^2*cos(q[2])^2*cos(q[3])^2 - 
-%1.*Omega[y]^2*mu[2]*l[2]^2*cos(q[2])^2*cos(q[3])^2 - 
-%2.*v[2]*Omega[z]*mu[2]*l[2]^2*cos(q[3])^2 - 
-%2.*v[3]*Omega[x]*mu[2]*l[2]^2*sin(q[2]) +
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 2.*v[3]*Omega[y]*mu[2]*l[2]^2*cos(q[2]) + 
-% v[3]^2*mu[2]*l[2]^2
+Рассмотрим координаты, в которых линейный молекулы с длинами $l_1$ и $l_2$ сводится к виртуальным частицам 1 и 2 с приведенными массами $\mu_1$ и $\mu_2$, соответственно 
+\begin{gather}
+	\begin{aligned}
+		X_1 &= l_1 \sin \Theta_1 \\
+		Y_1 &= 0 \\
+		Z_1 &= l_1 \cos \Theta_1
+	\end{aligned}
+	\quad \quad
+	\begin{aligned}
+		X_2 &= l_2 \cos \Phi \sin \Theta_2 \\
+		Y_2 &= l_2 \sin \Phi \sin \Theta_2 \\
+		Z_2 &= l_2 \cos \Theta_2
+	\end{aligned}
+	\quad \quad
+	\begin{aligned}
+		X_3 &= 0 \\
+		Y_3 &= 0 \\
+		Z_3 &= R
+	\end{aligned} \notag
+\end{gather}
 
 Используем следующую замену для диагонализации лагранжиана
 \begin{gather}
