@@ -1,0 +1,126 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+\newcommand{\mf}{\mathbf}
+\newcommand{\dvr}{\dot{\mathbf{r}}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vrho}{\boldsymbol{\rho}}
+\newcommand{\dvrho}{\dot{\boldsymbol{\rho}}}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+
+\newcommand{\mH}{\mathcal{H}}
+
+\begin{document}
+
+\section*{Виртуальные частицы}
+
+На примере системы N$_2$-Ar сделаем преобразование координат, аналогичное введению приведенной массы в задаче двух тел, приводящее к возникновению виртуальных масс. Обозначим массы азотов за $m_1$, $m_2$, аргона -- за $m_3$. Радиус-векторам относительно лабораторной системы координат припишем соответстующие номера. 
+\begin{gather}
+		T = \frac{1}{2} m_1 \dvr_1^2 + \frac{1}{2} m_2 \dvr_2^2 + \frac{1}{2} m_3 \dvr_3^2 \label{eq1}
+\end{gather}
+
+Осуществим замену переменных $\vr_1, \vr_2 \longrightarrow \vr_{12}, \vrho_{12}$:
+\begin{gather}
+	\left\{
+	\begin{aligned}
+		\vrho_{12} &= \vr_1 - \vr_2 \\
+		\vr_{12} &= \frac{m_1 \vr_1 + m_2 \vr_2}{m_1 + m_2} 
+	\end{aligned}
+	\right. \quad \quad \Longleftrightarrow \quad \quad 
+	\left\{
+	\begin{aligned}
+		\vr_1 &= \vr_{12} + \frac{m_2}{m_1 + m_2} \vrho_{12} \\
+		\vr_2 &= \vr_{12} - \frac{m_1}{m_1 + m_2} \vrho_{12} 
+	\end{aligned}
+	\right. \label{eq2}
+\end{gather}
+
+Подставляя замену $\eqref{eq2}$ в выражение кинетической энергии $\eqref{eq1}$, получаем
+\begin{gather}
+	T = \frac{1}{2} m_{12} \dvr_{12}^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2 + \frac{1}{2} m_3 \dvr_{3}^2, \label{eq3}
+\end{gather}
+где были введены обозначения
+\begin{gather}
+	m_{12} = m_1 + m_2, \quad \quad \frac{1}{\mu_{12}} = \frac{1}{m_1} + \frac{1}{m_2}. \notag
+\end{gather}
+ 
+Заметим, что вектор $\vrho_{12}$ направлен вдоль линейной молекулы N$_2$, а вектор $\vr_{12}$ -- к ее центру масс. \\ 
+Проделаем аналогичную операцию с парой векторов $\vr_{12}, \vr_{3}$, введя переменные $\vrho_\Sigma, \vr_\Sigma$: 
+\begin{gather}
+	\left\{
+	\begin{aligned}
+		\vrho_{\Sigma} &= \vr_{12} - \vr_3 \\
+		\vr_\Sigma &= \frac{m_{12} \vr_{12} + m_3 \vr_3}{m_{12} + m_3}
+	\end{aligned}
+	\right.	\quad \quad \Longleftrightarrow \quad \quad
+	\left\{
+	\begin{aligned}
+		\vr_3 &= \vr_\Sigma - \frac{m_{12}}{m_{12} + m_3} \vrho_\Sigma \\
+		\vr_{12} &= \vr_\Sigma + \frac{m_3}{m_{12} + m_3} \vrho_\Sigma
+	\end{aligned}
+	\right. \\
+	T = \frac{1}{2} m_\Sigma \dvr_\Sigma^2 + \frac{1}{2} \mu_\Sigma \dvrho_\Sigma^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2, \label{eq4} 
+\end{gather}
+
+где были введены обозначения
+\begin{gather}
+		m_\Sigma = m_1 + m_2 + m_3, \quad \textup{(сумма масс мономеров)} \notag \\
+		\frac{1}{\mu_\Sigma} = \frac{1}{m_1 + m_2} + \frac{1}{m_3}. \quad  \textup{(приведенная масса мономеров)} \notag
+\end{gather}
+
+Переместив начало системы отсчета в центр масс системы, исключаем первое слагаемое в \eqref{eq4}.
+\begin{gather}
+	T = \frac{1}{2} \mu_\Sigma \dvrho_\Sigma^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2. \label{eq5}
+\end{gather}
+
+Введем подвижную систему координат таким образом, чтобы линейная молекула и атом всегда находились в плоскости $XZ$, а атом лежал на оси $OZ$. Введем внутренние координаты $\mf{q} = \left\{ R, \Theta \right\}$; $R$ -- длина вектора $\vrho_\Sigma$, равная расстоянию между центром масс N$_2$ и Ar, $\Theta$ -- угол поворота N$_2$ относительно линии связи в подвижной плоскости.  
+\begin{gather}
+	\begin{aligned}
+		\vrho_\Sigma &\rightarrow \mf{R}_1 = \left\{ 0, 0, R \right\} \\ 
+		\vrho_{12} &\rightarrow \mf{R}_2 = \left\{ l \cos \Theta, 0, l \sin \Theta \right\}
+	\end{aligned} \quad \quad \Longleftrightarrow \quad \quad  
+	\begin{aligned}
+		X_1 &= 0 \\
+		Y_1 &= 0 \\
+		Z_1 &= R
+	\end{aligned}
+	\quad \quad 
+	\begin{aligned}
+		X_2 &= l \sin \Theta \\
+		Y_2 &= 0 \\
+		Z_2 &= l \cos \Theta
+	\end{aligned} \notag
+\end{gather}
+
+\end{document}
+
