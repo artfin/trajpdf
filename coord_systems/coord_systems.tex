@@ -8,7 +8,7 @@
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 
 % AMS packages
-\usepackage{amsmath}
+\usepackage{amsmath, array}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -40,9 +40,25 @@
 
 \newcommand{\mH}{\mathcal{H}}
 
+\makeatletter
+\def\env@dmatrix{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \extrarowheight=2ex
+  \array{*\c@MaxMatrixCols{>{\displaystyle}c}}}
+
+\newenvironment{dmatrix}
+  {\env@dmatrix}
+  {\endarray\hskip-\arraycolsep}
+
+\newenvironment{bdmatrix}
+  {\left[\env@dmatrix}
+  {\endmatrix\right]}
+% and other matrix environments are similar
+\makeatother
+
 \begin{document}
 
-\section*{Виртуальные частицы}
+\section*{Метод Якоби}
 
 На примере системы N$_2$-Ar сделаем преобразование координат, аналогичное введению приведенной массы в задаче двух тел, приводящее к возникновению виртуальных масс. Обозначим массы азотов за $m_1$, $m_2$, аргона -- за $m_3$. Радиус-векторам относительно лабораторной системы координат припишем соответстующие номера. 
 \begin{gather}
@@ -101,6 +117,63 @@
 Переместив начало системы отсчета в центр масс системы, исключаем первое слагаемое в \eqref{eq4}.
 \begin{gather}
 	T = \frac{1}{2} \mu_\Sigma \dvrho_\Sigma^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2. \label{eq5}
+\end{gather}
+
+Это выражение может быть получено альтернативным путем. Вместо того, чтобы последовательно вводить вектора Якоби $\vrho_{12}$, $\vrho_\Sigma$, сразу выпишем выражения для них через исходные вектора $\vr_1, \vr_2, \vr_3$, дополненные выражением для вектора центра масс $\vr_\Sigma$:
+\begin{gather}
+	\left\{
+	\begin{aligned}
+			\vrho_{12} &= \vr_1 - \vr_2 \\
+			\vrho_\Sigma &= \vr_{12} - \vr_3 = \frac{m_1 \vr_1 + m_2 \vr_2}{m_1 + m_2} - \vr_3 \\
+			\vr_\Sigma &= \frac{m_1 \vr_1 + m_2 \vr_2 + m_3 \vr_3}{m_1 + m_2 + m_3}
+	\end{aligned} 
+	\right. \notag \\ 
+	\begin{bmatrix}
+		\vrho_{12} \\
+		\vrho_\Sigma \\
+		\vr_\Sigma
+	\end{bmatrix}
+	=
+	\begin{bdmatrix}
+		1 & -1 & 0 \\
+		\frac{m_1}{m_1 + m_2} & \frac{m_2}{m_1 + m_2} & -1 \\
+		\frac{m_1}{m_1 + m_2 + m_3} & \frac{m_2}{m_1 + m_2 + m_3} & \frac{m_3}{m_1 + m_2 + m_3} 
+	\end{bdmatrix}
+	\begin{bmatrix}
+		\vr_1 \\
+		\vr_2 \\
+		\vr_3
+	\end{bmatrix}
+\end{gather}
+
+Обращая выписанную матрицу, выражаем исходные вектора $\vr_1, \vr_2, \vr_3$ через вектора Якоби $\vrho_{12}, \vr_\Sigma, \vr_\Sigma$. Затем отделяем центр масс системы, то есть исключаем вектор $\vr_\Sigma$ из выражений для $\vr_1, \vr_2, \vr_3$.
+\begin{gather}
+	\begin{bmatrix}
+		\vr_1 \\
+		\vr_2 \\
+		\vr_3
+	\end{bmatrix}
+	=
+	\begin{bdmatrix}
+		\frac{m_2}{m_1 + m_2} & \frac{m_3}{m_1 + m_2 + m_3} & 1 \\
+		-\frac{m_1}{m_1 + m_2} & \frac{m_3}{m_1 + m_2 + m_3} & 1 \\
+		0 & -\frac{m_1 + m_2}{m_1 + m_2 + m_3} & 1 
+	\end{bdmatrix}
+	\begin{bmatrix}
+		\vrho_{12} \\ \vrho_\Sigma \\ \vr_\Sigma
+	\end{bmatrix} \\
+	\left\{
+	\begin{aligned}
+		\vr_1 &= \frac{m_2}{m_1 + m_2} \vrho_{12} + \frac{m_3}{m_1 + m_2 + m_3} \vrho_\Sigma \\
+		\vr_2 &= - \frac{m_1}{m_1 + m_2} \vrho_{12} + \frac{m_3}{m_1 + m_2 + m_3} \vrho_\Sigma \\
+		\vr_3 &= - \frac{m_1 + m_2}{m_1 + m_2 + m_3} \vrho_\Sigma
+	\end{aligned}
+	\right.
+\end{gather}
+
+Продифференцировав полученные выражения и подставив в \eqref{eq1}, приходим к \eqref{eq5} 
+\begin{gather}
+		T = \frac{1}{2} \mu_\Sigma \dvrho_\Sigma^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2 
 \end{gather}
 
 Введем подвижную систему координат таким образом, чтобы линейная молекула и атом всегда находились в плоскости $XZ$, а атом лежал на оси $OZ$. Введем внутренние координаты $\mf{q} = \left\{ R, \Theta \right\}$; $R$ -- длина вектора $\vrho_\Sigma$, равная расстоянию между центром масс N$_2$ и Ar, $\Theta$ -- угол поворота N$_2$ относительно линии связи в подвижной плоскости.  
