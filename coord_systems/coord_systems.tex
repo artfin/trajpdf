@@ -5,7 +5,7 @@
 \usepackage[russian]{babel}
 
 % page margin
-\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[top=2cm, bottom=2cm, left=0.5cm, right=0.5cm]{geometry}
 
 % AMS packages
 \usepackage{amsmath, array}
@@ -35,8 +35,50 @@
 \newcommand{\vrho}{\boldsymbol{\rho}}
 \newcommand{\dvrho}{\dot{\boldsymbol{\rho}}}
 
+\newcommand{\vR}{\mathbf{R}}
+\newcommand{\mmf}{m_{\textup{mon}_1}}
+\newcommand{\mms}{m_{\textup{mon}_2}}
+\newcommand{\vrmf}{\mathbf{r}_{\textup{mon}_1}}
+\newcommand{\vrms}{\mathbf{r}_{\textup{mon}_2}}
+\newcommand{\vRms}{\mathbf{R}_{\textup{mon}_2}}
+\newcommand{\dvrmf}{\dot{\mathbf{r}}_{\textup{mon}_1}}
+\newcommand{\dvrms}{\dot{\mathbf{r}}_{\textup{mon}_2}}
+
+\newcommand{\dveulerf}{\dot{\mathbf{e}}_1}
+\newcommand{\dveulers}{\dot{\mathbf{e}}_2}
+
+\newcommand{\dR}{\dot{R}}
+\newcommand{\dTheta}{\dot{\Theta}}
+\newcommand{\dPhi}{\dot{\Phi}}
+
+\newcommand{\omt}{\boldsymbol{\omega}_2}
+\newcommand{\Omt}{\boldsymbol{\Omega}_2}
+
+\newcommand{\bbVf}{\mathbb{V}_1}
+\newcommand{\bbVs}{\mathbb{V}_2}
+\newcommand{\bbSs}{\mathbb{S}_2}
+\newcommand{\dbbSs}{\dot{\mathbb{S}}_2 \,}
+\newcommand{\bbIf}{\mathbb{I}_1 \,}
+\newcommand{\bbIt}{\mathbb{I}_2 \,}
+
+\newcommand{\pes}{\mathbf{p}_2^e}
+
+\newcommand{\If}{I_1^2}
+\newcommand{\Is}{I_2^2}
+\newcommand{\It}{I_3^2}
+
+\newcommand{\Iff}{I_1^1}
+\newcommand{\Iss}{I_2^1}
+\newcommand{\Itt}{I_3^1}
+
+\newcommand{\dphis}{\dot{\varphi}_2}
+\newcommand{\dthetas}{\dot{\theta}_2}
+\newcommand{\dpsis}{\dot{\psi}_2}
+
 \newcommand{\lb}{\left(}
 \newcommand{\rb}{\right)}
+\newcommand{\lsq}{\left[}
+\newcommand{\rsq}{\right]}
 
 \newcommand{\mH}{\mathcal{H}}
 
@@ -193,6 +235,141 @@
 		Y_2 &= 0 \\
 		Z_2 &= l \cos \Theta
 	\end{aligned} \notag
+\end{gather}
+
+\newpage
+\section*{<<Японский гамильтониан>>}
+
+Рассмотрим два произвольных мономера. Обозначим радиус-вектора их центров масс за $\vrmf$ и $\vrms$. Поместим систему отсчета в центр масс системы как целого; параметризуем ось, соединяющую центры масс мономеров сферическими углами $\Theta, \Phi$; обозначим вектор, направленный от центра масс первого мономера к центру масс второго за $\vR$. 
+\begin{gather}
+	\begin{aligned}
+		\vrmf &= - \frac{\mms}{M} \vR = -\frac{\mms}{M} \begin{bmatrix} R \sin \Theta \cos  \Phi \\ R \sin \Theta \sin \Phi \\ R \cos \Theta \end{bmatrix} \\
+		\vrms &= \frac{\mmf}{M} \vR = \frac{\mmf}{M} \begin{bmatrix} R \sin \Theta \cos \Phi \\ R \sin \Theta \sin \Phi \\ R \cos \Theta \end{bmatrix}
+	\end{aligned},  \label{com_mon}
+\end{gather}
+где $M$ -- сумма масс мономеров. Пусть второй мономер состоит из $n$ точек, радиус-вектора которых во введенной системе отсчета обозначим $\left\{ \vr_2^k \right\}_{k = 1 \dots n}$, а относительно центра масс второго мономера -- $\left\{ \vrms^k \right\}_{k = 1 \dots n}$. Тогда для $k$-й точки вектора связаны соотношением
+\begin{gather}
+	\vr_2^k = \vrms + \vrms^k 
+\end{gather}
+
+Преобразуем выражение кинетической энергии второго мономера.
+\begin{gather}
+	T_2 = \sum_{k = 1}^n m_k \lb \dvr_2^k \rb^2 = \sum_{k = 1}^n m_k \lb \dvrms + \dvrms^k \rb^2 = \sum_{k=1}^n m_k \left[ \dvrms^2 + 2 \dvrms \dvrms^k + \lb  \dvrms^k \rb^2 \right] = \notag \\
+	= \mms \dvrms^2 + 2 \dvrms \frac{d}{dt} \left[ \sum_{k=1}^n m_k \vrms^k \right] + \sum_{k=1}^n m_k \lb \dvrms^k \rb^2 \label{kin1}
+\end{gather}
+
+Второе слагаемое в \eqref{kin1} равно нулю, т.к. в квадратных скобках представлен вектор, направленный в центр масс второго мономера, в системе, связанной с центром масс второго мономера, то есть нуль-вектор. Производная $\dvrms$ в сферической системе координат имеет следующий вид
+\begin{gather}
+	\dvrms = \dR^2 + R^2 \dTheta^2 + R^2 \dPhi^2 \sin^2 \Theta \label{der}
+\end{gather}
+
+Подставим выражение для производной \eqref{der} в кинетическую энергию второго мономера \eqref{kin1}:
+\begin{gather}
+	T_2 = \mms \frac{\mmf^2}{M^2} \left[ \dR + R^2 \dTheta^2 + R^2 \dPhi^2 \sin^2 \Theta \right] + \sum_{k=1}^n m_k \lb \dvrms^k \rb^2 
+\end{gather}
+
+Будем описывать ориентацию второго мономера при помощи матрицы $\bbSs$. Обозначим систему векторов $\left\{ \vrms^k \right\}_{k=1 \dots n}$ в начальный момент времени за $\left\{ \vRms^k \right\}_{k=1 \dots n}$. Тогда в момент времени $t$ системы векторов связаны при помощи матрицы $\bbSs$:
+\begin{gather}
+	\vrms^k \lb t \rb = \bbSs \lb t \rb \vRms^k, \quad \quad \quad k = 1 \dots n
+\end{gather}
+
+Получим выражение для производной $k$-го вектора $\vrms^k$:
+\begin{gather}
+	\dvrms^k = \dbbSs \vRms^k = \dbbSs \bbSs^{-1} \vrms^k = \lsq \omt \times \vrms^k \rsq = \bbSs \lsq \Omt \times \vRms^k \rsq \label{der2}
+\end{gather}
+
+Просуммируем масс-взвешенные производные векторов:
+\begin{gather}
+	\sum_{k=1}^n m_k \lb \dvrms^k \rb^2 = \sum_{k=1}^n m_k \lsq \Omt \times \vRms^k \right]^\top \bbSs^\top \bbSs \lsq \Omt \times \vRms^k \rsq = \sum_{k=1}^n m_k \lsq \Omt \times \vRms^k \rsq^2 = \notag \\
+	= \sum_{k=1}^n m_k \, \Omt^\top \lsq \vRms^k \times \lsq \Omt \times \vRms^k \rsq \rsq = \sum_{k=1}^n \Omt^\top \lb \lb \vRms^k, \vRms^k \rb - \vRms^k \lb \vRms^k, \Omt \rb \rb  = \notag \\ = \Omt^\top \bbIt \Omt, \notag
+\end{gather}
+где $\bbIt$ -- тензор инерции второго мономера. Положим, что в начальный момент система координат, находящаяся в центре масс пары, совпадала с системой главных осей второго мономера. Тогда тензор инерции $\bbIt$ принимает диагональный вид (верхний индекс -- номер мономера)
+\begin{gather}
+	\bbIt = \begin{bmatrix}
+		\If & 0 & 0 \\
+		0 & \Is & 0 \\
+		0 & 0 & \It
+	\end{bmatrix} \notag
+\end{gather}
+
+Вектор угловой скорости $\Omt$ связан с вектором эйлеровых скоростей $\dveulers$ матрицей $\bbVs$:
+\begin{gather}
+	\Omt = \begin{bmatrix}
+		\sin \theta_2 \sin \psi_2 & \sin \theta_2 & \cos \psi_2 & 0 \\
+		\sin \theta_2 \cos \psi_2 & - \sin \psi_2 & 0 \\
+		\cos \theta_2 & 0 & 1
+	\end{bmatrix} 
+	\begin{bmatrix}
+		\dot{\varphi_2} \\
+		\dot{\theta_2} \\
+		\dot {\psi_2} 
+	\end{bmatrix} =
+	\bbVs \dveulers \notag
+\end{gather}
+
+Итак, выражение кинетической энергии второго мономера $T_2$ приходит к виду
+\begin{gather}
+	T_2 = \mms \frac{\mmf^2}{M^2} \lsq \dR^2 + R^2 \dTheta^2 + R^2 \dPhi^2 \sin^2 \Theta \rsq + \dveulers^\top \bbVs^\top \bbIt \bbVs \dveulers
+\end{gather}
+
+Проводя аналогичные рассуждения приходим к выражению для кинетической энергии первого мономера $T_1$. Получаем выражение для полной кинетической энергии пары:
+\begin{gather}
+	T = T_1 + T_2 = \lsq \mmf \frac{\mms^2}{M^2} + \mms \frac{\mmf^2}{M^2} \rsq \times \lsq \dR^2 + R^2 \dTheta^2 + R^2 \dPhi^2 \sin^2 \Theta \rsq + \notag \\ + \dveulerf^\top \bbVf^\top \bbIf \bbVf \dveulerf + \dveulers^\top \bbVs^\top \bbIt \bbVs \dveulers,  \\
+	T = \frac{1}{2} \mu \lsq \dR^2 + R^2 \dTheta^2 + R^2 \dPhi^2 \sin^2 \Theta \rsq + \dveulerf^\top \bbVf^\top \bbIf \bbVf \dveulerf + \dveulers^\top \bbVs^\top \bbIt \bbVs \dveulers, \label{total}
+\end{gather}
+
+где $\displaystyle \mu = \frac{\mmf \mms}{\mmf + \mms}$.
+
+Для перехода к гамильтоновой форме кинетической энергии выпишем выражения для эйлеровых импульсов второго волчка (нижний индекс обозначает номер волчка):
+\begin{gather}
+	\pes = \frac{\partial T}{\partial \dveulers} = \bbVs \bbIt \bbVs \dveulers \notag \\
+	\begin{aligned}
+		p_2^\varphi = &\If \lb \dphis \sin \theta_2 \sin \psi_2 + \dthetas \cos \psi_2 \rb \sin \theta_2 \sin \psi_2 + \\
+		+ &\Is \lb \dphis \sin \theta_2 \cos \psi_2 - \dthetas \sin \psi_2 \rb \sin \theta_2 \cos \psi_2 + \\
+		+ &\It \lb \dphis \cos \theta_2 + \dpsis \rb \cos \theta_2 \\
+		p_2^\theta = &\If \lb \dphis \sin \theta_2 \sin \psi_2 + \dthetas \cos \psi_2 \rb \cos \psi - \\
+		- &\It \lb \dphis \sin \theta_2 \cos \psi_2 - \dthetas \sin \psi_2 \rb \sin \psi_2 \\
+		p_2^\psi  = &\It \lb \dphis \cos \theta_2 + \dpsis \rb
+	\end{aligned}
+\end{gather}
+
+Перепишем систему в матричном виде и разрешим ее относительно вектора эйлеровых скоростей $\dveulers$:
+\begin{gather}
+	\begin{bdmatrix}
+		\lb \If \sin^2 \psi_2 + \Is \cos^2 \psi_2 \rb \sin^2 \theta_2 + \It \cos^2 \theta_2 & \lb \If - \Is \rb \sin \theta_2 \sin \psi_2 \cos \psi_2 & \It \cos \theta_2 \\
+		\lb \If - \Is \rb \sin \theta_2 \sin \psi_2 \cos \psi_2 & \If \cos^2 \psi_2 + \Is \sin^2 \psi_2 & 0 \\
+		\It \cos \theta_2 & 0 & \It 
+	\end{bdmatrix}
+	\dveulers = \pes \notag \\
+	\dveulers = \frac{1}{\If \Is \sin^2 \theta} \times
+	\begin{bdmatrix}
+		\alpha & \beta & - \alpha \cos \theta_2 \\
+		\beta & \lb \If \sin^2 \psi_2 + \Is \cos^2 \psi_2 \rb \sin^2 \theta_2 & - \beta \sin \theta_2 \cos \theta_2 \\
+		- \alpha \cos \theta_2 & - \beta \sin \theta_2 \cos \theta_2 & \frac{\If \Is}{\It} \sin^2 \theta_2 + \alpha \cos^2 \theta_2 
+	\end{bdmatrix} \pes, \notag \\
+	\alpha = \If \cos^2 \psi_2 + \Is \sin^2 \psi_2, \quad \beta = \lb \Is - \If \rb \sin \psi_2 \cos \psi_2 \notag
+\end{gather}
+
+Подставив полученные выражения эйлеровых скоростей через эйлеровы импульсы в матричное произведение $\displaystyle \dveulers^\top \bbVs^\top \bbIt \bbVs \dveulers$, вроде как (?), получаем
+\begin{gather}
+	T_2^\mathcal{H} = \frac{1}{2 \If \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2 \rsq^2 + \notag \\
+	+ \frac{1}{2 \Is \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2 \rsq^2 + \frac{1}{2 \It} \lb p_2^\psi \rb^2
+\end{gather}
+
+Выражения для импульсов, сопряженных координатам $R, \Theta, \Phi$ существенно проще:
+\begin{gather}
+	p_R = \frac{\partial T}{\partial \dR} = \mu \dR \notag \\
+	p_\Theta = \frac{\partial T}{\partial \dTheta} = \mu R^2 \dTheta \notag \\
+	p_\Phi = \frac{\partial T}{\partial \dPhi} = \mu R^2 \dPhi \sin^2 \Theta \notag
+\end{gather}
+
+Итого, приходим к следующему выражению для <<японского гамильтониана>>:
+\begin{gather}
+	T_\mathcal{H} = \frac{p_R^2}{2 \mu} + \frac{p_\Theta^2}{2 \mu R^2} + \frac{p_\Phi^2}{2 \mu R^2 \sin^2 \Theta} + \notag \\
+	+ \frac{1}{2 \If \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2 \rsq^2 + \notag \\
+	+ \frac{1}{2 \Is \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2 \rsq^2 + \frac{1}{2 \It} \lb p_2^\psi \rb^2 + \notag \\
+	+ \frac{1}{2 \Iff \sin^2 \theta_1} \lsq \lb p_1^\varphi - p_1^\psi \cos \theta_1 \rb \cos \psi_1 - p_1^\theta \sin \theta_1 \sin \psi_1 \rsq^2 + \notag \\
+	+ \frac{1}{2 \Iss \sin^2 \theta_1} \lsq \lb p_1^\varphi - p_1^\psi \cos \theta_1 \rb \sin \psi_1 + p_1^\theta \sin \theta_1 \cos \psi_1 \rsq^2 + \frac{1}{2 \Itt} \lb p_1^\psi \rb^2 \notag
 \end{gather}
 
 \end{document}
