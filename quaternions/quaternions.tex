@@ -1,0 +1,126 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=0.5cm, right=0.5cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath, array}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{mathtools}
+
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+
+\makeatletter
+\def\env@dmatrix{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \extrarowheight=2ex
+  \array{*\c@MaxMatrixCols{>{\displaystyle}c}}}
+
+\newenvironment{dmatrix}
+  {\env@dmatrix}
+  {\endarray\hskip-\arraycolsep}
+
+\newenvironment{bdmatrix}
+  {\left[\env@dmatrix}
+  {\endmatrix\right]}
+% and other matrix environments are similar
+\makeatother
+
+\newcommand{\bbS}{\mathbb{S}}
+
+\newcommand{\ao}{\alpha_1}
+\newcommand{\bo}{\beta_1}
+\newcommand{\go}{\gamma_1}
+\newcommand{\at}{\alpha_2}
+\newcommand{\bt}{\beta_2}
+\newcommand{\gt}{\gamma_2}
+\newcommand{\ath}{\alpha_3}
+\newcommand{\bth}{\beta_3}
+\newcommand{\gth}{\gamma_3}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\lsq}{\left[}
+\newcommand{\rsq}{\right]}
+
+\begin{document}
+\section{Определение углов Эйлера вращения, являющегося композицией двух вращений}
+
+Рассмотрим композицию двух вращений $\bbS_1$ и $\bbS_2$, параметризованновых наборами углов Эйлера $(\ao, \bo, \go)$ и $(\at, \bt, \gt)$, соответсвенно, определенными в Голдстейне (zxz; 313 extrinsic). 
+\begin{gather}
+	\bbS_1(\ao, \bo, \go) \cdot \bbS_2(\at, \bt, \gt) = \bbS_3(\ath, \bth, \gth) 
+\end{gather}
+
+Для этого перейдем от представления вращений при помощи эйлеровых углов к кватернионному, которое позволяет более удобным образом описывать параметры вращения, являющегося композицией вращений. Рассчитав компоненты кватерниона, соотвествующего композиции вращений, через наборы углов Эйлера 1 и 2, выразим углы Эйлера результирующего вращения. Компоненты кватерниона $q_1$, соответствующего вращению 1, связаны с углами Эйлера следующими соотношениями:
+\begin{gather}
+q_1 = 
+\begin{bdmatrix}
+	\cos \frac{\ao - \go}{2} \sin \frac{\bo}{2} \\
+	\sin \frac{\ao - \go}{2} \sin \frac{\bo}{2} \\
+	\sin \frac{\ao + \go}{2} \cos \frac{\bo}{2} \\
+	\cos \frac{\ao + \go}{2} \cos \frac{\bo}{2}
+\end{bdmatrix} \label{def}
+\end{gather} 
+
+Кватернионы представляют в виде пары $[$действительное число, вектор$]$: $q_1 = \lsq q_1^0, \mathbf{q}_1 \rsq$. Произведение кватернионов в векторной форме представлено соотношением
+\begin{gather}
+	q_1 \cdot q_2 = \lb q_1^0 q_2^0 - \mathbf{q}_1 \mathbf{q_2} \rb + q_1^0 \mathbf{q}_2 + q_2^0 \mathbf{q}_1 + \lsq \mathbf{q}_1 \times \mathbf{q}_2 \rsq \label{prod}
+\end{gather}
+
+Подставив выражения для $q_1$ и $q_2$ в определение $\eqref{prod}$, получаем выражение для компонент кватерниона $q_3 = q_1 \cdot q_2$:
+\begin{gather}
+	q_3 =
+	\begin{bdmatrix}
+		\sin \frac{\bo}{2} \sin \frac{\bt}{2} \cos \lb \frac{\ao - \go}{2} + \frac{\at - \gt}{2} \rb - \cos \frac{\bo}{2} \cos \frac{\bt}{2} \cos \lb \frac{\ao + \go}{2} - \frac{\at + \gt}{2} \rb \\
+		\sin \frac{\bo}{2} \sin \frac{\bt}{2} \sin \lb \frac{\ao - \go}{2} + \frac{\at - \gt}{2} \rb + \cos \frac{\bo}{2} \cos \frac{\bt}{2} \sin \lb \frac{\ao + \go}{2} - \frac{\at + \gt}{2} \rb \\
+		\sin \frac{\bo}{2} \cos \frac{\bt}{2} \sin \lb \frac{\at + \gt}{2} - \frac{\ao - \go}{2} \rb + \cos \frac{\bo}{2} \sin \frac{\bt}{2} \sin \lb \frac{\ao + \go}{2} + \frac{\at - \gt}{2} \rb \\
+		\sin \frac{\bo}{2} \cos \frac{\bt}{2} \cos \lb \frac{\ao - \go}{2} - \frac{\at + \gt}{2} \rb + \cos \frac{\bo}{2} \sin \frac{\bt}{2} \cos \lb \frac{\ao + \go}{2} + \frac{\at - \gt}{2} \rb
+	\end{bdmatrix}
+\end{gather}
+
+Углы Эйлера $\lb \ath, \bth, \gth \rb$ связаны с компонентами кватерниона $q_3$ соотношениями
+\begin{gather}
+	\tan \ath = \frac{ (q_3)_1 (q_3)_3 + (q_3)_0 (q_3)_2}{ (q_3)_0 (q_3)_1 - (q_3)_2 (q_3)_3} \\
+	\cos \bth = (q_3)_0^2 + (q_3)_3^2 - (q_3)_1^2 - (q_3)_2^2 \\
+	\tan \gth = \frac{ (q_3)_1 (q_3)_3 - (q_3)_0 (q_3)_2}{ (q_3)_2 (q_3)_3 + (q_3)_0 (q_3)_1}
+\end{gather} 
+
+Опуская промежуточные выкладки, приходим к следующим выражениям
+\begin{gather}
+	\tan \ath = \frac{(\sin \bt \cos \bo + \sin \bo \cos \bt \cos (\gt - \ao)) \sin \at + \sin \bo \cos \at \sin (\gt - \ao)}{
+	\splitfrac{ \lsq -\cos \bt (\sin \go \sin \gt + \cos \go \cos \gt \cos \bo) \cos \ao + \cos \bt \sin \ao \cos \gt \sin \go + \right.}
+	{\splitfrac{\left. + \cos \go (\sin \bo \sin \bt - \sin \ao \cos \bo \sin \gt \cos \bt) \rsq \sin \at + }
+	{\splitfrac{+ (\sin \go \cos \gt + \sin \gt \cos \bo \cos \go) \cos \ao \cos \at +}
+	{ + \sin \ao(\sin \go \sin \gt + \cos \go \cos \gt \cos \bo) \cos \at}}}} \\
+	\tan \gth = \frac{ \cos \bo \cos (\gt - \ao) \sin \go - \cos \go \sin (\gt - \ao) \sin \bt + \sin \bo \sin \go \cos \bt }{
+	\splitfrac{\sin(\gt - \ao)(\cos \bt \cos \go \cos \at + \sin \go \cos \bo \sin \at) + \sin \bo \sin \bt \sin \go \cos \at + }
+	{+ \cos(\gt - \ao)(\sin \at \cos \go - \sin \go \cos \bo \cos \bt \cos \at)}	
+	} \\
+	\cos \bth = - \sin \go \sin \at \sin \bo \sin \bt + (\sin \go \sin \at \cos \bo \cos \bt + \cos \go \cos \at) \cos \ao \cos \gt + \notag \\
+	+ (\sin \go \sin \at \cos \bo \cos \bt + \cos \go \cos \at ) \sin \ao \sin \gt + \notag \\
+	+ (\sin \at \cos \bt \cos \go - \sin \go \cos \at \cos \bo) \sin (\ao - \gt) 
+\end{gather}
+
+\end{document}
