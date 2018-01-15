@@ -109,18 +109,20 @@ q_1 =
 
 Опуская промежуточные выкладки, приходим к следующим выражениям
 \begin{gather}
-	\tan \ath = \frac{(\sin \bt \cos \bo + \sin \bo \cos \bt \cos (\gt - \ao)) \sin \at + \sin \bo \cos \at \sin (\gt - \ao)}{
-	\splitfrac{ \lsq -\cos \bt (\sin \go \sin \gt + \cos \go \cos \gt \cos \bo) \cos \ao + \cos \bt \sin \ao \cos \gt \sin \go + \right.}
-	{\splitfrac{\left. + \cos \go (\sin \bo \sin \bt - \sin \ao \cos \bo \sin \gt \cos \bt) \rsq \sin \at + }
-	{\splitfrac{+ (\sin \go \cos \gt + \sin \gt \cos \bo \cos \go) \cos \ao \cos \at +}
-	{ + \sin \ao(\sin \go \sin \gt + \cos \go \cos \gt \cos \bo) \cos \at}}}} \\
-	\tan \gth = \frac{ \cos \bo \cos (\gt - \ao) \sin \go - \cos \go \sin (\gt - \ao) \sin \bt + \sin \bo \sin \go \cos \bt }{
-	\splitfrac{\sin(\gt - \ao)(\cos \bt \cos \go \cos \at + \sin \go \cos \bo \sin \at) + \sin \bo \sin \bt \sin \go \cos \at + }
-	{+ \cos(\gt - \ao)(\sin \at \cos \go - \sin \go \cos \bo \cos \bt \cos \at)}	
-	} \\
-	\cos \bth = - \sin \go \sin \at \sin \bo \sin \bt + (\sin \go \sin \at \cos \bo \cos \bt + \cos \go \cos \at) \cos \ao \cos \gt + \notag \\
-	+ (\sin \go \sin \at \cos \bo \cos \bt + \cos \go \cos \at ) \sin \ao \sin \gt + \notag \\
-	+ (\sin \at \cos \bt \cos \go - \sin \go \cos \at \cos \bo) \sin (\ao - \gt) 
+	u = (\cos \bt \sin \bo + \cos \bo \sin \bt \cos \ao \cos \gt + \cos \bo \sin \bt \sin \gt \sin \ao) \sin \go - \notag \\
+	- \sin \bt \cos \go \sin(\gt - \ao) \notag \\
+	v = \Big[ - \cos \bo (-\sin \gt \sin \at + \cos \bt \cos \at \cos \gt) \cos \ao - \sin \at \sin \ao \cos \bo \cos \gt +  \notag \\ 
+	+ \cos \at (\sin \bt \sin \bo - \cos \bo \cos \bt \sin \gt \sin \ao ) \Big] \sin \go + \Big[ (\sin \gt \cos \bt \cos \at + \sin \at \cos \gt) \times \notag \\
+	\times \cos \ao - \sin \ao ( - \sin \gt \sin \at + \cos \bt \cos \at \cos \gt) \Big] \cos \go \notag \\
+	\tan \gth = \frac{u}{v} \notag \\
+	s = ( \sin \bo \cos \bt \cos \ao \cos \gt + \sin \bo \cos \bt \sin \gt \sin \ao + \cos \bo \sin \bt ) \sin \at + \notag \\ 
+	+ \sin \bo \cos \at \sin ( \gt - \ao ) \notag \\
+	t = \Big[ -\cos \bt ( \sin \go \sin \gt + \cos \bo \cos \go \cos \gt ) \cos \ao + \cos \bt \cos \gt \sin \ao \sin \go + \notag \\
+	+ \cos \go ( \sin \bt \sin \bo - \cos \bo \cos \bt \sin \gt \sin \go) \Big] \sin \at - \Big[ ( \sin \gt \cos \bo \cos \go - \sin \go \cos \gt ) \times \notag \\
+	\times \cos \ao - \sin \ao ( \sin \go \sin \gt + \cos \bo \cos \go \cos \gt ) \Big] \cos \at \notag \\
+	\tan \ath = \frac{s}{t} \notag \\
+	\cos \bth = - \sin \go \sin \at \sin \bo \sin \bt + (\sin \go \sin \at \cos \bo \cos \bt + \cos \go \cos \at) \cos (\ao - \gt) + \notag \\
+	+ (\sin \at \cos \bt \cos \go - \sin \go \cos \at \cos \bo) \sin (\ao - \gt) \notag
 \end{gather}
 
 \end{document}
