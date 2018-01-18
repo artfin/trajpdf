@@ -115,144 +115,6 @@
 
 \begin{document}
 
-\section*{Метод Якоби}
-
-На примере системы N$_2$-Ar сделаем преобразование координат, аналогичное введению приведенной массы в задаче двух тел, приводящее к возникновению виртуальных масс. Обозначим массы азотов за $m_1$, $m_2$, аргона -- за $m_3$. Радиус-векторам относительно лабораторной системы координат припишем соответстующие номера. 
-\begin{gather}
-		T = \frac{1}{2} m_1 \dvr_1^2 + \frac{1}{2} m_2 \dvr_2^2 + \frac{1}{2} m_3 \dvr_3^2 \label{eq1}
-\end{gather}
-
-Осуществим замену переменных $\vr_1, \vr_2 \longrightarrow \vr_{12}, \vrho_{12}$:
-\begin{gather}
-	\left\{
-	\begin{aligned}
-		\vrho_{12} &= \vr_1 - \vr_2 \\
-		\vr_{12} &= \frac{m_1 \vr_1 + m_2 \vr_2}{m_1 + m_2} 
-	\end{aligned}
-	\right. \quad \quad \Longleftrightarrow \quad \quad 
-	\left\{
-	\begin{aligned}
-		\vr_1 &= \vr_{12} + \frac{m_2}{m_1 + m_2} \vrho_{12} \\
-		\vr_2 &= \vr_{12} - \frac{m_1}{m_1 + m_2} \vrho_{12} 
-	\end{aligned}
-	\right. \label{eq2}
-\end{gather}
-
-Подставляя замену $\eqref{eq2}$ в выражение кинетической энергии $\eqref{eq1}$, получаем
-\begin{gather}
-	T = \frac{1}{2} m_{12} \dvr_{12}^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2 + \frac{1}{2} m_3 \dvr_{3}^2, \label{eq3}
-\end{gather}
-где были введены обозначения
-\begin{gather}
-	m_{12} = m_1 + m_2, \quad \quad \frac{1}{\mu_{12}} = \frac{1}{m_1} + \frac{1}{m_2}. \notag
-\end{gather}
- 
-Заметим, что вектор $\vrho_{12}$ направлен вдоль линейной молекулы N$_2$, а вектор $\vr_{12}$ -- к ее центру масс. \\ 
-Проделаем аналогичную операцию с парой векторов $\vr_{12}, \vr_{3}$, введя переменные $\vrho_\Sigma, \vr_\Sigma$: 
-\begin{gather}
-	\left\{
-	\begin{aligned}
-		\vrho_{\Sigma} &= \vr_{12} - \vr_3 \\
-		\vr_\Sigma &= \frac{m_{12} \vr_{12} + m_3 \vr_3}{m_{12} + m_3}
-	\end{aligned}
-	\right.	\quad \quad \Longleftrightarrow \quad \quad
-	\left\{
-	\begin{aligned}
-		\vr_3 &= \vr_\Sigma - \frac{m_{12}}{m_{12} + m_3} \vrho_\Sigma \\
-		\vr_{12} &= \vr_\Sigma + \frac{m_3}{m_{12} + m_3} \vrho_\Sigma
-	\end{aligned}
-	\right. \\
-	T = \frac{1}{2} m_\Sigma \dvr_\Sigma^2 + \frac{1}{2} \mu_\Sigma \dvrho_\Sigma^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2, \label{eq4} 
-\end{gather}
-
-где были введены обозначения
-\begin{gather}
-		m_\Sigma = m_1 + m_2 + m_3, \quad \textup{(сумма масс мономеров)} \notag \\
-		\frac{1}{\mu_\Sigma} = \frac{1}{m_1 + m_2} + \frac{1}{m_3}. \quad  \textup{(приведенная масса мономеров)} \notag
-\end{gather}
-
-Переместив начало системы отсчета в центр масс системы, исключаем первое слагаемое в \eqref{eq4}.
-\begin{gather}
-	T = \frac{1}{2} \mu_\Sigma \dvrho_\Sigma^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2. \label{eq5}
-\end{gather}
-
-Это выражение может быть получено альтернативным путем. Вместо того, чтобы последовательно вводить вектора Якоби $\vrho_{12}$, $\vrho_\Sigma$, сразу выпишем выражения для них через исходные вектора $\vr_1, \vr_2, \vr_3$, дополненные выражением для вектора центра масс $\vr_\Sigma$:
-\begin{gather}
-	\left\{
-	\begin{aligned}
-			\vrho_{12} &= \vr_1 - \vr_2 \\
-			\vrho_\Sigma &= \vr_{12} - \vr_3 = \frac{m_1 \vr_1 + m_2 \vr_2}{m_1 + m_2} - \vr_3 \\
-			\vr_\Sigma &= \frac{m_1 \vr_1 + m_2 \vr_2 + m_3 \vr_3}{m_1 + m_2 + m_3}
-	\end{aligned} 
-	\right. \notag \\ 
-	\begin{bmatrix}
-		\vrho_{12} \\
-		\vrho_\Sigma \\
-		\vr_\Sigma
-	\end{bmatrix}
-	=
-	\begin{bdmatrix}
-		1 & -1 & 0 \\
-		\frac{m_1}{m_1 + m_2} & \frac{m_2}{m_1 + m_2} & -1 \\
-		\frac{m_1}{m_1 + m_2 + m_3} & \frac{m_2}{m_1 + m_2 + m_3} & \frac{m_3}{m_1 + m_2 + m_3} 
-	\end{bdmatrix}
-	\begin{bmatrix}
-		\vr_1 \\
-		\vr_2 \\
-		\vr_3
-	\end{bmatrix}
-\end{gather}
-
-Обращая выписанную матрицу, выражаем исходные вектора $\vr_1, \vr_2, \vr_3$ через вектора Якоби $\vrho_{12}, \vr_\Sigma, \vr_\Sigma$. Затем отделяем центр масс системы, то есть исключаем вектор $\vr_\Sigma$ из выражений для $\vr_1, \vr_2, \vr_3$.
-\begin{gather}
-	\begin{bmatrix}
-		\vr_1 \\
-		\vr_2 \\
-		\vr_3
-	\end{bmatrix}
-	=
-	\begin{bdmatrix}
-		\frac{m_2}{m_1 + m_2} & \frac{m_3}{m_1 + m_2 + m_3} & 1 \\
-		-\frac{m_1}{m_1 + m_2} & \frac{m_3}{m_1 + m_2 + m_3} & 1 \\
-		0 & -\frac{m_1 + m_2}{m_1 + m_2 + m_3} & 1 
-	\end{bdmatrix}
-	\begin{bmatrix}
-		\vrho_{12} \\ \vrho_\Sigma \\ \vr_\Sigma
-	\end{bmatrix} \\
-	\left\{
-	\begin{aligned}
-		\vr_1 &= \frac{m_2}{m_1 + m_2} \vrho_{12} + \frac{m_3}{m_1 + m_2 + m_3} \vrho_\Sigma \\
-		\vr_2 &= - \frac{m_1}{m_1 + m_2} \vrho_{12} + \frac{m_3}{m_1 + m_2 + m_3} \vrho_\Sigma \\
-		\vr_3 &= - \frac{m_1 + m_2}{m_1 + m_2 + m_3} \vrho_\Sigma
-	\end{aligned}
-	\right.
-\end{gather}
-
-Продифференцировав полученные выражения и подставив в \eqref{eq1}, приходим к \eqref{eq5} 
-\begin{gather}
-		T = \frac{1}{2} \mu_\Sigma \dvrho_\Sigma^2 + \frac{1}{2} \mu_{12} \dvrho_{12}^2 
-\end{gather}
-
-Введем подвижную систему координат таким образом, чтобы линейная молекула и атом всегда находились в плоскости $XZ$, а атом лежал на оси $OZ$. Введем внутренние координаты $\mf{q} = \left\{ R, \Theta \right\}$; $R$ -- длина вектора $\vrho_\Sigma$, равная расстоянию между центром масс N$_2$ и Ar, $\Theta$ -- угол поворота N$_2$ относительно линии связи в подвижной плоскости.  
-\begin{gather}
-	\begin{aligned}
-		\vrho_\Sigma &\rightarrow \mf{R}_1 = \left\{ 0, 0, R \right\} \\ 
-		\vrho_{12} &\rightarrow \mf{R}_2 = \left\{ l \cos \Theta, 0, l \sin \Theta \right\}
-	\end{aligned} \quad \quad \Longleftrightarrow \quad \quad  
-	\begin{aligned}
-		X_1 &= 0 \\
-		Y_1 &= 0 \\
-		Z_1 &= R
-	\end{aligned}
-	\quad \quad 
-	\begin{aligned}
-		X_2 &= l \sin \Theta \\
-		Y_2 &= 0 \\
-		Z_2 &= l \cos \Theta
-	\end{aligned} \notag
-\end{gather}
-
-\newpage
 \section*{Гамильтониан молекулярной пары, в котором ориентация мономеров описывается относительно транслированной лабораторной системы координат}
 
 Рассмотрим два произвольных мономера. Обозначим радиус-векторы их центров масс через $\vrmf$ и $\vrms$. Поместим начало системы отсчета в центр масс системы как целого; параметризуем ось, соединяющую центры масс мономеров, сферическими углами $\Theta, \Phi$; обозначим вектор, направленный из центра масс первого мономера в центр масс второго за $\vR$. 
@@ -418,17 +280,13 @@
 		0 & 0 & 0 & 0 & 0 & 0 & \frac{\cos \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} & - \frac{\sin \theta_2 \sin \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} & - \frac{\cos \theta_2 \cos \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} \\
 		0 & 0 & 0 & 0 & 0 & 0 & \frac{\sin \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & \frac{\sin \theta_2 \cos \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & - \frac{\cos \theta_2 \sin \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} \\
 		0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \frac{1}{\sqrt{2 I_3^2}}
-	\end{bdmatrix}
+	\end{bdmatrix} = \notag \\
+	= 2^{9/2} \mu R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \notag
 \end{gather}
 \end{minipage}
 \end{sideways}
 \normalsize
 
-\begin{gather}
- \JacH = 2^{9/2} \mu R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 
-\end{gather}
-
-\newpage
 \section*{Определение углов Эйлера вращения, являющегося композицией двух вращений}
 
 Рассмотрим композицию двух вращений $\bbS_1$ и $\bbS_2$, параметризованновых наборами углов Эйлера $(\ao, \bo, \go)$ и $(\at, \bt, \gt)$, соответственно, определенными в Голдстейне (zxz; 313 extrinsic). 
@@ -512,6 +370,34 @@
 	\cos \beta_3 = - \sin \beta_2 \cos (\alpha_2 + \gamma_1 ) \sin \beta_1 + \cos \beta_1 \cos \beta_2 \\
 	\tg \gamma_3 = \frac{\Big[ \sin (\alpha_2 + \gamma_1) \cos \gamma_2 + \cos \beta_2 \sin \gamma_2 \cos (\alpha_2 + \gamma_1) \Big] \sin \beta_1 + \cos \beta_1 \sin \gamma_2 \sin \beta_2}{\Big[ \cos \beta_2 \cos (\alpha_2 + \gamma_1) \cos \gamma_2 - \sin \gamma_2 \sin (\alpha_2 + \gamma_1) \Big] \sin \beta_1 + \cos \beta_1 \cos \gamma_2 \sin \beta_2} 
 \end{gather}
+
+\section*{Связь угловых координат "транслированной" и подвижной систем}
+
+Транслированной системой кратко называем описанную выше систему, в которой ориентации мономеров описывается относительно транслированной лабораторной системы (перемещенной из центра масс пары в центры масс каждого из мономеров). Внутренние координаты такой системы будем помечать верхним индексом $t$. Вектор $\vR$, соединяющий центры масс мономеров, имеет компоненты
+\begin{gather}
+	\vR = \begin{bmatrix}
+		R \sin \Theta^t \cos \Phi^t \\
+		R \sin \Theta^t \sin \Phi^t \\
+		R \cos \Theta^t
+	\end{bmatrix}
+\end{gather}
+
+Ориентация мономеров относительно транслированной лабораторной системы описывается при помощи матриц $\bbS_1^t (\varphi_1^t, \theta_1^t, \psi_1^t)$ и $\bbS_2^t (\varphi_2^t, \theta_2^t, \psi_2^t)$. Матрицы $\bbS_1^t$, $\bbS_2^t$ осуществляют преобразование координат из системы жестко связанной с первым, вторым волчком, соответственно, в лабораторную систему. \par
+Подвижная система связана с лабораторной системой при помощи матрицы $\bbS_0 (\varphi_0, \theta_0, \psi_0)$.  Ориентации мономеров относительно подвижной системы описывается матрицами $\bbS_1^0 (\varphi_1, \theta_1, \psi_1)$ и $\bbS_2^0 (\varphi_2, \theta_2, \psi_2)$. Матрицы $\bbS_1^0$, $\bbS_2^0$ осуществляют пребразование координат из системы связанной жестко с волчком в подвижную систему. Матрица $\bbS_0$ осуществляет преобразование координат из подвижной системы в лабораторную систему, связанную с центром масс пары. \par 
+Рассмотрим следующую систему уравнений, связывающую угловые переменные "транслированной"  и подвижной систем:
+\begin{gather}
+	\left\{
+	\begin{aligned}
+		\bbS_0 \begin{bmatrix} 0 \\ 0 \\ R \end{bmatrix} &= 
+		\begin{bmatrix} 	R \sin \Theta^t \cos \Phi^t \\ R \sin \Theta^t \sin \Phi^t \\ R \cos \Theta^t \end{bmatrix} \\
+		\bbS_0 &\times \bbS_1^0 = \bbS_1^t \\
+		\bbS_0 &\times \bbS_2^0 = \bbS_2^t
+	\end{aligned} 
+	\right.
+\end{gather} 
+
+Эта система связывает 8 угловых переменных $\lb \varphi_0, \theta_0, \psi_0, \varphi_1, \theta_1, \psi_1, \varphi_2, \theta_2 \rb$, связанных с подвижной системой, с 8 угловыми переменными "транслированной" системы $\lb \Phi^t \right.$, $\Theta^t$, $\varphi_1^t$, $\theta_1^t$, $\psi_1^t$, $\varphi_2^t$, $\theta_2^t$, $\left. \psi_2^t \rb$. В результате решения этой системы мы сможем пересчитать якобиан замены переменных, приводящей гамильтониан в "транслированной" системе к голым квадратам, через углы подвижной системы, а также найти якобиан замены углов "транслированной" системы на углы подвижной системы. 
+
 
 \begin{thebibliography}{1}
 \bibitem{henderson} 
