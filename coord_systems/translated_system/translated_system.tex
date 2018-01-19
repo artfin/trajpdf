@@ -97,6 +97,8 @@
 \newcommand{\bth}{\beta_3}
 \newcommand{\gth}{\gamma_3}
 
+\newcommand{\p}{\partial}
+
 \makeatletter
 \def\env@dmatrix{\hskip -\arraycolsep
   \let\@ifnextchar\new@ifnextchar
@@ -112,6 +114,25 @@
   {\endmatrix\right]}
 % and other matrix environments are similar
 \makeatother
+
+
+\usepackage{tikz}
+\usetikzlibrary{fit}
+\tikzset{%
+	highlight/.style={rectangle,rounded corners, fill=red!15,draw,fill opacity=0.5,thick,inner sep=0pt}
+}
+
+\newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
+
+\newcommand{\Highlight}[1][submatrix]{%
+	\tikz[overlay,remember picture]{
+	\node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
+}
+
+\newcommand{\Highlightmy}[1][submatrix]{%
+	\tikz[overlay,remember picture]{
+	\node[highlight,fit=(left.north east) (right.south west) (langle.north west) (rangle.south east)] (#1) {};}
+}
 
 \begin{document}
 
@@ -366,9 +387,9 @@
 
 Подстановка компонентов кватерниона \eqref{quat} в выражения для углов Эйлера \eqref{eq_psi}, \eqref{eq_varphi}, \eqref{eq_theta} была выполнена в Maple, затем выражения были автоматически упрощены. В итоге были получены следующие выражения:
 \begin{gather}
-	\tg \alpha_3 = \frac{\Big[ \sin (\alpha_2 + \gamma_1) \cos \alpha_1 + \cos \beta_1 \sin \alpha_1 \cos (\alpha_2 + \gamma_1) \Big] \sin \beta_2 + \sin \alpha_1 \sin \beta_1 \cos \beta_2}{\Big[ \cos \beta_1 \cos (\alpha_2 + \gamma_1) \cos \alpha_1 - \sin \alpha_1 \sin(\alpha_2 + \gamma_1) \Big] \sin \beta_2 + \cos \alpha_1 \sin \beta_1 \cos \beta_2} \\
-	\cos \beta_3 = - \sin \beta_2 \cos (\alpha_2 + \gamma_1 ) \sin \beta_1 + \cos \beta_1 \cos \beta_2 \\
-	\tg \gamma_3 = \frac{\Big[ \sin (\alpha_2 + \gamma_1) \cos \gamma_2 + \cos \beta_2 \sin \gamma_2 \cos (\alpha_2 + \gamma_1) \Big] \sin \beta_1 + \cos \beta_1 \sin \gamma_2 \sin \beta_2}{\Big[ \cos \beta_2 \cos (\alpha_2 + \gamma_1) \cos \gamma_2 - \sin \gamma_2 \sin (\alpha_2 + \gamma_1) \Big] \sin \beta_1 + \cos \beta_1 \cos \gamma_2 \sin \beta_2} 
+		\tg \alpha_3 = \frac{\Big[ \sin (\alpha_2 + \gamma_1) \cos \alpha_1 + \cos \beta_1 \sin \alpha_1 \cos (\alpha_2 + \gamma_1) \Big] \sin \beta_2 + \sin \alpha_1 \sin \beta_1 \cos \beta_2}{\Big[ \cos \beta_1 \cos (\alpha_2 + \gamma_1) \cos \alpha_1 - \sin \alpha_1 \sin(\alpha_2 + \gamma_1) \Big] \sin \beta_2 + \cos \alpha_1 \sin \beta_1 \cos \beta_2} \label{res1} \\
+		\cos \beta_3 = - \sin \beta_2 \cos (\alpha_2 + \gamma_1 ) \sin \beta_1 + \cos \beta_1 \cos \beta_2 \label{res2} \\
+		\tg \gamma_3 = \frac{\Big[ \sin (\alpha_2 + \gamma_1) \cos \gamma_2 + \cos \beta_2 \sin \gamma_2 \cos (\alpha_2 + \gamma_1) \Big] \sin \beta_1 + \cos \beta_1 \sin \gamma_2 \sin \beta_2}{\Big[ \cos \beta_2 \cos (\alpha_2 + \gamma_1) \cos \gamma_2 - \sin \gamma_2 \sin (\alpha_2 + \gamma_1) \Big] \sin \beta_1 + \cos \beta_1 \cos \gamma_2 \sin \beta_2} \label{res3} 
 \end{gather}
 
 \section*{Связь угловых координат "транслированной" и подвижной систем}
@@ -393,11 +414,71 @@
 		\bbS_0 &\times \bbS_1^0 = \bbS_1^t \\
 		\bbS_0 &\times \bbS_2^0 = \bbS_2^t
 	\end{aligned} 
-	\right.
+	\right. \label{sys}
 \end{gather} 
 
-Эта система связывает 8 угловых переменных $\lb \varphi_0, \theta_0, \psi_0, \varphi_1, \theta_1, \psi_1, \varphi_2, \theta_2 \rb$, связанных с подвижной системой, с 8 угловыми переменными "транслированной" системы $\lb \Phi^t \right.$, $\Theta^t$, $\varphi_1^t$, $\theta_1^t$, $\psi_1^t$, $\varphi_2^t$, $\theta_2^t$, $\left. \psi_2^t \rb$. В результате решения этой системы мы сможем пересчитать якобиан замены переменных, приводящей гамильтониан в "транслированной" системе к голым квадратам, через углы подвижной системы, а также найти якобиан замены углов "транслированной" системы на углы подвижной системы. 
+Эта система связывает 8 угловых переменных $\lb \varphi_0, \theta_0, \psi_0, \varphi_1, \theta_1, \psi_1, \varphi_2, \theta_2 \rb$, связанных с подвижной системой, с 8 угловыми переменными "транслированной" системы $\lb \Phi^t \right.$, $\Theta^t$, $\varphi_1^t$, $\theta_1^t$, $\psi_1^t$, $\varphi_2^t$, $\theta_2^t$, $\left. \psi_2^t \rb$. В результате решения этой системы мы сможем пересчитать якобиан замены переменных, приводящей гамильтониан в "транслированной" системе к голым квадратам, через углы подвижной системы, а также найти якобиан замены углов "транслированной" системы на углы подвижной системы.
+Основываясь на \eqref{res1}, \eqref{res2} и \eqref{res3}, выпишем выражения, связывающие угловые перменные "транслированной" системы с угловыми переменными подвижной системы:
+\begin{gather}
+	\left\{
+	\begin{aligned}
+		\Theta_t &= \theta_0 \\ 
+		\Phi_t &= \varphi_0 \\
+		\tg \varphi_1^t &= 
+		\frac{
+			\Big[ \sin (\varphi_1 + \psi_0) \cos \varphi_0 + \cos \theta_0 \sin \varphi_0 \cos( \varphi_1 + \psi_0) \Big] \sin \theta_1 + \sin \varphi_0 \sin \theta_0 \cos \theta_1
+		}{
+		 	\Big[ \cos \theta_0 \cos (\varphi_1 + \psi_0) \cos \varphi_0 - \sin \varphi_0 \sin (\varphi_1 + \psi_0) \Big] \sin \theta_1 + \cos \varphi_0 \sin \theta_0 \sin \theta_1  
+		} \\
+		\cos \theta_1^t &= - \sin \theta_1 \cos (\varphi_1 + \psi_0) \sin \theta_0 + \cos \theta_0 \cos \theta_1 \\
+		\tg \psi_1^t &= \frac{
+			\Big[ \sin( \varphi_1 + \psi_0) \cos \psi_1 + \cos \theta_1 \sin \psi_1 \cos (\varphi_1 + \psi_0) \Big] \sin \theta_0 + \cos \theta_0 \sin \psi_1 \sin \theta_1 
+		}{
+			\Big[ \cos \theta_1 \cos (\varphi_1 + \psi_0) \cos \psi_1 - \sin \psi_1 \sin(\varphi_1 + \psi_0) \Big] \sin \theta_0 + \cos \theta_0 \cos \psi_1 \sin \theta_1
+		} \\
+		\tg \varphi_2^t &= 
+		\frac{
+			\Big[ \sin (\varphi_2 + \psi_0) \cos \varphi_0 + \cos \theta_0 \sin \varphi_0 \cos( \varphi_2 + \psi_0) \Big] \sin \theta_2 + \sin \varphi_0 \sin \theta_0 \cos \theta_2
+		}{
+		 	\Big[ \cos \theta_0 \cos (\varphi_2 + \psi_0) \cos \varphi_0 - \sin \varphi_0 \sin (\varphi_2 + \psi_0) \Big] \sin \theta_2 + \cos \varphi_0 \sin \theta_0 \sin \theta_2  
+		} \\
+		\cos \theta_2^t &= - \sin \theta_2 \cos (\varphi_2 + \psi_0) \sin \theta_0 + \cos \theta_0 \cos \theta_2 \\
+		\tg \psi_2^t &= \frac{
+			\Big[ \sin( \varphi_2 + \psi_0) \cos \psi_2 + \cos \theta_2 \sin \psi_2 \cos (\varphi_2 + \psi_0) \Big] \sin \theta_0 + \cos \theta_0 \sin \psi_2 \sin \theta_2 
+		}{
+			\Big[ \cos \theta_2 \cos (\varphi_2 + \psi_0) \cos \psi_2 - \sin \psi_2 \sin(\varphi_2 + \psi_0) \Big] \sin \theta_0 + \cos \theta_0 \cos \psi_2 \sin \theta_2
+		}
+	\end{aligned}
+	\right.
+\end{gather}
 
+Переходя к якобиану замены переменных, заметим, что $\varphi_1^t$ и $\theta_1^t$ не зависят от $\psi_1$. Следовательно производные $\displaystyle \frac{\partial \varphi_1^t}{\partial \psi_1}$ и $\displaystyle \frac{\partial \theta_1^t}{\partial \psi_1}$ равны 0.
+
+\[
+	\frac{\partial \lb \Phi^t, \Theta^t, \varphi_1^t, \theta_1^t, \psi_1^t, \varphi_2^t, \theta_2^t, \psi_2^t \rb}{\partial \lb \varphi_0, \theta_0, \psi_0, \varphi_1, \theta_1, \psi_1, \varphi_2, \theta_2 \rb} =
+\]
+\[
+\renewcommand*{\arraystretch}{1.25}
+\renewcommand*{\arraycolsep}{9.0pt}
+	= \left[ \; \;
+	\begin{dmatrix}
+		\tikzmark{left}{1} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & \tikzmark{right}{1} & 0 & 0 & 0 & 0 & 0 & 0 \\
+		\Highlight[first]
+		\frac{\p \varphi_1^t}{\p \varphi_0} & \frac{\p \varphi_1^t}{\p \theta_0} & \tikzmark{langle}{$\displaystyle \frac{\p \varphi_1^t}{\p \psi_0}$} & \frac{\p \varphi_1^t}{\p \varphi_1} & \frac{\p \varphi_1^t}{\p \theta_1} & \tikzmark{left}{0} & 0 & 0 \\
+		\frac{\p \theta_1^t}{\p \varphi_0} & \frac{\p \theta_1^t}{\p \theta_0} & \frac{\p \theta_1^t}{\p \psi_0} & \frac{\p \theta_1^t}{\p \varphi_1} & \frac{\p \theta_1^t}{\p \theta_1} & 0 & 0 & 0 \\
+		\frac{\p \psi_1^t}{\p \varphi_0} & \frac{\p \psi_1^t}{\p \theta_0} & \frac{\p \psi_1^t}{\p \psi_0} & \frac{\p \psi_1^t}{\p \varphi_1} & \frac{\p \psi_1^t}{\p \theta_1} & \tikzmark{rangle}{$\displaystyle \frac{\p \psi_1^t}{\p \psi_1}$} & 0 & 0 \\
+		\frac{\p \varphi_2^t}{\p \varphi_0} & \frac{\p \varphi_2^t}{\p \theta_0} & \tikzmark{right}{$\displaystyle \frac{\p \varphi_2^t}{\p \psi_0}$} & 0 & 0 & 0  & \frac{\p \varphi_2^t}{\p \varphi_2} & \frac{\p \varphi_2^t}{\p \theta_2} \\
+		\Highlightmy[second]
+		\frac{\p \theta_2^t}{\p \varphi_0} & \frac{\p \theta_2^t}{\p \theta_0} & \frac{\p \theta_2^t}{\p \psi_0} & 0 & 0 & 0 & \tikzmark{left}{$\displaystyle \frac{\p \theta_2^t}{\p \varphi_2}$} & \frac{\p \theta_2^t}{\p \theta_2} \\
+		\frac{\p \psi_2^t}{\p \varphi_0} & \frac{\p \psi_2^t}{\p \theta_0} & \frac{\p \psi_2^t}{\p \psi_0} & 0 & 0 & 0 & \frac{\p \psi_2^t}{\p \varphi_2} & \tikzmark{right}{$\displaystyle \frac{\p \psi_2^t}{\p \theta_2}$}
+		\Highlight[third]
+	\end{dmatrix} 
+	\; \; \right] = 
+\]
+\begin{gather}
+		= \frac{\p \varphi_2^t}{\p \psi_0} \frac{\p \psi_1^t}{\p \psi_1} \lsq \frac{\p \varphi_1^t}{\p \varphi_1} \frac{\p \theta_1^t}{\p \theta_1} - \frac{\p \varphi_1^t}{\p \theta_1} \frac{\p \theta_1^t}{\p \varphi_1} \rsq \cdot \lsq \frac{\p \theta_2^t}{\p \varphi_2} \frac{\p \psi_2^t}{\p \theta_2} - \frac{\p \theta_2^t}{\p \theta_2} \frac{\p \psi_2^t}{\p \varphi_2} \rsq  
+\end{gather}
 
 \begin{thebibliography}{1}
 \bibitem{henderson} 
