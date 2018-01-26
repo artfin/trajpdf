@@ -1,0 +1,84 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=0.5cm, right=0.5cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath, array}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{graphicx}
+\usepackage{rotating}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\lsq}{\left[}
+\newcommand{\rsq}{\right]}
+\newcommand{\tp}{\textup}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\dv}{\mathbf{d}}
+
+\begin{document}
+$H$ -- гамильтониан в лабораторной системе, $\mH$ -- гамильтониан в молекулярной системе.
+\begin{gather}
+	H = \mH + \frac{1}{2 \mu} P_x^2 + \frac{1}{2 \mu} P_y^2 + \frac{1}{2 \mu} P_z^2
+\end{gather}
+
+Рассмотрим выражение для вклада траектории $d \omega$ в спектральную функцию: 
+\begin{gather}
+		d \omega = \exp \lb - \frac{H}{k T} \rb dx_{cm} \, dy_{cm} \, dz_{cm} \, d P_x \, dP_y \, dP_z \, d R \, d p_R \, d \theta \, d p_\theta \\
+J( \omega ) \sim \frac{1}{\tp{Norm}} \int \frac{d \omega}{d t} \, \Biggl \rvert \, \int\limits_{-\infty}^{\infty} \dv \lb t \, | \, R, p_R, \theta, p_\theta \rb \exp \lb - i \omega t \rb dt \Biggr \rvert^2 \\
+	\frac{d \omega}{d t} = \exp \lb - \frac{H}{k T} \rb d x_{cm} \, d y_{cm} \, d z_{cm} \, dP_x \, dP_y \, dP_z \frac{d R}{d t} \, d p_R \, d \theta \, d p_\theta = \\ 
+	= \frac{p_R}{\mu} \exp \lb - \frac{\mH}{kT} \rb d x_{cm} \, dy_{cm} \, dz_{cm} \, dP_x \, dP_y \, dP_z \, d p_R \, d \theta \, d p_\theta
+\end{gather}
+
+Нормировочный множитель $\tp{Norm}$ равен интегралу $d \omega$. 
+\begin{gather}
+	\tp{Norm} = \int d \omega \\ 
+	\tp{Norm} = \int dx_{cm} \int dy_{cm} \int dz_{cm} \int dP_x \int dP_y \int dP_z \int d R \int d p_R \int d \theta \int \exp \lb - \frac{\mH}{k T} \rb d p_\theta = \notag \\
+	= V \lb 2 \pi M k T \rb^{3/2} \int dR \int dp_R \int d\theta \int \exp \lb - \frac{\mH}{kT} \rb d p_\theta
+\end{gather}
+
+В выражении для спектральной функции $(3)$ также можно проинтегрировать по переменным центра масс $x_{cm}$, $y_{cm}$, $z_{cm}$, $P_x$, $P_y$, $P_z$, что также приведет к множителям $V$ и $\lb 2 \pi M k T \rb^{3/2}$. Сократив их в числителе и знаменателе, а также избавившись от эйлерова угла $\theta$, т.к. гамильтониан $\mH$ не зависит от него, приходим к
+\begin{gather}
+	J( \omega ) \sim \frac{ \displaystyle \int dp_R \int \frac{p_R}{\mu} \exp \lb - \frac{\mH}{k T} \rb d p_\theta \Biggl \rvert \, \int\limits_{-\infty}^{+\infty} \dv \lb t \, | \, R, p_R, p_\theta \rb \exp \lb -i \omega t \rb dt \Biggr \rvert^2 }
+	{\displaystyle \int dR \int dp_R  \int \exp \lb -\frac{\mH}{kT} \rb d p_\theta } 
+\end{gather}
+
+Проведем анализ размерностей в этом выражении. Заметим, что отношение размерностей преобразованных интегралов $d \omega / dt$ и $\tp{Norm}$ равно $c^{-1}$.
+
+\begin{gather}
+\tp{Dim} \, \Biggl \rvert \, \int\limits_{-\infty}^{+\infty} \dv \lb t \, | \, R, p_R, p_\theta \rb \exp \lb -i \omega t \rb dt \Biggr \rvert^2 = \lb \tp{Кл} \cdot \tp{м} \cdot \tp{c} \rb^2 
+\end{gather}
+
+Коэффициент пропорциональности в $(8)$ равен $\displaystyle \frac{1}{2 \pi} \frac{1}{4 \pi \varepsilon_0}$ (основываясь на статье А.А.)
+\begin{gather}
+	\tp{Dim} \lsq \varepsilon_0^{-1} \rsq = \tp{Н} \cdot \tp{м}^2 \cdot \tp{Кл}^{-2}
+\end{gather}
+
+Полная размерность выражения для спектральной функции $J(\omega)$:
+\begin{gather}
+		\tp{Dim} J (\omega) = \tp{c}^{-1} \cdot \tp{Н} \cdot \tp{м}^2 \cdot \tp{Кл}^{-2} \cdot \tp{Кл}^2 \cdot \tp{м}^2 \cdot \tp{c}^2 = \tp{Дж} \cdot \tp{м}^3 \cdot \tp{c}
+\end{gather}
+
+\end{document}
