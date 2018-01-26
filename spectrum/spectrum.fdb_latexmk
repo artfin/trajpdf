@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1517000428 "spectrum.tex" "spectrum.pdf" "spectrum" 1517000429
+["pdflatex"] 1517005621 "spectrum.tex" "spectrum.pdf" "spectrum" 1517005621
   "/etc/texmf/web2c/texmf.cnf" 1499338588 1101 af7716885e081ab43982cab7b4672c1a ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm0700.tfm" 1491906671 3256 b15a2ce2310c0038b96c5235b038f0eb ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm" 1491517732 3220 0e417eaf233b160335902e97259a6c77 ""
@@ -84,8 +84,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1499338691 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1499338756 3859297 bb1e70cac6101c8240393ab02e68dece ""
-  "spectrum.aux" 1517000429 186 d84bf62585b18c5b92804f4b0a9189f3 ""
-  "spectrum.tex" 1517000427 4584 3ce26f6f7e61840165c7856986e818da ""
+  "spectrum.aux" 1517005621 186 d84bf62585b18c5b92804f4b0a9189f3 ""
+  "spectrum.tex" 1517005618 4594 6745d2bea67d61f81511a3e41f4dd4cf ""
   (generated)
   "spectrum.pdf"
   "spectrum.log"
