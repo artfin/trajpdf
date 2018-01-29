@@ -37,6 +37,7 @@
 \newcommand{\tp}{\textup}
 \newcommand{\mH}{\mathcal{H}}
 \newcommand{\dv}{\mathbf{d}}
+\newcommand{\vxi}{\boldsymbol{\xi}}
 
 \begin{document}
 $H$ -- гамильтониан в лабораторной системе, $\mH$ -- гамильтониан в молекулярной системе.
@@ -47,7 +48,7 @@ $H$ -- гамильтониан в лабораторной системе, $\mH
 Рассмотрим выражение для вклада траектории $d \omega$ в спектральную функцию: 
 \begin{gather}
 		d \omega = \exp \lb - \frac{H}{k T} \rb dx_{cm} \, dy_{cm} \, dz_{cm} \, d P_x \, dP_y \, dP_z \, d R \, d p_R \, d \theta \, d p_\theta \\
-J( \omega ) \sim \frac{1}{\tp{Norm}} \int \frac{d \omega}{d t} \, \Biggl \rvert \, \int\limits_{-\infty}^{\infty} \dv \lb t \, | \, R, p_R, \theta, p_\theta \rb \exp \lb - i \omega t \rb dt \Biggr \rvert^2 \\
+G( \omega ) \sim \frac{1}{\tp{Norm}} \int \frac{d \omega}{d t} \, \Biggl \rvert \, \int\limits_{-\infty}^{\infty} \dv \lb t \, | \, R, p_R, \theta, p_\theta \rb \exp \lb - i \omega t \rb dt \Biggr \rvert^2 \\
 	\frac{d \omega}{d t} = \exp \lb - \frac{H}{k T} \rb d x_{cm} \, d y_{cm} \, d z_{cm} \, dP_x \, dP_y \, dP_z \frac{d R}{d t} \, d p_R \, d \theta \, d p_\theta = \\ 
 	= \frac{p_R}{\mu} \exp \lb - \frac{\mH}{kT} \rb d x_{cm} \, dy_{cm} \, dz_{cm} \, dP_x \, dP_y \, dP_z \, d p_R \, d \theta \, d p_\theta
 \end{gather}
@@ -61,8 +62,25 @@ J( \omega ) \sim \frac{1}{\tp{Norm}} \int \frac{d \omega}{d t} \, \Biggl \rvert 
 
 В выражении для спектральной функции $(3)$ также можно проинтегрировать по переменным центра масс $x_{cm}$, $y_{cm}$, $z_{cm}$, $P_x$, $P_y$, $P_z$, что также приведет к множителям $V$ и $\lb 2 \pi M k T \rb^{3/2}$. Сократив их в числителе и знаменателе, а также избавившись от эйлерова угла $\theta$, т.к. гамильтониан $\mH$ не зависит от него, приходим к
 \begin{gather}
-	J( \omega ) \sim \frac{ \displaystyle \int dp_R \int \frac{p_R}{\mu} \exp \lb - \frac{\mH}{k T} \rb d p_\theta \Biggl \rvert \, \int\limits_{-\infty}^{+\infty} \dv \lb t \, | \, R, p_R, p_\theta \rb \exp \lb -i \omega t \rb dt \Biggr \rvert^2 }
+	G( \omega ) = \frac{1}{4 \pi \varepsilon_0} \frac{1}{2 \pi} \frac{ \displaystyle \int dp_R \int \frac{p_R}{\mu} \exp \lb - \frac{\mH}{k T} \rb d p_\theta \Biggl \rvert \, \int\limits_{-\infty}^{+\infty} \dv \lb t \, | \, R, p_R, p_\theta \rb \exp \lb -i \omega t \rb dt \Biggr \rvert^2 }
 	{\displaystyle \int dR \int dp_R  \int \exp \lb -\frac{\mH}{kT} \rb d p_\theta } 
+\end{gather}
+
+Рассмотрим ситуацию, в которой интегральное выражение в числителе вычисляется методом Монте-Карло, точки $\vxi^0 = \left\{ p_R^0, p_\theta^0 \right\}$ генерируются с распределением $\displaystyle \rho \sim \exp \lb - \frac{\mH}{kT} \rb$. 
+\begin{gather}
+		G( \omega ) = \frac{1}{2 \pi} \frac{1}{4 \pi \varepsilon_0} \frac{\displaystyle \int dp_R \int dp_\theta \exp \lb - \frac{\mH}{k T} \rb}{\displaystyle \int dR \int dp_R \int dp_\theta \exp \lb - \frac{\mH}{kT} \rb} \lim_{N \rightarrow +\infty} \frac{1}{N} \sum_{i = 1}^{N} \frac{p_R^0}{\mu} \Biggl \rvert \, \int\limits_{-\infty}^{+\infty} \dv \lb t \, | \vxi^0 \rb \exp \lb - i \omega t \rb dt \Biggl \rvert^2 \notag
+\end{gather}
+
+Рассмотрим отдельно отношение интегралов, предшествующее пределу, для случая двухатомной системы (предполагаем $\displaystyle U(R^0) = 0$):
+\begin{gather}
+	\int dp_R \int dp_\theta \exp \lb - \frac{\mH}{k T} \rb = 2 \mu k T \pi R^0 \notag \\
+	\int dR \int dp_R \int dp_\theta \exp \lb - \frac{\mH}{k T} \rb = \mu k T \pi \lb R^0 \rb^2 \notag \\
+	\frac{\displaystyle \int dp_R \int dp_\theta \exp \lb - \frac{\mH}{kT} \rb}{\displaystyle \int dR \int dp_R \int dp_\theta \exp \lb - \frac{\mH}{kT} \rb} = \frac{2}{R^0} \notag
+\end{gather}
+
+Приходим к следующему выражению для спектральной функции:
+\begin{gather}
+		G(\omega ) = \frac{1}{2 \pi} \frac{1}{4 \pi \varepsilon_0} \frac{2}{R^0} \lim_{N \rightarrow +\infty} \frac{1}{N} \sum_{i = 1}^{N} \frac{p_R^0}{\mu} \Biggl \rvert \, \int\limits_{-\infty}^{+\infty} \dv \lb t \, | \vxi^0 \rb \exp \lb - i \omega t \rb dt \Biggl \rvert^2
 \end{gather}
 
 Проведем анализ размерностей в этом выражении. Заметим, что отношение размерностей преобразованных интегралов $d \omega / dt$ и $\tp{Norm}$ равно $c^{-1}$.
