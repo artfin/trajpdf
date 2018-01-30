@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1517066849 "rotations.tex" "rotations.pdf" "rotations" 1517066849
+["pdflatex"] 1517312481 "rotations.tex" "rotations.pdf" "rotations" 1517312481
   "/etc/texmf/web2c/texmf.cnf" 1499338588 1101 af7716885e081ab43982cab7b4672c1a ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1491517754 3304 6a543c07045572737981351171e0505e ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1491517753 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
@@ -83,9 +83,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1499338691 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1499338756 3859297 bb1e70cac6101c8240393ab02e68dece ""
-  "rotations.aux" 1517066834 1010 dd3b8b3b1619c26db5c8f915cee7f6f7 ""
-  "rotations.tex" 1517066847 9327 f043997eb18e37b61529f965a7d2c0b8 ""
+  "rotations.aux" 1517312467 1010 dd3b8b3b1619c26db5c8f915cee7f6f7 ""
+  "rotations.tex" 1517312480 9722 c17767f0bb45c0a549b5922fb001cbd9 ""
   (generated)
+  "rotations.aux"
   "rotations.log"
   "rotations.pdf"
-  "rotations.aux"
