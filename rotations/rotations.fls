@@ -46,6 +46,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -86,6 +88,12 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/share/texmf/tex/latex/mathtools/mathtools.sty
+INPUT /usr/share/texmf/tex/latex/mathtools/mathtools.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texmf/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/share/texmf/tex/latex/mathtools/mhsetup.sty
 INPUT rotations.aux
 INPUT rotations.aux
 INPUT /usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
@@ -130,6 +138,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT rotations.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/lati1440.tfm
+INPUT pictures/stereographic.png
+INPUT ./pictures/stereographic.png
+INPUT ./pictures/stereographic.png
 INPUT rotations.aux
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb

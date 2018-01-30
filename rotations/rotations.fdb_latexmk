@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1517312481 "rotations.tex" "rotations.pdf" "rotations" 1517312481
+["pdflatex"] 1517343793 "rotations.tex" "rotations.pdf" "rotations" 1517343793
   "/etc/texmf/web2c/texmf.cnf" 1499338588 1101 af7716885e081ab43982cab7b4672c1a ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1491517754 3304 6a543c07045572737981351171e0505e ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1491517753 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
@@ -73,6 +73,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty" 1238284825 7131 a49b179ae7108fe42935176733099fc0 ""
   "/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty" 1458167616 37376 24e8897adf60e0b032f1eda26754a8cf ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty" 1454284088 13285 f3f53a6ffbd47ead3faa66a5e2be19b7 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty" 1454284088 10214 d03d065f799d54f6b7e9b175f8d84279 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty" 1137111090 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc" 1367930684 3141 82d5616418ed8d5de703b3951bedecb4 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb" 1491601214 135942 859a90cad7494a1e79c94baf546d7de5 ""
@@ -80,11 +82,14 @@
   "/usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb" 1491601215 187615 3df8b496c716586eebd1546cd4031312 ""
   "/usr/share/texmf/tex/latex/extsizes/extarticle.cls" 1491514383 20602 3112294ba237d94ce4a1502cfef3594f ""
   "/usr/share/texmf/tex/latex/extsizes/size14.clo" 944545440 6214 cc6d832fdd2fc5f4a20ee1a002f45d0f ""
+  "/usr/share/texmf/tex/latex/mathtools/mathtools.sty" 1493024260 52544 230bee00b51474565531682f2222a2d9 ""
+  "/usr/share/texmf/tex/latex/mathtools/mhsetup.sty" 1493024270 5175 696879833890ce832e12746d98d0e932 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1499338691 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1499338756 3859297 bb1e70cac6101c8240393ab02e68dece ""
-  "rotations.aux" 1517312467 1010 dd3b8b3b1619c26db5c8f915cee7f6f7 ""
-  "rotations.tex" 1517312480 9722 c17767f0bb45c0a549b5922fb001cbd9 ""
+  "pictures/stereographic.png" 1517319068 17317 04df937f0caafe9d9e0f396c817ee35c ""
+  "rotations.aux" 1517343779 1580 57a4ce6aed0baaf5a2de06c939ccf10b ""
+  "rotations.tex" 1517343793 21967 b88087e0df7eb182a53985ddee86cc08 ""
   (generated)
   "rotations.aux"
   "rotations.log"

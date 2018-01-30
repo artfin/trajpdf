@@ -7,6 +7,8 @@
 % page margin
 \usepackage[top=2cm, bottom=2cm, left=0.5cm, right=0.5cm]{geometry}
 
+\usepackage{wrapfig}
+
 % AMS packages
 \usepackage{amsmath, array}
 \usepackage{amssymb}
@@ -33,6 +35,8 @@
 \newcommand{\pr}{\prime}
 \newcommand{\lb}{\left(}
 \newcommand{\rb}{\right)}
+
+\usepackage{mathtools} % for dfrac!
 
 \begin{document}
 
@@ -96,8 +100,126 @@
 
 Представленные выше результаты показывают, что вращение $g$ может быть описано при помощи девяти параметров, а именно элементами $g_{ik}$ матрицы вращения $g$; однако эти параметры не являются независимыми, они связаны соотношениями \eqref{scalar_product3}. Примером описания вращения при помощи независимых параметров являются углы Эйлера. \par
 Пусть вращение $g$ переводит координатные оси $Ox$, $Oy$, $Oz$ в оси $Ox^\pr$, $Oy^\pr$, $Oz^\pr$. Обозначим линию пересечения плоскостей $xOy$ и $x^\pr O y^\pr$ через $Ol$ (ее принято называть \textit{линией узлов}). Придадим ей направление таким образом, чтобы наблюдатель, смотря вдоль заданного направления, видел угол между осями $Oz$ и $Oz^\pr$ (меньше $\pi$), отложенным против часовой стрелки. Это условие задает направление линии узлов во всех ситуциях, за исключением тех, в которых угол между осями $Oz$, $Oz^\pr$ равен 0 или $\pi$. \par
-Обозначим через $\varphi$ угол между осью $Ox$ и линией узлов $Ol$, через $\psi$ -- угол между $Ol$ и осью $Ox^\pr$ и через $\theta$ -- между $Oz$ и $Oz^\prime$. Пусть $g_\varphi$ и $g_\psi$ обозначают вращения вокруг оси $Oz$, $g_\theta$ -- вращение вокруг оси $Ox$.
+Обозначим через $\varphi$ угол между осью $Ox$ и линией узлов $Ol$, через $\psi$ -- угол между $Ol$ и осью $Ox^\pr$ и через $\theta$ -- между $Oz$ и $Oz^\prime$. Пусть $g_\varphi$ и $g_\psi$ обозначают вращения вокруг оси $Oz$, $g_\theta$ -- вращение вокруг оси $Ox$. \par
+Вращение $g$ может быть представлено композицией $g = \widetilde{g}_\psi \widetilde{g}_\theta g_\varphi$ трех поворотов $g_\varphi$, $\widetilde{g}_\theta$, $\widetilde{g}_\psi$ вокруг осей $Oz$, $Ol$, $Oz^\pr$, соответственно. В результате вращения $g_\varphi$ ось $Ox$ совпадет с линией узлов $Ol$; ось $Oz$ перейдет в ось $Oz^\pr$ в результате вращения $\widetilde{g}_\theta$; вращение $\widetilde{g}_\psi$ переведет линию узлов $Ol$ в $Ox^\pr$ (ось $Oy$ в результате вращений $g_\varphi$ и $\widetilde{g}_\psi$ перейдет в $Oy^\pr$). \par
+Повороты $\widetilde{g}_\theta$ и $\widetilde{g}_\psi$ были сделаны вокруг вспомогательных осей $Ol$ и $Oz^\pr$; представим их в виде поворотов относительно первоначальных осей $Ox$ и $Oz$. Поворот $\widetilde{g}_\theta$ является преобразованием новой системы координатных осей, полученной из первоначальной, действием $g_\varphi$, следовательно $\widetilde{g}_\theta = g_\varphi g_\theta g_\varphi^{-1}$. Аналогично, $\widetilde{g}_\psi = (\widetilde{g}_\theta g_\varphi) g_\psi (\widetilde{g}_\theta g_\varphi)^{-1}$. Подставим в выражение для композиции поворотов $g$:
+\begin{gather}
+	g = \widetilde{g}_\psi \widetilde{g}_\theta g_\varphi = ( \widetilde{g}_\theta g_\varphi ) g_\psi ( \widetilde{g}_\theta g_\varphi)^{-1} \widetilde{g}_\theta g_\varphi = \widetilde{g}_\theta g_\varphi g_\theta = g_\varphi g_\theta g_\psi
+\end{gather}
+\textit{То есть, последовательность поворотов на углы $\varphi$, $\theta$, $\psi$ вокруг вспомогательных систем осей, получаемых в результате осуществления каждого следующего поворота, эквивалентна последовательности поворотов относительно исходных осей, сделанных в обратном порядке $\psi$, $\theta$, $\varphi$.} \par 
+Три угла $\varphi, \theta, \psi$ являются независимыми и полностью определяют поворот $g$. Согласно определениям, они изменяются в пределах, $0 \leqslant \varphi \leqslant 2 \pi$, $0 \leqslant \psi \leqslant 2 \pi$, $0 \leqslant \theta \leqslant \pi$. Разные наборы эйлеровых углов $(\varphi, \theta, \psi)$, взятые из этих интервалов, определяют разные повороты, за исключением случаев $\theta = 0$ и $\theta = \pi$. В этих особых случаях плоскости $xOy$ и $x^\pr O y^\pr$ совпадают, и линия их пересечения, линия узлов $Ol$, оказывается неопределена. Варьируя ориентацию линии узлов в плоскости, заключаем, что в случае $\theta = 0$ пары углов $(\varphi, \psi)$ и $(\varphi + \alpha, \psi - \alpha)$ определяют один и тот же поворот для любого $\alpha$; аналогично, в случае $\theta = \pi$ пары углов $(\varphi, \psi)$ и $(\varphi + \alpha, \psi + \alpha)$ эквивалентны для любого $\alpha$.  	
+Выразим элементы матрицы поворота $g$ через углы Эйлера. Вспользуемся полученным выражением для поворота $g$ через повороты $g_\varphi$, $g_\theta$ и $g_\psi$ относительно исходной системы координат.
+\begin{gather}
+	g_\varphi = 
+	\begin{bmatrix}
+		\cos \varphi & - \sin \varphi & 0 \\
+		\sin \varphi & \cos \varphi & 0 \\
+		0 & 0 & 1
+	\end{bmatrix}, 
+	\quad 
+	g_\theta =
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & \cos \theta & - \sin \theta \\
+		0 & \sin \theta & \cos \theta
+	\end{bmatrix},
+	\quad 
+	g_\psi = 
+	\begin{bmatrix}
+		\cos \psi & - \sin \psi & 0 \\
+		\sin \psi & \cos \psi & 0 \\
+		0 & 0 & 1
+	\end{bmatrix} \notag
+\end{gather}
+\begin{gather}
+	g = g_\varphi g_\theta g_\psi = 
+	\begin{bmatrix}
+		\cos \varphi \cos \psi - \cos \theta \sin \varphi \sin \psi & - \cos \varphi \sin \psi - \cos \theta \sin \varphi \cos \psi & \sin \varphi \sin \theta \\
+		\sin \varphi \cos \psi + \cos \theta \cos \varphi \sin \psi & - \sin \varphi \sin \psi + \cos \theta \cos \varphi \cos \psi & - \cos \varphi \sin \theta \\
+		\sin \psi \sin \theta & \cos \psi \sin \theta & \cos \theta
+	\end{bmatrix} \notag
+\end{gather}
 
-		
-		
+Заметим, что замена $\lb \varphi, \theta, \psi \rb \rightarrow \lb \pi - \varphi, \theta, \pi - \psi \rb$ переводит матрицу $g$ в $g^\top = g^{-1}$. То есть, если поворот $g$ задан углами $\lb \varphi, \theta, \psi \rb$, то обратный поворот задается углами $\lb \pi - \varphi, \theta, \pi - \psi \rb$.  
+
+\section*{Связь группы вращений с группой унитарных матриц второго порядка}
+
+Покажем, что вращения трехмерного пространства можно описывать комплексными матрицами второго порядка. Для этого рассмотрим стереографическую проекцию сферы на плоскость -- каждой точке P сферы относится точка $\zeta$ в плоскости, лежащая на луче O$^\pr$P, исходящем из северного полюса O$^\pr$. Вращение трехмерного пространства вокруг центра сферы переводит друг в друга точки сферы и порождает тем самым некоторое преобразование в плоскости. 
+
+\begin{wrapfigure}{R}{0.3\textwidth}
+\centering
+\includegraphics[width=0.25\textwidth]{pictures/stereographic.png}
+\caption{\label{fig:stereographic}Стереографическая проекция}
+\end{wrapfigure}
+
+Рассмотрим сферу диаметра 1. Из подобия треугольников $\Delta$ANP и $\Delta$BN$\zeta$ получаем связь между координатами $x$, $y$, $z$ точки P сферы и координатами $\xi$, $\eta$ точки $\zeta$ плоскости:
+\begin{gather}
+	\xi = \frac{x}{\frac{1}{2} - z}, \qquad \eta = \frac{y}{\frac{1}{2} - z}. \notag
+\end{gather}
+
+Вводим комплексную переменную $\zeta = \xi + i \eta$:
+\begin{gather}
+	\zeta = \xi + i \eta = \frac{x + iy}{\frac{1}{2} - z} 
+\end{gather}
+
+Т.к. точка P принадлежит сфере единичного диаметра, то ее координаты $x$, $y$, $z$ удовлетворяют соотношению
+\begin{gather}
+	x^2 + y^2 + z^2 = \frac{1}{4}.
+\end{gather}
+
+Используем это соотношение при преобразовании $\zeta$:
+\begin{gather}
+	\zeta = \frac{x + iy}{\frac{1}{2} - z} = \frac{\lb x + iy \rb \lb x - iy \rb}{\lb \frac{1}{2} - z \rb \lb x - i y \rb} = \frac{x^2 + y^2}{\lb \frac{1}{2} - z \rb \lb x - iy \rb} = \frac{ \lb \frac{1}{2} - z \rb \lb \frac{1}{2} + z \rb}{ \lb \frac{1}{2} - z \rb \lb x - i y \rb} = \frac{ \frac{1}{2} + z }{ x - iy }.  
+\end{gather}
+
+Найдем преобразование плоскости, отвечающее вращению на угол $\varphi$ вокруг оси Oz. Имеем:
+\begin{gather}
+	\begin{aligned}
+		x^\prime &= x \cos \varphi - y \sin \varphi \\
+		y^\prime &= x \sin \varphi + y \cos \varphi \\
+		z^\prime &= z
+\end{aligned} \\
+	\zeta^\prime = \frac{x^\prime + i y^\prime}{\frac{1}{2} - z} = \frac{ x (\cos \varphi + i \sin \varphi) + iy (\cos \varphi + i \sin \varphi)}{\frac{1}{2} - z} = \exp \lb i \varphi \rb \frac{x + iy}{\frac{1}{2} - z} = \exp \lb i \varphi \rb \zeta
+\end{gather}
+
+Т.е. вращению на угол $\varphi$ отвечает преобразование плоскости $\zeta^\prime = \exp \lb i \varphi \rb \zeta$. Рассмотрим вращение на угол $\theta$ вокруг оси Ox. Заметим, что при таком вращении выражение
+\begin{gather}
+	\omega = \frac{y + iz}{\frac{1}{2} - x}
+\end{gather}
+умножается на $\exp \lb i \theta \rb$, т.е.
+\begin{gather}
+	\omega^\prime = \exp \lb i \theta \rb \omega \label{omega_prime_with_omega}.
+\end{gather}
+
+Выразим $\omega$ через $\zeta$ (и соответственно $\omega^\prime$ через $\zeta^\prime$). Рассмотрим отношение:
+\begin{gather}
+		\frac{\omega + i}{\omega - i} = \frac{\displaystyle \frac{y + iz}{\frac{1}{2} - x} + i}{\displaystyle \frac{y + iz}{\frac{1}{2} - x} - i} = \frac{y + iz + i \lb \frac{1}{2} - x \rb}{y + iz - i \lb \frac{1}{2} - x \rb} = \frac{- \lb x + iy \rb + \lb z + \frac{1}{2} \rb}{\lb x - i y \rb + \lb z - \frac{1}{2} \rb }, \\
+		x + iy = \zeta \lb \frac{1}{2} - z \rb, \quad x - iy = \lb z + \frac{1}{2} \rb \zeta^{-1} \\
+		\frac{\omega + i}{\omega - i} = \frac{ \zeta \lb z - \frac{1}{2} \rb + \lb z + \frac{1}{2} \rb}{ \zeta^{-1} \lb z + \frac{1}{2} \rb + \lb z - \frac{1}{2} \rb} = \zeta \label{zeta_with_omega}
+\end{gather}
+
+Аналогично получаем
+\begin{gather}
+	\frac{\omega^\prime + i}{\omega^\prime - i} = \zeta^\prime. \label{zeta_prime_with_omega_prime}
+\end{gather}
+
+Выражаем $\omega$ через $\zeta$ в выражении \eqref{zeta_with_omega} и $\omega^\prime$ через $\zeta^\prime$ в выражении \eqref{zeta_prime_with_omega_prime}, подставляем выражения в соотношение \eqref{omega_prime_with_omega}, связывающее $\omega$ и $\omega^\prime$:   
+\begin{gather}
+	\omega = -i \frac{1 + \zeta}{1 - \zeta}, \qquad \omega^\prime = - i \frac{1 + \zeta^\prime}{1 - \zeta^\prime} \\
+	\frac{\zeta^\prime + 1}{\zeta^\prime - 1} = \exp \lb i \theta \rb \frac{\zeta + 1}{\zeta - 1} 
+\end{gather}
+
+Решая это уравнение относительно $\zeta^\prime$, мы получаем преобразование, отвечающее вращения на угол $\theta$ вокруг оси Ox:
+\begin{gather}
+	\zeta^\prime = \frac{ \zeta \lb \exp \lb i \theta \rb + 1 \rb + \lb \exp \lb i \theta \rb - 1 \rb }{ \zeta \lb \exp \lb i \theta \rb - 1 \rb + \lb \exp \lb i \theta \rb + 1 \rb} \\ 
+	\frac{ \exp \lb i \theta \rb + 1 }{ \exp \lb i \theta \rb - 1 } = \frac{ \exp \lb 2 i \theta \rb - 1 }{ \exp \lb 2 i \theta \rb - 2 \exp \lb i \theta \rb + 1 } = \frac{\exp \lb i \theta \rb - \exp \lb - i \theta \rb }{ \exp \lb i \theta \rb + \exp \lb -i \theta \rb - 2 } = -i \frac{\sin \theta}{1 - \cos \theta}  = - i \ctg \frac{\theta}{2} \notag \\
+	\ctg \frac{\theta}{2} = \frac{\displaystyle \cos \frac{\theta}{2}}{\displaystyle \sin \frac{\theta}{2}} = \frac{\displaystyle 2 \sin \frac{\theta}{2} \cos \frac{\theta}{2}}{\displaystyle 2 \sin^2 \frac{\theta}{2}} = \frac{\sin \theta}{1 - \cos \theta} \notag
+\end{gather}
+
+\begin{gather}
+		\zeta^\prime = \frac{\zeta \lb \exp \lb i \theta \rb + 1 \rb + \lb \exp \lb i \theta \rb - 1 \rb}{\zeta \lb \exp \lb i \theta \rb - 1 \rb + \lb \exp \lb i \theta \rb + 1 \rb} = \frac{\displaystyle \zeta \frac{\exp \lb i \theta \rb + 1}{\exp \lb i \theta \rb - 1} + 1}{\displaystyle \zeta + \frac{\exp \lb i \theta \rb + 1}{\exp \lb i \theta \rb - 1}} = \frac{\displaystyle -i \zeta \ctg \frac{\theta}{2} + 1}{\displaystyle \zeta - i \ctg \frac{\theta}{2}} \\ 
+	\zeta^\prime = \frac{\displaystyle \zeta \cos \frac{\theta}{2} + i \sin \frac{\theta}{2}}{\displaystyle i \zeta \sin \frac{\theta}{2} + \cos \frac{\theta}{2}}
+\end{gather}
+
 \end{document}
+
