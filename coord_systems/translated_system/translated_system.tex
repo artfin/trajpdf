@@ -30,7 +30,7 @@
 \titleformat{\section}{\bfseries}{\thesection.}{1em}{}
 \titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
 
-\newcommand{\JacH}{\left[ \, Jac \, \right]_{\textup{ham}}}
+\newcommand{\JacH}{\left[ \, \textup{Jac}} \, \right]_{\textup{ham}}}
 
 \newcommand{\mf}{\mathbf}
 \newcommand{\dvr}{\dot{\mathbf{r}}}
@@ -240,26 +240,19 @@
 	\alpha = \If \cos^2 \psi_2 + \Is \sin^2 \psi_2, \quad \beta = \lb \Is - \If \rb \sin \theta_2 \sin \psi_2 \cos \psi_2 \notag
 \end{gather}
 
-Подставив полученные выражения эйлеровых скоростей через эйлеровы импульсы в матричное произведение $\displaystyle \dveulers^\top \bbVs^\top \bbIt \bbVs \dveulers$, получаем (?) угловую часть кинетической энергии второго мономера в гамильтоновой форме
+Полученная матрица $\lb \bbVs^\top \bbIt \bbVs \rb^{-1}$ является матрицей гамильтоновой формы кинетической энергии волчка. Умножив ее слева на вектор-строку и справа на вектор-столбец эйлеровых импульсов $\pes$ приходим к выражению для гамильтоновой формы кинетической энергии волчка $T_2^\mathcal{H}$. (Заметим, что в статье АА (2015) в этом выражении опечатка -- $\If$ и $\Is$ перепутаны местами.)
 \begin{gather}
-		\widetilde{T}_2^\mathcal{H} (\varphi_2, \theta_2, \psi_2, p_2^\varphi, p_2^\theta, p_2^\psi)= \frac{1}{2 \If \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2 \rsq^2 + \notag \\
-	+ \frac{1}{2 \Is \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2 \rsq^2 + \frac{1}{2 \It} \lb p_2^\psi \rb^2.
+	T_2^\mathcal{H} = \frac{1}{2 \If \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2 \rsq^2 + \notag \\
+	+\frac{1}{2 \Is \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2 \rsq^2 + \frac{1}{2 \It} \lb p_2^\psi \rb^2.
 \end{gather}
 
-Выражения для импульсов, сопряженных координатам $R, \Theta, \Phi$, существенно проще:
-\begin{gather}
-	p_R = \frac{\partial T}{\partial \dR} = \mu \dR \notag \\
-	p_\Theta = \frac{\partial T}{\partial \dTheta} = \mu R^2 \dTheta \notag \\
-	p_\Phi = \frac{\partial T}{\partial \dPhi} = \mu R^2 \dPhi \sin^2 \Theta \notag
-\end{gather}
-
-Итого, приходим к следующему выражению для гамильтониана:
+Итак, приходим к следующему выражению для гамильтониана:
 \begin{gather}
 	T_\mathcal{H} = \frac{p_R^2}{2 \mu} + \frac{p_\Theta^2}{2 \mu R^2} + \frac{p_\Phi^2}{2 \mu R^2 \sin^2 \Theta} + \notag \\
-	+ \frac{1}{2 \If \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2 \rsq^2 + \notag \\
-	+ \frac{1}{2 \Is \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2 \rsq^2 + \frac{1}{2 \It} \lb p_2^\psi \rb^2 + \notag \\
-	+ \frac{1}{2 \Iff \sin^2 \theta_1} \lsq \lb p_1^\varphi - p_1^\psi \cos \theta_1 \rb \cos \psi_1 - p_1^\theta \sin \theta_1 \sin \psi_1 \rsq^2 + \notag \\
-	+ \frac{1}{2 \Iss \sin^2 \theta_1} \lsq \lb p_1^\varphi - p_1^\psi \cos \theta_1 \rb \sin \psi_1 + p_1^\theta \sin \theta_1 \cos \psi_1 \rsq^2 + \frac{1}{2 \Itt} \lb p_1^\psi \rb^2 \notag
+	+ \frac{1}{2 \If \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2 \rsq^2 + \notag \\
+	+\frac{1}{2 \Is \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2 \rsq^2 + \frac{1}{2 \It} \lb p_2^\psi \rb^2 + \notag \\
+	\frac{1}{2 \Iff \sin^2 \theta_1} \lsq \lb p_1^\varphi - p_1^\psi \cos \theta_1 \rb \sin \psi_1 + p_1^\theta \sin \theta_1 \cos \psi_1 \rsq^2 + \notag \\
+	+\frac{1}{2 \Iss \sin^2 \theta_1} \lsq \lb p_1^\varphi - p_1^\psi \cos \theta_1 \rb \cos \psi_1 - p_1^\theta \sin \theta_1 \sin \psi_1 \rsq^2 + \frac{1}{2 \Itt} \lb p_1^\psi \rb^2.
 \end{gather}
 
 Рассмотрим якобиан замены переменных, приводящей гамильтониан к сумме квадратов. 
@@ -269,11 +262,11 @@
 		x_1 &= \frac{1}{\sqrt{2 \mu}} p_R \\
 		x_2 &= \frac{1}{\sqrt{2 \mu R^2}} p_\Theta \\
 		x_3 &= \frac{1}{\sqrt{2 \mu R^2 \sin^2 \Theta}} p_\Phi \\
-		x_4 &= \frac{(p_1^\varphi - p_1^\psi \cos \theta_1) \cos \psi_1 - p_1^\theta \sin \theta_1 \sin \psi_1}{\sqrt{2 I_1^1 \sin \theta_1}} \\
-		x_5 &= \frac{(p_1^\varphi - p_1^\psi \cos \theta_1) \sin \psi_1 + p_1^\theta \sin \theta_1 \cos \psi_1}{\sqrt{2 I_2^1 \sin^2 \theta_1}} \\
+		x_4 &= \frac{(p_1^\varphi - p_1^\psi \cos \theta_1) \sin \psi_1 + p_1^\theta \sin \theta_1 \cos \psi_1}{\sqrt{2 I_1^1 \sin^2 \theta_1}} \\
+		x_5 &= \frac{(p_1^\varphi - p_1^\psi \cos \theta_1) \cos \psi_1 - p_1^\theta \sin \theta_1 \sin \psi_1}{\sqrt{2 I_2^1 \sin \theta_1}} \\
 		x_6 &= \frac{1}{\sqrt{2 I_3^1}} p_1^\psi \\
-		x_7 &= \frac{(p_2^\varphi - p_2^\psi \cos \theta_2) \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2}{\sqrt{2 I_1^2 \sin \theta_2}} \\
-		x_8 &= \frac{(p_2^\varphi - p_2^\psi \cos \theta_2) \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} \\
+		x_7 &= \frac{(p_2^\varphi - p_2^\psi \cos \theta_2) \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} \\
+		x_8 &= \frac{(p_2^\varphi - p_2^\psi \cos \theta_2) \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2}{\sqrt{2 I_2^2 \sin \theta_2}} \\
 		x_9 &= \frac{1}{\sqrt{2 I_3^2}} p_2^\psi
 	\end{aligned} 
 \end{gather}
@@ -282,19 +275,20 @@
 \begin{sideways}
 \begin{minipage}{\textheight}
 \begin{gather}
-	\JacH = \Bigg{|} \frac{\partial (p_R, p_\Theta, p_\Phi, p_1^\varphi, p_1^\theta, p_1^\psi, p_2^\varphi, p_2^\theta, p_2^\psi)}{\partial (x_1, x_2, x_3, x_4, x_5, x_6, x_7, x_8, x_9)} \Bigg{|} = \notag \\
+		\JacH = \Bigg{|} \frac{\partial (x_1, x_2, x_3, x_4, x_5, x_6, x_7, x_8, x_9)}{\partial (p_R, p_\Theta, p_\Phi, p_1^\varphi, p_1^\theta, p_1^\psi, p_2^\varphi, p_2^\theta, p_2^\psi)} \Bigg{|}^{-1} = \notag \\
 	= \begin{bdmatrix}
 		\frac{1}{\sqrt{2 \mu}} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & \frac{1}{\sqrt{2 \mu R^2}} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 		0 & 0 & \frac{1}{\sqrt{2 \mu R^2 \sin \Theta}} & 0 & 0 & 0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & \frac{\cos \psi_1}{\sqrt{2 I_1^1 \sin^2 \theta_1}} & -\frac{\sin \theta_1 \sin \psi_1}{\sqrt{2 I_1^1 \sin^2 \theta_1}} & - \frac{\cos \theta_1 \cos \psi_1}{\sqrt{2 I_1^1 \sin^2 \theta_1}} & 0 & 0 & 0 \\
-		0 & 0 & 0 & \frac{\sin \psi_1}{\sqrt{2 I_2^1 \sin^2 \theta_1}} & \frac{\sin \theta_1 \cos \psi_1}{\sqrt{2 I_2^1 \sin^2 \theta_1}} & - \frac{\cos \theta_1 \sin \psi_1}{\sqrt{2 I_2^1 \sin^2 \theta_1}} & 0 & 0 & 0 \\
+		0 & 0 & 0 & \frac{\sin \psi_1}{\sqrt{2 I_1^1 \sin^2 \theta_1}} & \frac{\sin \theta_1 \cos \psi_1}{\sqrt{2 I_1^1 \sin^2 \theta_1}} & - \frac{\cos \theta_1 \sin \psi_1}{\sqrt{2 I_1^1 \sin^2 \theta_1}} & 0 & 0 & 0 \\
+		0 & 0 & 0 & \frac{\cos \psi_1}{\sqrt{2 I_2^1 \sin^2 \theta_1}} & -\frac{\sin \theta_1 \sin \psi_1}{\sqrt{2 I_2^1 \sin^2 \theta_1}} & - \frac{\cos \theta_1 \cos \psi_1}{\sqrt{2 I_2^1 \sin^2 \theta_1}} & 0 & 0 & 0 \\
 		0 & 0 & 0 & 0 & 0 & \frac{1}{\sqrt{2 I_3^1}} & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0 & 0 & 0 & \frac{\cos \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} & - \frac{\sin \theta_2 \sin \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} & - \frac{\cos \theta_2 \cos \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} \\
-		0 & 0 & 0 & 0 & 0 & 0 & \frac{\sin \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & \frac{\sin \theta_2 \cos \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & - \frac{\cos \theta_2 \sin \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} \\
+		0 & 0 & 0 & 0 & 0 & 0 & \frac{\sin \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} & \frac{\sin \theta_2 \cos \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} & - \frac{\cos \theta_2 \sin \psi_2}{\sqrt{2 I_1^2 \sin^2 \theta_2}} \\
+		0 & 0 & 0 & 0 & 0 & 0 & \frac{\cos \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & - \frac{\sin \theta_2 \sin \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & - \frac{\cos \theta_2 \cos \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} \\
 		0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \frac{1}{\sqrt{2 I_3^2}}
 	\end{bdmatrix} = \notag \\
-	= 2^{9/2} \mu R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \notag
+	= \lsq 2^{9/2} \mu R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \rsq^{-1} \notag \\
+	\JacH= 2^{9/2} \mu R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \notag
 \end{gather}
 \end{minipage}
 \end{sideways}
