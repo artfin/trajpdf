@@ -36,7 +36,30 @@
 \newcommand{\lb}{\left(}
 \newcommand{\rb}{\right)}
 
+\newcommand{\intlonepi}{\int\limits_{0}^{\pi}}
+\newcommand{\intltwopi}{\int\limits_{0}^{2\pi}}
+
+\newcommand{\wvarphi}{\widetilde{\varphi}}
+\newcommand{\wtheta}{\widetilde{\theta}}
+\newcommand{\wpsi}{\widetilde{\psi}}
+
 \usepackage{mathtools} % for dfrac!
+
+\makeatletter
+\def\env@dmatrix{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \extrarowheight=2ex
+  \array{*\c@MaxMatrixCols{>{\displaystyle}c}}}
+
+\newenvironment{dmatrix}
+  {\env@dmatrix}
+  {\endarray\hskip-\arraycolsep}
+
+\newenvironment{bdmatrix}
+  {\left[\env@dmatrix}
+  {\endmatrix\right]}
+% and other matrix environments are similar
+\makeatother
 
 \begin{document}
 
@@ -107,7 +130,7 @@
 	g = \widetilde{g}_\psi \widetilde{g}_\theta g_\varphi = ( \widetilde{g}_\theta g_\varphi ) g_\psi ( \widetilde{g}_\theta g_\varphi)^{-1} \widetilde{g}_\theta g_\varphi = \widetilde{g}_\theta g_\varphi g_\theta = g_\varphi g_\theta g_\psi
 \end{gather}
 \textit{То есть, последовательность поворотов на углы $\varphi$, $\theta$, $\psi$ вокруг вспомогательных систем осей, получаемых в результате осуществления каждого следующего поворота, эквивалентна последовательности поворотов относительно исходных осей, сделанных в обратном порядке $\psi$, $\theta$, $\varphi$.} \par 
-Три угла $\varphi, \theta, \psi$ являются независимыми и полностью определяют поворот $g$. Согласно определениям, они изменяются в пределах, $0 \leqslant \varphi \leqslant 2 \pi$, $0 \leqslant \psi \leqslant 2 \pi$, $0 \leqslant \theta \leqslant \pi$. Разные наборы эйлеровых углов $(\varphi, \theta, \psi)$, взятые из этих интервалов, определяют разные повороты, за исключением случаев $\theta = 0$ и $\theta = \pi$. В этих особых случаях плоскости $xOy$ и $x^\pr O y^\pr$ совпадают, и линия их пересечения, линия узлов $Ol$, оказывается неопределена. Варьируя ориентацию линии узлов в плоскости, заключаем, что в случае $\theta = 0$ пары углов $(\varphi, \psi)$ и $(\varphi + \alpha, \psi - \alpha)$ определяют один и тот же поворот для любого $\alpha$; аналогично, в случае $\theta = \pi$ пары углов $(\varphi, \psi)$ и $(\varphi + \alpha, \psi + \alpha)$ эквивалентны для любого $\alpha$.  	
+Три угла $\varphi, \theta, \psi$ являются независимыми и полностью определяют поворот $g$. Согласно определениям, они изменяются в пределах, $0 \leqslant \varphi < 2 \pi$, $0 \leqslant \psi < 2 \pi$, $0 \leqslant \theta \leqslant \pi$. Разные наборы эйлеровых углов $(\varphi, \theta, \psi)$, взятые из этих интервалов, определяют разные повороты, за исключением случаев $\theta = 0$ и $\theta = \pi$. В этих особых случаях плоскости $xOy$ и $x^\pr O y^\pr$ совпадают, и линия их пересечения, линия узлов $Ol$, оказывается неопределена. Варьируя ориентацию линии узлов в плоскости, заключаем, что в случае $\theta = 0$ пары углов $(\varphi, \psi)$ и $(\varphi + \alpha, \psi - \alpha)$ определяют один и тот же поворот для любого $\alpha$; аналогично, в случае $\theta = \pi$ пары углов $(\varphi, \psi)$ и $(\varphi + \alpha, \psi + \alpha)$ эквивалентны для любого $\alpha$.  	
 Выразим элементы матрицы поворота $g$ через углы Эйлера. Вспользуемся полученным выражением для поворота $g$ через повороты $g_\varphi$, $g_\theta$ и $g_\psi$ относительно исходной системы координат.
 \begin{gather}
 	g_\varphi = 
@@ -144,7 +167,7 @@
 
 \section*{Связь группы вращений с группой унитарных матриц второго порядка}
 
-Покажем, что вращения трехмерного пространства можно описывать комплексными матрицами второго порядка. Для этого рассмотрим стереографическую проекцию сферы на плоскость -- каждой точке P сферы относится точка $\zeta$ в плоскости, лежащая на луче O$^\pr$P, исходящем из северного полюса O$^\pr$. Вращение трехмерного пространства вокруг центра сферы переводит друг в друга точки сферы и порождает тем самым некоторое преобразование в плоскости. 
+Покажем, что вращения трехмерного пространства можно описывать комплексными матрицами второго порядка. Для этого рассмотрим стереографическую проекцию сферы на плоскость -- каждой точке P сферы относится точка $\zeta$ в плоскости, лежащая на луче NP, исходящем из северного полюса N. Вращение трехмерного пространства вокруг центра сферы переводит друг в друга точки сферы и порождает тем самым некоторое преобразование в плоскости. 
 
 \begin{wrapfigure}{R}{0.3\textwidth}
 \centering
@@ -154,7 +177,7 @@
 
 Рассмотрим сферу диаметра 1. Из подобия треугольников $\Delta$ANP и $\Delta$BN$\zeta$ получаем связь между координатами $x$, $y$, $z$ точки P сферы и координатами $\xi$, $\eta$ точки $\zeta$ плоскости:
 \begin{gather}
-	\xi = \frac{x}{\frac{1}{2} - z}, \qquad \eta = \frac{y}{\frac{1}{2} - z}. \notag
+	\xi = \frac{x}{\frac{1}{2} - z}, \qquad \eta = \frac{y}{\frac{1}{2} - z}. 
 \end{gather}
 
 Вводим комплексную переменную $\zeta = \xi + i \eta$:
@@ -220,6 +243,184 @@
 		\zeta^\prime = \frac{\zeta \lb \exp \lb i \theta \rb + 1 \rb + \lb \exp \lb i \theta \rb - 1 \rb}{\zeta \lb \exp \lb i \theta \rb - 1 \rb + \lb \exp \lb i \theta \rb + 1 \rb} = \frac{\displaystyle \zeta \frac{\exp \lb i \theta \rb + 1}{\exp \lb i \theta \rb - 1} + 1}{\displaystyle \zeta + \frac{\exp \lb i \theta \rb + 1}{\exp \lb i \theta \rb - 1}} = \frac{\displaystyle -i \zeta \ctg \frac{\theta}{2} + 1}{\displaystyle \zeta - i \ctg \frac{\theta}{2}} \\ 
 	\zeta^\prime = \frac{\displaystyle \zeta \cos \frac{\theta}{2} + i \sin \frac{\theta}{2}}{\displaystyle i \zeta \sin \frac{\theta}{2} + \cos \frac{\theta}{2}}
 \end{gather}
+
+Таким образом, мы видим, что вращениям вокруг осей Ox и Oz отвечают дробно-линейные преобразования в плоскости $\zeta$. Ясно, кроме того, что произведению вращений отвечает произведение преобразований в плоскости. Так как всякое вращение можно получить как произведение вращей вокруг осей Oz и Ox, то всякому вращению отвечает отвечает дробно-линейное преобразование общего вида
+\begin{gather}
+	\zeta^\prime = \frac{a \zeta + \beta}{\gamma \zeta + \delta}. \label{fractionlinear}
+\end{gather}
+
+Дробно-линейное преобразование \eqref{fractionlinear} однозначно определяется комплексной матрицей второго порядка
+\begin{gather}
+	\begin{bmatrix}
+		\alpha & \beta \\
+		\gamma & \delta
+	\end{bmatrix}. \label{fractionlinearmatrix}
+\end{gather}
+
+Так как $\zeta^\prime$ из формулы \eqref{fractionlinear} не меняется при умножении числителя и знаменателя правой части на одно и то же число, то умножив $\alpha$, $\beta$, $\gamma$, $\delta$ на $\displaystyle \pm \frac{1}{\sqrt{\alpha \delta - \beta \gamma}}$, мы можем считать определитель матрицы \eqref{fractionlinearmatrix} равным 1. Таким образом, каждому вращению отвечает определенная с точностью до знака матрица вида \eqref{fractionlinearmatrix}, для которой $\alpha \delta - \beta \gamma = 1$. Выпишем матрицы, отвечающие вращениям $g_\varphi$ и $g_\theta$ вокруг осей Oz и Ox. Вращению $g_\theta$ отвечает матрица
+\begin{gather}
+	g_\theta \sim 
+	\begin{bdmatrix}
+		\cos \frac{\theta}{2} & i \sin \frac{\theta}{2} \\
+		i \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+	\end{bdmatrix} . \label{g_theta_matrix}
+\end{gather}
+
+Вращению $g_\varphi$ отвечает преобразование $\zeta^\prime = \exp \lb i \varphi \rb \zeta$. Записав его в виде $\displaystyle \zeta^\prime = \frac{\displaystyle \exp \lb \frac{i \varphi}{2} \rb \zeta}{\displaystyle \exp \lb -\frac{i \varphi}{2} \rb}$, мы получим матрицу преобразования
+\begin{gather}
+	g_\varphi \sim 
+	\begin{bdmatrix}
+		\exp \lb \frac{i \varphi}{2} \rb & 0 \\
+		0 & \exp \lb - \frac{i \varphi}{2} \rb
+	\end{bdmatrix} \label{g_varphi_matrix}
+\end{gather}
+
+с определителем, равным единице. \par
+Вращение $g$ c эйлеровыми углами $\varphi$, $\theta$, $\psi$ может быть записано как произведение вращений $g = g_\varphi g_\theta g_\psi$. Пребразованию $g$ отвечает матрица
+\begin{gather}
+	g \sim
+	\begin{bdmatrix}
+		\exp \lb \frac{i \varphi}{2} \rb & 0 \\
+		0 & \exp \lb - \frac{i \varphi}{2} \rb
+	\end{bdmatrix}
+	\begin{bdmatrix}
+		\cos \frac{\theta}{2} & i \sin \frac{\theta}{2} \\
+		i \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+	\end{bdmatrix}
+	\begin{bdmatrix}
+		\exp \lb \frac{i \psi}{2} \rb & 0 \\
+		0 & \exp \lb -i \frac{i \psi}{2} \rb
+	\end{bdmatrix} = \notag \\
+	= \begin{bdmatrix}
+		\cos \frac{\theta}{2} \exp \lb \frac{i}{2} \lb \varphi + \psi \rb \rb & i \sin \frac{\theta}{2} \exp \lb - \frac{i}{2} \lb \psi - \varphi \rb \rb \\
+		i \sin \frac{\theta}{2} \exp \lb \frac{i}{2} \lb \psi - \varphi \rb \rb & \cos \frac{\theta}{2} \exp \lb - \frac{i}{2} \lb \varphi + \psi \rb \rb
+	\end{bdmatrix} \label{g_matrix}
+\end{gather}
+
+Матрицы \eqref{g_theta_matrix} и \eqref{g_varphi_matrix} являются унитарными матрицами с детерминантом 1. Поэтому и их произведение -- матрица \eqref{g_matrix}, отвечающая произвольному вращению, также униатрана и имеет детерминант, равный 1. \par
+Покажем теперь, что, обратно, всякой унитарной матрице с единичным детерминантом отвечает некоторое вращение. Условия унитарности матрицы с элементами $\alpha$, $\beta$, $\gamma$, $\delta$ дают следующие соотношения  
+\begin{gather}
+	\begin{aligned}
+		\alpha \alpha^{*} &+ \beta \beta^{*} = 1, \\
+		\alpha \gamma^{*} &+ \beta \delta^{*} = 0, \\
+		\gamma \alpha^{*} &+ \delta \beta^{*} = 0, \\
+		\gamma \gamma^{*} &+ \delta \delta^{*} = 1.
+	\end{aligned}
+\end{gather}
+Используем также условие единичности детерминанта:
+\begin{gather}
+	\alpha \delta - \beta \gamma = 1 \quad \implies \quad \alpha \alpha^{*} \delta - \alpha^{*} \beta \gamma = \alpha^{*} \notag \\
+	\lb 1 - \beta \beta^{*} \rb \delta - \alpha^{*} \beta \gamma = \alpha^{*} \notag \\
+	\lb 1 - \beta \beta^{*} \rb \delta + \beta \beta^{*} \delta = \alpha^{*} \quad \implies \alpha^{*} = \delta \notag \\
+	\alpha \delta - \beta \gamma = 1 \quad \implies \quad \alpha \beta^{*} \delta - \beta \beta^{*} \gamma = \beta^{*} \notag \\
+	\alpha \beta^{*} \delta - \lb 1 - \alpha \alpha^{*} \rb \gamma = \beta^{*} \notag \\
+	- \alpha \alpha^{*} \gamma - \lb 1 - \alpha \alpha^{*} \rb \gamma = \beta^{*} \quad \implies \quad \gamma = - \beta^{*} \notag
+\end{gather}
+
+Поэтому произвольная матрица рассматриваемого типа может быть представлена в виде
+\begin{gather}
+	\begin{bmatrix}
+		\alpha & \beta \\
+		- \beta^{*} & \alpha^{*}
+	\end{bmatrix}, \label{general_unit_rotation_matrix}
+\end{gather}
+где 
+\begin{gather}
+	\lvert \alpha \rvert^2 + \lvert \beta \rvert^2 = 1. \label{general_unit_rotation_matrix_condition}
+\end{gather}
+
+Ясно что матрицу \eqref{general_unit_rotation_matrix} при условии \eqref{general_unit_rotation_matrix_condition} можно представить в виде \eqref{g_matrix}, если положить (т.к. $0 \leqslant \theta \leqslant \pi$) 
+\begin{gather}
+	\cos \frac{\theta}{2} = \lvert \alpha \rvert, \quad \sin \frac{\theta}{2} = \lvert \beta \rvert, 
+\end{gather}
+
+а углы $\varphi$ и $\psi$ определить из уравнений
+\begin{gather}
+	\begin{aligned}
+		\frac{1}{2} \lb \varphi + \psi \rb &= \arg \alpha, \\
+		- \frac{1}{2} \lb \psi - \varphi \rb + \frac{\pi}{2} &= \arg \beta.
+	\end{aligned}
+\end{gather}
+
+Таким образом, каждое вращение можно задавать двумя комплексными числами, удовлетворяющими условию \eqref{general_unit_rotation_matrix_condition}, или, что то же, четырьмя вещественными числами, сумма квадратов которых равна 1. \par
+Итак, показано, что всякй унитарной матрице второго порядка с детерминантом 1 отвечает вращение в трехмерном пространстве. Обратно, всякому вращению отвечают \textit{две} такие матрицы, отличающиеся знаком. \par
+Установленное ранее соответствие между вращениями и дробно-линейными преобразованиями однозначно. С другой стороны, мы видели, что каждое дробно-линейное преобразование может быть записано с помощью двух матриц с детерминантом, равным 1. Таким образом, каждому вращению отвечают \textit{две} матрицы вида \eqref{general_unit_rotation_matrix}. Естественного способа избавиться от двузначности этого соотвествия нет. Рассмотрим, например, вращение на угол $\varphi$ вокруг оси Oz. Ему отвечает матрица 
+\begin{gather}
+	\begin{bdmatrix}
+		\exp \lb \frac{i \varphi}{2} \rb & 0 \\
+		0 & \exp \lb - \frac{i \varphi}{2} \rb 
+	\end{bdmatrix}.
+\end{gather}
+
+В частности, единичному вращению $\varphi = 2 k \pi$ отвечают две матрицы 
+\begin{gather}
+	\begin{bmatrix}
+		\pm 1 & 0 \\
+		0 & \pm 1
+	\end{bmatrix}. \label{unit_rotation_matrices}
+\end{gather}
+
+Если бы мы сопоставили этому вращению лишь матрицу 
+\begin{gather}
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{bmatrix},
+\end{gather}
+
+то, изменяя угол $\varphi$ непрерывно от $0$ до $2 \pi$, мы пришли бы при $\varphi = 2 \pi$ к матрице
+\begin{gather}
+	\begin{bmatrix}
+		-1 & 0 \\
+		0 & -1 
+	\end{bmatrix} .
+\end{gather}
+
+Таким образом, для сохранения непрерывности мы должны считать, что единичному вращению отвечают обе матрицы \eqref{unit_rotation_matrices}. 
+
+\section*{Инвариантный интеграл на группе вращений}
+
+Будем говорить, что задана функция $\omega = f(g)$ на группе $G$, если каждому вращению $g \in G$ отвечает некоторое число $\omega$. Если задавать вращение $g$ эйлеровыми углами $\varphi$, $\theta$, $\psi$, то $f(g)$ станет просто функцией от $\varphi$, $\theta$, $\psi$:
+\begin{gather}
+	f(g) = f(\varphi, \theta, \psi), \notag
+\end{gather}
+причем
+\begin{gather}
+	f(\varphi + 2 \pi, \theta, \psi) = f(\varphi, \theta, \psi + 2 \pi) = f( \varphi, \theta, \psi). \notag
+\end{gather}
+
+Инвариантным интегралом функции $f(g)$ на группе $G$ называют интеграл
+\begin{gather}
+		\int\limits_{0}^{2\pi} \int\limits_{0}^{\pi} \int\limits_{0}^{2\pi} f(g) \omega(g) \, d \varphi \, d\theta \, d\psi = \int\limits_{0}^{2\pi} \int\limits_{0}^{\pi} \int\limits_{0}^{2\pi} f(\varphi, \theta, \psi) \omega( \varphi, \theta, \psi) \, d\varphi \, d\theta \, d\psi, 
+\end{gather}
+в котором множитель $\omega(g)$ выбран так, чтобы для любой функции $f(g) = f(\varphi, \theta, \psi)$, непрерывной относительно $\varphi, \theta, \psi$, выполнялось условие
+\begin{gather}
+	\intltwopi \intlonepi \intltwopi f(g g_0) \omega (g) \, d\varphi \, d\theta \, d\psi = \intltwopi \intlonepi \intltwopi f(g) \omega(g) \, d\varphi \, d\theta \, d\psi \label{invariant_integration_condition}  
+\end{gather}
+
+Непосредственным вычислением можно показать, что множитель $\omega(g)$  этим условием определяется однозначно с точностью до числового множителя (интересно, как?). Этот результат вытекает также без всяких вычислений из общий теории интегрирования на топологической группе \cite{weil}. Покажем, что функция
+\begin{gather}
+	\omega(g) = \sin \theta \quad \textup{при} \quad g = g_\varphi g_\theta g_\psi  
+\end{gather}
+удовлетворяет условию \eqref{invariant_integration_condition}, так что выражение 
+\begin{gather}
+	\intltwopi \intlonepi \intltwopi f(g) \sin \theta \, d\varphi \, d\theta \, d\psi \label{invariant_integration_weight}
+\end{gather}
+есть инвариантный интеграл на группе $G$. Положим $\widetilde{g} = g g_0$ и обозначим через $\widetilde{\varphi}$, $\widetilde{\theta}$, $\widetilde{\psi}$ эйлеровы углы вращения $\widetilde{g}$; очевидно, $\widetilde{\varphi}$, $\widetilde{\theta}$, $\widetilde{\psi}$ являются функциями эйлеровых углов $\varphi$, $\theta$, $\psi$ вращения $g$, и условие \eqref{invariant_integration_condition} для интеграла \eqref{invariant_integration_weight} означает, что должно быть 
+\begin{gather}
+	\intltwopi \intlonepi \intltwopi f( \widetilde{\varphi}, \widetilde{\theta}, \widetilde{\psi}) \sin \theta \, d\varphi \, d\theta \, d\psi = \intltwopi \intlonepi \intltwopi f(\varphi, \theta, \psi) \sin \theta \, d \varphi \, d\theta \, d\psi. 
+\end{gather}
+
+Переходя в интеграле слева от переменных интегрирования $\varphi$, $\theta$, $\psi$ к переменным $\widetilde{\varphi}$, $\widetilde{\theta}$, $\widetilde{\psi}$, видим, что он будет равен интегралу в правой части, если при этом преобразовании переменных $\sin \theta \, d\varphi \, d\theta \, d\psi$ преобразуется в $\sin \widetilde{\theta} \, d\widetilde{\varphi} \, d\widetilde{\theta} \, d\widetilde{\psi}$, т.е. если
+\begin{gather}
+	\sin \wtheta \, d\wvarphi \, d\wtheta \, d\wpsi = \sin \theta \, d\varphi \, d\theta \, d\psi. \label{change_of_variables} 
+\end{gather}
+
+\nocite{naimark}
+\nocite{gelfand}
+
+\bibliographystyle{plain}
+\bibliography{biblio}
 
 \end{document}
 

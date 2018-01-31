@@ -1,7 +1,16 @@
 # Fdb version 3
-["pdflatex"] 1517343793 "rotations.tex" "rotations.pdf" "rotations" 1517343793
+["bibtex rotations"] 1517433822 "rotations.aux" "rotations.bbl" "rotations" 1517433862
+  "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
+  "biblio.bib" 1517432455 759 99501f83be2747569f642e875f50d1a7 ""
+  "rotations.aux" 1517433820 2198 8c6633564b9c010495ffca323355d3dd ""
+  "rotations.bcf" 0 -1 0 ""
+  (generated)
+  "rotations.bbl"
+["pdflatex"] 1517433862 "rotations.tex" "rotations.pdf" "rotations" 1517433862
   "/etc/texmf/web2c/texmf.cnf" 1499338588 1101 af7716885e081ab43982cab7b4672c1a ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1491517754 3304 6a543c07045572737981351171e0505e ""
+  "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm0700.tfm" 1491906671 3256 b15a2ce2310c0038b96c5235b038f0eb ""
+  "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm" 1491517732 3220 0e417eaf233b160335902e97259a6c77 ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1491517753 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "/home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/lati1440.tfm" 1491517755 3528 460e6901416a816cf4afa844b5d54101 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -88,9 +97,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1499338691 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1499338756 3859297 bb1e70cac6101c8240393ab02e68dece ""
   "pictures/stereographic.png" 1517319068 17317 04df937f0caafe9d9e0f396c817ee35c ""
-  "rotations.aux" 1517343779 1580 57a4ce6aed0baaf5a2de06c939ccf10b ""
-  "rotations.tex" 1517343793 21967 b88087e0df7eb182a53985ddee86cc08 ""
+  "rotations.aux" 1517433820 2198 8c6633564b9c010495ffca323355d3dd ""
+  "rotations.bbl" 1517433822 558 4fa157b7597504f96194207d0d909bc0 "bibtex rotations"
+  "rotations.tex" 1517433862 36281 a8e4f48c13db530504134f05d2cc434a ""
   (generated)
-  "rotations.aux"
   "rotations.log"
+  "rotations.aux"
   "rotations.pdf"

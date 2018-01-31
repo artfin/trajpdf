@@ -141,6 +141,10 @@ INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/lati1440.tfm
 INPUT pictures/stereographic.png
 INPUT ./pictures/stereographic.png
 INPUT ./pictures/stereographic.png
+INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm
+INPUT /home/artfin/.texmf-var/fonts/tfm/lh/lh-t2a/larm0700.tfm
+INPUT rotations.bbl
+INPUT rotations.bbl
 INPUT rotations.aux
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
