@@ -411,14 +411,71 @@
 	\intltwopi \intlonepi \intltwopi f( \widetilde{\varphi}, \widetilde{\theta}, \widetilde{\psi}) \sin \theta \, d\varphi \, d\theta \, d\psi = \intltwopi \intlonepi \intltwopi f(\varphi, \theta, \psi) \sin \theta \, d \varphi \, d\theta \, d\psi. 
 \end{gather}
 
+\begin{wrapfigure}{R}{0.3\textwidth}
+\centering
+\includegraphics[width=0.25\textwidth]{pictures/change_of_variables.png}
+\caption{\label{fig:change_of_variables}}
+\end{wrapfigure}
+
 Переходя в интеграле слева от переменных интегрирования $\varphi$, $\theta$, $\psi$ к переменным $\widetilde{\varphi}$, $\widetilde{\theta}$, $\widetilde{\psi}$, видим, что он будет равен интегралу в правой части, если при этом преобразовании переменных $\sin \theta \, d\varphi \, d\theta \, d\psi$ преобразуется в $\sin \widetilde{\theta} \, d\widetilde{\varphi} \, d\widetilde{\theta} \, d\widetilde{\psi}$, т.е. если
 \begin{gather}
 	\sin \wtheta \, d\wvarphi \, d\wtheta \, d\wpsi = \sin \theta \, d\varphi \, d\theta \, d\psi. \label{change_of_variables} 
 \end{gather}
 
+Обозначим через P точку на единичной сфере, в которую в результате вращения $g^{-1} = g^\top$ переходит северный полюс N$(0,0,1)$, а через Q -- точку, в которую в результате вращения $g^\top$ переходит точка $(1, 0, 0$). Вращение $g$ полностью определяется точками P, Q, причем точку P можно выбирать произвольным образом на сфере, а точку Q после этого -- произвольным образом на большом круге K, плоскость которого перпендикулярна к радиусу OP (так как образы векторов OP, OQ будут перпендикулярны). В результате применения матрицы $g^\top$ вектор $(0, 0, 1)$ переходит в вектор $(g_{31}, g_{32}, g_{33}) = (\sin \psi \sin \theta, \cos \psi \sin \theta, \cos \theta)$. Следовательно $\displaystyle \frac{\pi}{2} - \psi, \theta$ -- сферические координаты точки P; $dS = \sin \theta \, d \psi \, d \theta$ есть элемент площади поверхности сферы в точке P (в силу соотношения $\displaystyle dS = \Bigl\lvert \frac{\partial \mathbf{r}}{\partial \theta} \times \frac{\partial \mathbf{r}}{\partial \psi} \Bigr\rvert $). $d\varphi$ есть элемент дуги круга K, так как изменение $\varphi$ на $d\varphi$ (при фиксированных $\theta$, $\psi$) не приведет к изменению положения точки P; ему отвечает вращение на $d\varphi$ вокруг OP, т.е. сдвиг точки Q на $d\varphi$.  
+
+\begin{gather}
+	Q =
+	\begin{bmatrix}
+		\cos \varphi \cos \psi - \cos \theta \sin \psi \sin \varphi \\
+		-\cos \varphi \sin \psi - \cos \theta \sin \varphi \cos \psi \\
+		\sin \varphi \sin \theta
+	\end{bmatrix} \\ 
+	dQ \biggr\rvert_{\substack{\psi = \text{const} \\ \theta = \text{const}}} =
+	\begin{bmatrix}
+		- \sin \varphi \cos \psi - \cos \theta \sin \psi \cos \varphi \\
+		\sin \varphi \sin \psi - \cos \theta \cos \psi \cos \varphi \\
+		\sin \theta \cos \varphi
+	\end{bmatrix} d\varphi
+\end{gather}
+\begin{gather}
+	\left[ dQ \biggr\rvert_{\substack{\psi = \text{const} \\ \theta = \text{const}}} \, \right]^2 = \lb d\varphi \rb^2  
+	\quad \implies \quad
+	dQ \biggr\rvert_{\substack{\psi = \text{const} \\ \theta = \text{const}}} = d\varphi
+\end{gather}
+
+Но точки $\widetilde{\text{P}}$ и $\widetilde{\text{Q}}$, отвечающие вращению $\widetilde{g} = g g_0$, получаются из точек P и Q вращением $g_0^\top$. При этом вращении и элемент $dS = \sin \theta \, d\theta \, d\psi$ площади поверхности сферы, и элемент $d\varphi$ дуги круга K остаются инвариантными; следовательно их произведение $\sin \theta \, d \varphi \, d \theta \, d\psi$ также остается инвариантным, чем и доказывается формула \eqref{change_of_variables}. \par
+
+Очевидно, при любом положительном постоянном $c$ вес $\omega(g) = c \sin \theta$ также удовлетворяет условию \eqref{invariant_integration_condition}. Выберем $c$ так, чтобы выполнялось условие
+\begin{gather}
+	\intltwopi \intlonepi \intltwopi c \sin \theta \, d\varphi \, d\theta \, d \psi = 1, \label{invariant_integration_norm}
+\end{gather}
+т.е.
+\begin{gather}
+		c = \frac{1}{8 \pi^2}, \quad \omega(g) = \frac{1}{8 \pi^2} \sin \theta. 
+\end{gather}
+
+Выражение $\displaystyle \frac{1}{8 \pi^2} \sin \theta \, d\varphi \, d\theta \, d\psi$ называют элементом инвариантного объема на группе $G$ и обозначают через $dg$.  Условие инвараинтности \eqref{invariant_integration_condition} примет тогда вид
+\begin{gather}
+	\int f(g g_0) dg = \int f(g) dg. \label{invariant_integration_final_result} 
+\end{gather}
+
+Отметим, что, кроме того,
+\begin{gather}
+	\int f(g^{-1}) dg = \int f(g) dg \label{invariant_integration_inverse_rotation}
+\end{gather}
+и
+\begin{gather}
+	\int f(g_0 g) dg = \int f(g) dg.
+\end{gather}
+
+Действительно, переходу от $g$ к $g^{-1}$ отвечает переход от $\varphi, \theta, \psi$ к $\pi - \varphi, \theta, \pi - \psi$, в результате которого выражение $\sin \theta \, d\varphi \, d\theta \, d\psi$ не изменяется; отсюда следует формула \eqref{invariant_integration_inverse_rotation}.  
+
+
 \nocite{naimark}
 \nocite{gelfand}
 
+\newpage
 \bibliographystyle{plain}
 \bibliography{biblio}
 
