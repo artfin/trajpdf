@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{henderson}
+D.~M. Henderson.
+\newblock Shuttle program: Euler angles, quaternions, and transformation
+  matrices, 1977.
+
+\bibitem{richter}
+H.~Richter.
+\newblock Lecture handouts; rigid motions and homogeneous transformations.
+
+\bibitem{gelfand}
+Шапиро~З.Я. Гельфанд~И.М., Минлос~Р.А.
+\newblock {\em Представления группы вращений и
+  группы Лоренца, их применения}.
+
+\bibitem{naimark}
+Наймарк М.А.
+\newblock {\em Линейные представления группы
+  Лоренца}.
+\newblock 1958.
+
+\end{thebibliography}

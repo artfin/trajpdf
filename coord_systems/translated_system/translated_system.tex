@@ -240,7 +240,7 @@
 	\alpha = \If \cos^2 \psi_2 + \Is \sin^2 \psi_2, \quad \beta = \lb \Is - \If \rb \sin \theta_2 \sin \psi_2 \cos \psi_2 \notag
 \end{gather}
 
-Полученная матрица $\lb \bbVs^\top \bbIt \bbVs \rb^{-1}$ является матрицей гамильтоновой формы кинетической энергии волчка. Умножив ее слева на вектор-строку и справа на вектор-столбец эйлеровых импульсов $\pes$ приходим к выражению для гамильтоновой формы кинетической энергии волчка $T_2^\mathcal{H}$. (Заметим, что в статье АА (2015) в этом выражении опечатка -- $\If$ и $\Is$ перепутаны местами.)
+Полученная матрица $\lb \bbVs^\top \bbIt \bbVs \rb^{-1}$ является матрицей гамильтоновой формы кинетической энергии волчка. Умножив ее слева на вектор-строку и справа на вектор-столбец эйлеровых импульсов $\pes$ приходим к выражению для гамильтоновой формы кинетической энергии волчка $T_2^\mathcal{H}$. 
 \begin{gather}
 	T_2^\mathcal{H} = \frac{1}{2 \If \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \sin \psi_2 + p_2^\theta \sin \theta_2 \cos \psi_2 \rsq^2 + \notag \\
 	+\frac{1}{2 \Is \sin^2 \theta_2} \lsq \lb p_2^\varphi - p_2^\psi \cos \theta_2 \rb \cos \psi_2 - p_2^\theta \sin \theta_2 \sin \psi_2 \rsq^2 + \frac{1}{2 \It} \lb p_2^\psi \rb^2.
@@ -287,13 +287,100 @@
 		0 & 0 & 0 & 0 & 0 & 0 & \frac{\cos \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & - \frac{\sin \theta_2 \sin \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} & - \frac{\cos \theta_2 \cos \psi_2}{\sqrt{2 I_2^2 \sin^2 \theta_2}} \\
 		0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \frac{1}{\sqrt{2 I_3^2}}
 	\end{bdmatrix} = \notag \\
-	= \lsq 2^{9/2} \mu R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \rsq^{-1} \notag \\
-	\JacH= 2^{9/2} \mu R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \notag
+	= \lsq 2^{9/2} \mu^{3/2} R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \rsq^{-1} \notag \\
+	\JacH= 2^{9/2} \mu^{3/2} R^2 \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \sin \Theta \sin \theta_1 \sin \theta_2 \notag
 \end{gather}
 \end{minipage}
 \end{sideways}
 \normalsize
+\newpage
+\section{Преобразование угловых координат в константе равновесия}
 
+Рассмотрим классическую сумму по состояниям связанного димера в координатах транслированного гамильтониана. Угловые координаты, относящиеся к транслированной системе координат, будем отмечать верхним индексом $t$. Будем обозначать тройку эйлеровых углов, относящихся к $i$-ому мономеру через $g_i^t = \lb \varphi_i^t, \theta_i^t, \psi_i^t \rb$; тройку эйлеровых импульсов, сопряженных эйлеровым углам $g_i^t$ -- через $p(g_i^t) = \lb p_i^\varphi, p_i^\theta, p_i^\psi \rb$. Через $d g_i^t$ будем обозначать ненормированный элемент инвариантного объема на группе вращений $i$-го мономера G$_i$ -- $\displaystyle dg_i^t = \sin \theta_i^t \, d\varphi_i^t \, d\theta_i^t \, d\psi_i^t$; а через $de_i^t$ -- произведение дифференциалов соотвествующих углов $de_i^t = d\varphi_i^t \, d\theta_i^t \, d\psi_i^t$. Пусть $H$ -- гамильтониан, записанный в транслированной системе, с учетом энергии центра масс, $\mH$ -- гамильтониан в той же системе, но с отделенным центром масс ($H = \mH + P_{cm}^2/2M$). 
+\begin{gather}
+		Q_{\text{bound}}^{\text{pair}} = \frac{1}{s_b h^{3+n}} \int\limits_{H - P_{cm}^2 / 2 M < 0} \exp \lb - \frac{H}{k T} \rb d x_{\text{cm}} \, d y_{\text{cm}} \, d z_{\text{cm}} \, d P_x \, d P_y \, dP_z \, dq_i \, dp_i  
+\end{gather}
+
+$s_b$ обозначает симметрийное число пары мономеров, $q_i$, $p_i$ - наборы $n$ внутренних координат $(R, \Theta, \Phi, g_1^t, g_2^t)$ и сопряженных их импульсов $(p_R, p_\Theta, p_\Phi, p(g_1^t), p(g_2^t))$. Будем далее считать, что мы имеем два произвольных волчка, для описания которых необходимы по 3 угловых степени свободы; т.е. количество внутренних координат $n = 9$. Проинтегрировав по переменным центра масс, получим трансляционную сумму по состояниям димера. 
+\begin{gather}
+	Q_{\text{bound}}^{\text{pair}} = \frac{1}{s_b h^9} \lb \frac{2 \pi M k T}{h^2} \rb^{3/2} V \int\limits_{\mH < 0} \exp \lb -\frac{\mH}{kT} \rb dR \, d\Theta \, d\Phi \, de_1^t \, de_2^t \, dp_R \, dp_\Theta \, dp_\Phi \, dp(g_1^t) \, dp(g_2^t) \label{equilibrium_constant_without_com}  
+\end{gather}
+
+Используя подготовленную выше замену переменных, проинтегрируем в \eqref{equilibrium_constant_without_com} по импульсному пространству. Замена переменных приводит кинетическую часть гамильтониана к диагональному виду, таким образом условие образования связанного димера приходит к следующему виду:
+\begin{gather}
+	\frac{\mH}{k T} = x_1^2 + \ldots + x_9^2 + \frac{U(R, \Theta, \Phi, g_1^t, g_2^t)}{k T} < 0
+\end{gather}
+
+Представим интеграл в виде повторного интеграла, в котором интегрирование во внешнем интеграле ведется по внутренним координатам, а интегрирование во внутреннем интеграле -- по сопряженным им импульсам. Во внутреннем интеграле осуществим замену переменных, приводящих кинетическую энергию к диагональному виду, якобиан замены переменных -- Jac -- перенесем во внешний интеграл.  
+\begin{gather}
+	Q_{\text{bound}}^{\text{pair}} = \frac{1}{s_b h^9} Q_{\text{tr}} \int \text{Jac} \cdot \exp \lb -\frac{U}{k T} \rb dR \, d\Theta \, d\Phi \, dg_1^t \, dg_2^t \, \times \notag \hspace{5cm} \\
+	\hspace{7cm} \times \int\limits_{x_1^2 + \ldots + x_9^2 < -U/kT} \exp \lb -x_1^2 - \ldots -x_9^2 \rb dx_1 \, \ldots dx_9 
+\end{gather}
+
+Подставив значение интеграла по импульсной части и якобиан замены переменных, приходим к следующему выражению для статсуммы:
+\begin{gather}
+	Q_{\text{bound}}^{\text{pair}} = \frac{1}{s_b h^9} Q_{\text{tr}} \lb 2 \pi k T \rb^{9/2} \mu^{3/2} \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \, \times \hspace{5cm} \notag \\
+	\hspace{5cm} \times \int R^2 \sin \Theta \sin \theta_1 \sin \theta_2 \frac{\displaystyle \gamma \lb \frac{9}{2}, - \frac{U}{k T} \rb}{\displaystyle \Gamma \lb \frac{9}{2} \rb} \, dR \, d\Theta \, d\Phi \, de_1^t \, de_2^t \label{equilibrium_constant_translated_angles} 
+\end{gather}
+
+Отдельно рассмотрим интеграл в выражении \eqref{equilibrium_constant_translated_angles}; произведем разбиение интеграла на повторные. Обозначим отношение гамма-функций $\displaystyle \gamma \lb \frac{9}{2}, -\frac{U}{kT} \rb / \, \Gamma \lb \frac{9}{2} \rb$ через $f(g_1^t, g_2^t, \Phi, \Theta)$. Обозначение $f \lb g_1^t, g_2^t \rvert \Phi, \Theta \rb$ во внутреннем интеграле использовано для подчеркивания того факта, что $\Phi$ и $\Theta$ считаются постоянными; функция зависит от них параметрически.
+\begin{gather}
+	I = \int R^2 dR \int \sin \Theta \, d\Phi \, d\Theta \int f \lb g_1^t, g_2^t \rvert \Phi, \Theta \rb \sin \theta_1^t \sin \theta_2^t \, de_1^t \, de_2^t
+\end{gather}
+
+Осуществим переход к элементам инвариантного объема на группах вращений каждого из мономеров $dg_1^t$ и $dg_2^t$:
+\begin{gather}
+	I = \int R^2 dR \int \sin \Theta \, d\Phi \, d \Theta \int f \lb g_1^t, g_2^t \rvert \Phi, \Theta \rb dg_1^t \, dg_2^t = \hspace{5cm} \notag \\
+		\hspace{5cm} = \int R^2 dR \int \sin \Theta \, d\Phi \, d\Theta \int dg_2^t \int f( g_1^t \rvert g_2^t, \Phi, \Theta ) \, dg_1^t
+\end{gather}
+
+Во внутреннем интеграле изменим параметризацию группы вращения первого мономера $g_1^t \longrightarrow g_1$; набор углов $g_1$ отсчитывается относительно системы отсчета, жестко связанной с молекулярной парой. Вращения $g_1^t$, выраженные через углы Эйлера $(\varphi_i^t, \theta_i^t, \psi_i^t)$ представляют собой одну из возможных параметризаций группы вращений $G_1$ первого мономера. Вращения $g_1$, выражаенные через углы Эйлера, связанные с body-fixed системой, представляют собой другую параметризацию $G_1$. Пусть вращение $g_0^1( \Phi, \Theta )$ осуществляет превращение осей транслированной системы в оси body-fixed системы (в частности, ось body-fixed системы, направлена вдоль прямой, соединяющей центры масс мономеров). Ориентация мономера может быть описана при помощи двух разных параметризаций; следующее соотношение показывает их связь: 
+\begin{gather}
+	g_1^t = g_0^1(\Phi, \Theta) g_1.
+\end{gather}
+
+Перепишем интеграл, используя связь параметризаций
+\begin{gather}
+		\int f \lb g_1^t \rvert g_2^t, \Phi, \Theta \rb dg_1^t = \int f \lb g_0^1 \lb \Phi, \Theta \rb g_1, \Phi, \Theta \rb dg_1
+\end{gather}
+Вращение $g_0^1(\Phi, \Theta)$ по смыслу не принадлежит к группе вращений мономера, однако с формальной точки зрения в группе содержится элемент, параметризованный углами $(\Phi, \Theta, 0)$, который поставим в соответсвие вращению $g_0^1(\Phi, \Theta)$. Следовательно может быть использовано свойство инвариантности интеграла по группе относительно трансляции на произвольный элемент \cite{gelfand, naimark}:
+\begin{gather}
+		\int f(g_0^1 \lb \Phi, \theta \rb g_1 \rvert g_2^t, \Phi, \Theta) dg_1^t = \int f(g_1 \rvert g_2^t, \Phi, \Theta) dg_1.
+\end{gather}
+
+Итак, получаем следующее соотношение интегралов:
+\begin{gather}
+	\int f \lb g_1^t \rvert g_2^t, \Phi, \Theta \rb dg_1^t = \int f \lb g_1 \rvert g_2^t, \Phi, \Theta \rb dg_1.
+\end{gather}
+
+Повторим описанную процедуру для угловых переменных второго мономера, изменняя порядок интегралов.
+\begin{gather}
+	I = \int R^2 dR \int \sin \Theta \, d\Phi \, d\Theta \int dg_2^t \int f \lb g_1 \rvert g_2^t, \Phi, \Theta \rb dg_1 = \notag \\  
+	= \int R^2 dR \int \sin \Theta \, d\Phi \, d\Theta \int dg_1 \int f \lb g_2^t \rvert g_1, \Phi, \Theta \rb dg_2^t = \notag \\
+	= \int R^2 dR \int \sin \Theta \, d\Phi \, d\Theta \int dg_1 \int f \lb g_2 \rvert g_1 \rb dg_2 = \notag \\
+	= 4 \pi \int R^2 dR \int f \lb g_1, g_2 \rb \sin \theta_1 \sin \theta_2 \, de_1 \, de_2 
+\end{gather}
+В последнем выражении использованы углы $\theta_1 \in g_1$, $\theta_2 \in g_2$; дифференциалы $de_1$, $de_2$ -- произведения дифференциалов наборов углов $g_1$, $g_2$ соответственно. Подставляем преобразованное выражение интеграла по угловым переменным в \eqref{equilibrium_constant_translated_angles}:
+\begin{gather}
+		Q_{\text{bound}}^{\text{pair}} = \frac{1}{s_b h^9} Q_{\text{tr}} \lb 2 \pi k T \rb^{9/2} \mu^{3/2} \sqrt{I_1^1 I_2^1 I_3^1 I_1^2 I_2^2 I_3^2} \times 4 \pi \int \frac{\displaystyle \gamma \lb \frac{9}{2}, - \frac{U}{k T} \rb}{\displaystyle \Gamma \lb \frac{9}{2} \rb} \sin \theta_1 \sin \theta_2 \, dR \, de_1 \, de_2 \label{equilibrium_constant_body_fixed_angles}
+\end{gather}
+
+Вращательная сумма по состояниям асимметричного волчка равна:
+\begin{gather}
+		q_{\text{rot}}^1 = \frac{8 \pi^2}{s_{\text{mon}_1} h^3} \sqrt{2 \pi I_1^1 k T} \sqrt{2 \pi I_2^1 k T} \sqrt{2 \pi I_3^1 k T} 
+\end{gather}
+
+Выделим вращательные суммы мономеров в выражении \eqref{equilibrium_constant_body_fixed_angles}:
+\begin{gather}
+	Q_{\text{bound}}^{\text{pair}} = \frac{1}{s_b h^3} Q_{\text{tr}} \lb 2 \pi k T \rb^{3/2} \mu^{3/2} \frac{s_{\text{mon}_1}}{8 \pi^2} q_{\text{rot}}^1 \frac{s_{\text{mon}_2}}{8 \pi^2} q_{\text{rot}}^2 \times 4 \pi \int \frac{\displaystyle \gamma \lb \frac{9}{2}, - \frac{U}{k T} \rb}{\displaystyle \Gamma \lb \frac{9}{2} \rb} \sin \theta_1 \sin \theta_2 \, dR \, de_1 de_2 \notag
+\end{gather}
+
+Произведение еще незадействованных множителей преобразуем в трансляционные суммы мономеров:
+\begin{gather}
+		\frac{1}{h^3} Q_{\text{tr}} \lb 2 \pi k T \rb^{3/2} \mu^{3/2} = \lb \frac{2 \pi M k T}{h^2} \rb^{3/2} \lb \frac{2 \pi \mu k T}{h^2} \rb^{3/2} = Q_{\text{tr}}^1 Q_{\text{tr}}^2.
+\end{gather}
+
+\newpage
 \section*{Определение углов Эйлера вращения, являющегося композицией двух вращений}
 
 Рассмотрим композицию двух вращений $\bbS_1$ и $\bbS_2$, параметризованновых наборами углов Эйлера $(\ao, \bo, \go)$ и $(\at, \bt, \gt)$, соответственно, определенными в Голдстейне (zxz; 313 extrinsic). 
@@ -466,13 +553,10 @@
 		= \frac{\p \varphi_2^t}{\p \psi_0} \frac{\p \psi_1^t}{\p \psi_1} \lsq \frac{\p \varphi_1^t}{\p \varphi_1} \frac{\p \theta_1^t}{\p \theta_1} - \frac{\p \varphi_1^t}{\p \theta_1} \frac{\p \theta_1^t}{\p \varphi_1} \rsq \cdot \lsq \frac{\p \theta_2^t}{\p \varphi_2} \frac{\p \psi_2^t}{\p \theta_2} - \frac{\p \theta_2^t}{\p \theta_2} \frac{\p \psi_2^t}{\p \varphi_2} \rsq  
 \end{gather}
 
-\begin{thebibliography}{1}
-\bibitem{henderson} 
-D. M. Henderson. \textit{Shuttle program: Euler angles, quaternions, and transformation matrices}.	NASA Johnson Space Center; Houston, TX, United States, 1977.
-
-\bibitem{richter}
-Dr. H. Richter, Department of Mechanical Engineering Cleveland State University. Lecture handouts. Rigid motions and homogeneous transformations.
-\end{thebibliography}
+\nocite{richter}
+\newpage
+\bibliographystyle{plain}
+\bibliography{biblio}
 
 
 \end{document}
