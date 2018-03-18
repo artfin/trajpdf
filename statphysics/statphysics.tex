@@ -1,0 +1,116 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=0.5cm, right=0.5cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath, array}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{mathtools}
+
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\kB}{k_\textup{B}}
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\pr}{\prime}
+
+
+\begin{document}
+
+\section{Совместные и условные плотности распределения}
+
+Состояние классической $N$-частичной системы полностью задано $6N$-мерным вектором $(r^N, p^N)$ $\equiv$ $(\vr_1, \vr_2, \dots, \vr_N, \vp_1, \vp_2, \dots, \vp_N)$ (точка $6N$-мерного фазового пространства). Функция плотности вероятности $f(r^N, p^N)$ описывает равновесное состояние системы, $f(r^N, p^N) dr^N dp^N$ есть вероятность найти систему в окрестности $dr^N dp^N = d\vr_1, \dots, d\vp_N$ соответствующей точки фазового пространства. В каноническом ансамбле система характеризуется температурой $T$ и функция плотности вероятности задана как
+\begin{gather}
+		f(r^N, p^N) = \frac{\exp \lb - \beta H \lb r^N, p^N \rb \rb }{\displaystyle \int dr^N \int dp^N \exp \lb -\beta H \lb r^N, p^N \rb \rb}, \quad  \beta = \lb \kB T \rb^{-1}, \label{1.183} 
+\end{gather}
+где $\kB$ -- постоянная Больцмана, $H$ -- гамильтониан системы
+\begin{gather}
+		H(r^N, p^N) = \sum_{i = 1}^{N} \frac{\vp_i^2}{2 m_i} + U \lb r^N \rb. \label{1.184}
+\end{gather}
+
+Функция $f(r^N, p^N)$ является примером совместной плотности вероятности системы случайных величин. Структура гамильтониана \eqref{1.184} предполагает, что функция $f$ может быть представлена в виде произведения терма, зависящего только от положения частиц, и термов, зависящих только от их моментов. Это означает, что положения частиц и их импульсы в каноническом ансамбле с плотностью вероятности, заданной \eqref{1.183}, являются статистически независимыми. Более того, согласно \eqref{1.184} импульсы различных частиц также статистически независимы. \par
+Рассмотрим две случайные величины $x$ и $y$. Совместная функция плотности распределения $P_2(x, y)$ по определению такова, что $P_2(x, y) dx dy$ есть вероятность нахождения случайной величины $x$ в интервале $(x, \dots, x + dx)$ и, одновременно, случайной величины $y$ в интервале $(y, \dots, y + dy)$. Описание системы в терминах частичного задания ее состояния мы будем называть \textit{сокращенным описанием} (\textit{reduced description}). Например, вероятность того, что случайная величина $x$ находится в интервале $(x, x + dx)$ независимо от значения величины $y$ есть $P_1^{(x)}(x) = \int P_2(x, y) dy$; аналогично, $P_1^{(y)} = \int P_2(x, y)dx dy$; функции $P_1^{(x)}$, $P_2^{(y)}$ задают \textit{сокращенное описание} системы. Все эти функции удовлетворяют условиям нормировки
+\begin{gather}
+	\int P_2(x, y) dx dy = \int P_1^{(x)} (x) dx = \int P_1^{(y)}(y) dy = 1 \label{1.185}
+\end{gather}
+
+Две случайные величины $x$ и $y$ называют независимыми, если произведение функций, задающих \textit{сокращенное описание} системы, дает совместную функцию плотности распределения пары случайных величин
+\begin{gather}
+		P_2(x, y) = P_1^{(x)}(x) P_1^{(y)}(y). \label{1.186}
+\end{gather}
+
+Зная (совместный) закон распределения системы (заданный в виде функции распределения или плотности распределения) можно найти законы распределения отдельных величин, входящих в систему. Естественно, возникает вопрос об обратной задаче: нельзя ли по законам распределения отдельных величин, входящих в систему, восстановить закон распределения системы? Оказывается, что в общем случае этого сделать нельзя: зная только распределения отдельных величин, входящих в систему, не всегда можно найти закон распределения системы. Для того, чтобы исчерпывающим образом охарактеризовать систему, недостаточно знать распределение каждой из величин, входящих в систему; нужно еще знать зависимость между величинами. Эта зависимость может быть охарактризована с помощью так называемых \textit{условных законов распределения}.  
+
+Плотность условного распределения $P(x|y)$ задана таким образом, что $P(x|y) dx$ есть вероятность того, что случайная величина $x$ попадает в интервал $(x, \dots, x + dx)$, вычисленная при условии того, что случайная величина $y$ приняла значение $y$. Согласно этому определению
+\begin{gather}
+	P(x|y) = \frac{P_2(x, y)}{P_1^{(y)}(y)}; \quad P(y|x) = \frac{P_2(x,y)}{P_1^{(x)}(x)}; \label{1.187} \\
+	P(x|y) dx \cdot P_1^{(y)}dy = P(y|x) dy \cdot P_1^{(x)}(x) dx = P(x,y)dx dy \label{1.188}.
+\end{gather}
+
+\section{Корреляция случайных величин}
+В случае когда соотношение \eqref{1.186} не является справедливым, случайные величины $x$, $y$ называют зависимыми. Вероятность того, что случайная величина $x$ принимает некоторое значение $x$ зависит от того, какое значение при этом принимает случайная величина $y$. Когда случайные величины $x$, $y$ являются независимыми, из уравнений \eqref{1.186}, \eqref{1.187} следует, что условная плотность вероятности $P(x|y)$ перестает зависеть от $y$ и $P(x|y) = P_1^{(x)}(x)$. \par
+Моменты распределения $P_2(x, y)$ определены интегралами
+\begin{gather}
+	\begin{aligned}
+		\langle x^k \rangle &= \int x^k P_2(x, y) dx dy = \int x^k P_1^{(x)}(x) dx \\
+		\langle y^k \rangle &= \int y^k P_2(x, y) dx dy = \int y^k P_1^{(y)}(y) dy \\
+		\langle x^k y^l \rangle &= \int x^k y^l P_2(x, y) dx dy.
+	\end{aligned}
+\end{gather}
+
+Если случайные величины $x$, $y$ являются независимыми, то 
+\begin{gather}
+	\langle x^k y^l \rangle = \int x^k y^l P_2(x,y) dx dy = \int P_1^{(x)}(x) dx \int y^l P_1^{(y)}(y)  dy = \langle x^k \rangle \langle y^l \rangle. \notag
+\end{gather}
+
+Разность
+\begin{gather}
+	\langle x^k y^l \rangle - \langle x^k \rangle \langle y^l \rangle \label{1.193}
+\end{gather}
+определяет корреляцию (взаимосвязь) случайных величин $x$ и $y$. Если $x$ и $y$ являются случайными функциями переменной $z$, то $C_{xy}(z_1, z_2) = \langle x(z_1) y(z_2) \rangle - \langle x(z_1) \rangle \langle y(z_2) \rangle$ называют \textit{корреляционной функцией} этих переменных. При описании физических и химических системы особенно важны два класса корреляционных функций.
+\begin{enumerate}
+		\item Пространственные корреляционые функции. Рассмотрим плотность молекул жидкости как функцию пространственного положения, $\rho(\vr)$. Будем считать количество молекул $n(\vr)$ в некотором (заранее определенном) объеме $\Delta V$ в окрестности точки $\vr$, тогда
+\begin{gather}
+	\rho^{\Delta V} (\vr) = \frac{n(\vr)}{\Delta V} \label{1.194}
+\end{gather}
+есть случайная переменная, и, будучи рассмотрена как функция радиус-вектора $\vr$, является случайной пространственной функцией (в каждой точке пространства, заданной радиус-вектором $\vr$ мы имеем случайную величину $\rho^{\Delta V}$). Следует отметить, что определенная таким образом случайная величина зависит от объема $\Delta V$ (\textit{coarse graining}), однако в продолжении текста опустим индекс $\Delta V$, подчеркивающий этот факт. \par
+В гомогенной равновесной системе среднее по ансамблю значение плотности $\langle \rho(\vr) \rangle = \rho$ не зависит от $\vr$, и разность $\delta \rho(\vr) \equiv \rho(\vr) - \rho$ задает случайную функцию пространственного положения, которая задает локальные флуктуации от средней плотности. Очевидно, $\langle \delta \rho(\vr) \rangle = 0$, величина флуктуаций плотности определяется дисперсией $\langle \delta \rho^2 \rangle = \langle \rho^2 \rangle - \langle \rho \rangle^2$. Пространственная функция корреляции плотности определяет корреляцию случайных величин $\delta \rho(\vr^\prime)$ и $\delta \rho (\vr^{\prime\prime})$, то есть, $C(\vr^\prime, \vr^{\prime\prime}) = \langle \delta \rho(\vr^\prime) \delta \rho(\vr^{\prime\prime}) \rangle$. В гомогенной системе корреляционная функция зависит только от расстояния между положением центров функций $\vr^\prime - \vr^{\prime\prime}$
+\begin{gather}
+		C( \vr^\pr, \vr^{\pr\pr}) = C(\vr) = \langle \delta \rho(\vr) \delta \rho(0) \rangle = \langle \delta \rho(0) \delta \rho(\vr) \rangle; \quad \vr = \vr^\pr - \vr^{\pr\pr}, \label{1.195}
+\end{gather}
+а в изотропной системе -- только от модуля вектора $r = | \vr |$.
+\begin{gather}
+		\langle \delta \rho(\vr^\pr) \delta \rho(\vr^{\pr\pr}) \rangle = \langle (\rho(\vr^\pr) - \rho)(\rho(\vr^{\pr\pr}) - \rho) \rangle = \langle \rho(\vr^\pr) \rho(\vr^{\pr\pr}) \rangle - \rho \langle \rho(\vr^\prime) \rangle - \rho \langle \rho(\vr^{\pr\pr} \rangle + \rho^2 = \notag \\ 
+	=	\langle \rho(\vr^\pr) \rho(\vr^{\pr\pr}) \rangle - 2\rho^2 + \rho^2 = \langle \rho(\vr^\pr) \rho(\vr^{\pr\pr}) \rangle -  \rho^2
+\end{gather}
+\end{enumerate}
+
+\section{Список литературы}
+1. A. Nitzan. Chemical Dynamics in Condensed Phases. Relaxation, Transfer and Reactions in Condensed Molecular Systems. \textit{Oxford Graduate Texts}, 2010. \\
+2. Е. С. Вентцель. Теория вероятностей. \textit{Наука}, 1969.
+
+\end{document}
