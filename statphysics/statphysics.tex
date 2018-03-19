@@ -38,6 +38,7 @@
 \newcommand{\rb}{\right)}
 \newcommand{\pr}{\prime}
 
+\newcommand{\intty}{\int\limits_{-\infty}^{+\infty}}
 
 \begin{document}
 
@@ -107,8 +108,65 @@
 		\langle \delta \rho(\vr^\pr) \delta \rho(\vr^{\pr\pr}) \rangle = \langle (\rho(\vr^\pr) - \rho)(\rho(\vr^{\pr\pr}) - \rho) \rangle = \langle \rho(\vr^\pr) \rho(\vr^{\pr\pr}) \rangle - \rho \langle \rho(\vr^\prime) \rangle - \rho \langle \rho(\vr^{\pr\pr} \rangle + \rho^2 = \notag \\ 
 	=	\langle \rho(\vr^\pr) \rho(\vr^{\pr\pr}) \rangle - 2\rho^2 + \rho^2 = \langle \rho(\vr^\pr) \rho(\vr^{\pr\pr}) \rangle -  \rho^2
 \end{gather}
+
+\item Временные корреляционные функции. Функция $\delta \rho(\vr, t)$ при фиксированном радиус-векторе $\vr$ как функция времени $t$ является примером стохастического процесса. Величины $\rho(\vr, t_1)$ и $\delta \rho(\vr, t_1) = \rho(\vr, t_1) - \rho$ являются случайными в том смысле, что повторяющиеся измерения, выполненные на идентичных системы дают разные значения в окрестности среднего $\rho$. Рассмотрим временную корреляционную функцию случайных величин $x = \delta \rho(\vr, t^\pr)$ и $y = \delta \rho(\vr, t^{\pr\pr})$. 
+\begin{gather}
+	C(\vr, t^\pr, t^{\pr\pr}) = \langle \delta \rho(\vr, t^\pr) \delta \rho(\vr, t^{\pr\pr}) \rangle = \langle \rho(\vr, t^\pr)\rho(\vr, t^{\pr\pr})\rangle - \rho^2 \label{1.196}
+\end{gather}
+В стационарной равновесной системе корреляционная функция зависит только от разности времен $t = t^\pr - t^{\pr\pr}$
+\begin{gather}
+	C(\vr, t^\pr, t^{\pr\pr}) = C(\vr, t). \label{1.197}
+\end{gather}
 \end{enumerate}
 
+\section{Диффузия}
+Для демонстрации введенных выше концепций рассмотрим широко известный процесс диффузии. Рассмотрим систему диффундирующих частиц, обозначим через $P(\vr, t)$ плотность вероятности нахождения частицы в точке пространства $\vr$ в момент времени $t$, то есть, величина $P(\vr, t) d^3r$ есть вероятность найти частицу в окрестности $d^3r$ точки $\vr$ в момент времени $t$. Плотность вероятности $P(\vr, t)$ отличается от концентрации $c(\vr, t)$ на нормировочную постоянную
+\begin{gather}
+	c(\vr, t) = N P(\vr, t), \label{1.199}
+\end{gather}
+где $N$ это общее количество частиц. Из экспериментальных данных известен закон эволюции $c(\vr, t)$ во времени, называемый уравнением диффузии. В одномерном случае
+\begin{gather}
+	\frac{\partial P(x, t)}{\partial t} = D \frac{\partial^2}{\partial x^2} P(x, t) \label{1.200}
+\end{gather}
+
+Это уравнение эволюции в \textit{сокращенном описании} системы задает качественно иную динамику, чем фундаментальное описание классической системы (система связанных уравнений Ньютона для всех частиц). На микроскопическом уровне движение частицы определяется столкновениями с многими другими частицами; уравнение \eqref{1.200} описывает гипотетическую частицу, подверженную усредненному влиянию частиц вокруг. Таким образом, уравнение \eqref{1.200} верно на временных масштабах, много больших времен между столкновениями, и на масштабах длины, много больших среднего свободного пробега. \par
+	Рассмотрим моменты плотности вероятности $P(x, t)$. Т.к. плотность вероятности является функцией времени, то и моменты также будут функциями времени
+\begin{gather}
+	\langle x \rangle_t = \int\limits_{-\infty}^{+\infty} x P(x, t) dx. \label{1.201}
+\end{gather}
+Следовательно,
+\begin{gather}
+	\frac{\partial \langle x \rangle}{\partial t} = \intty x \frac{\partial P(x, t)}{\partial t} dx = D \intty x \frac{\partial^2 P(x, t)}{\partial x^2} dx = D \intty \left[ \frac{\partial}{\partial x} \lb x \frac{\partial P}{\partial x} \rb - \frac{\partial P}{\partial x} \right] dx = \notag \\
+	= D \lb x \frac{\partial P}{\partial x}(x, t) \rb \Bigg{|}_{-\infty}^{+\infty} - D P(x, t) \Bigg{|}_{-\infty}^{+\infty} = 0. \label{1.203} 
+\end{gather}
+
+Здесь мы использовали убывание $P$ при $x \rightarrow \pm \infty$ быстрее, чем $x^{-2}$. Утверждается, что основывается на том, что в трехмерном случае $P(\vr)$ обязана убывать быстрее, чем $r^{-2}$ при $r \rightarrow \infty$, чтобы принадлежать классу интегрируемых с квадратом функций. А рассмотренный одномерный случай, видимо, следует рассматривать не совсем как самостоятельную задачу, и это свойство убывания в трехмерном случае перенести на одномерный случай. Кроме того, т.к. $\langle x \rangle(0) = 0$ (?), то $\langle x \rangle(t) = 0$ для любого $t$.
+
+Рассмотрим второй момент
+\begin{gather}
+	\langle x^2 \rangle_t = \intty x^2 P(x, t) dx
+\end{gather}
+и его временную эволюцию
+\begin{gather}
+		\frac{\partial \langle x^2 \rangle}{\partial t} = D \intty x^2 \frac{\partial^2 P}{\partial x^2} dx = D \left[ x^2 \frac{\partial P}{\partial x} \right] \Bigg{|}_{-\infty}^{+\infty} - D \intty x \frac{\partial P}{\partial x} dx  = -2D \left[ x P \right] \Bigg{|}_{-\infty}^{+\infty} + 2D \intty P dx = 2D \label{1.206}
+\end{gather}
+
+Опять же, т.к. $\langle x^2 \rangle_0 = 0$ (?), получаем следующую линейную связь второго момента со временем
+\begin{gather}
+	\langle x^2 \rangle_t = 2 D t. \label{1.207}
+\end{gather}
+
+В случае диффузии в трехмерной изотропной системе движения вдоль осей $x$, $y$ и $z$ независимы (уравнение $\partial P(\vr, t)/\partial t = D\lb \partial^2/\partial x^2 + \partial^2 / \partial y^2 + \partial^2 / \partial z^2) P(\vr, t) \rb$ факторизуется). поэтому
+\begin{gather}
+	\langle \vr^2 \rangle_t = \langle x^2 \rangle_t + \langle y^2 \rangle_t + \langle z^2 \rangle_t = 6 D t. \label{1.208}
+\end{gather}
+Решение уравнения диффузии верно на больших временах из-за приближенного вида самого уравнения. Коэффициент диффузии может быть посчитан по следующей формуле (?)
+\begin{gather}
+	D = \lim_{t \rightarrow \infty} \frac{1}{6t} \langle \lb \vr(t) - \vr(0) \rb^2 \rangle. \label{1.209}
+\end{gather}
+
+
+\newpage
 \section{Список литературы}
 1. A. Nitzan. Chemical Dynamics in Condensed Phases. Relaxation, Transfer and Reactions in Condensed Molecular Systems. \textit{Oxford Graduate Texts}, 2010. \\
 2. Е. С. Вентцель. Теория вероятностей. \textit{Наука}, 1969.
