@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{bbm}
+
+\usepackage{array}
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+\newcommand{\mf}{\mathbf}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bba}{\mathbbm{a}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+
+\newcommand{\Jx}{J_X}
+\newcommand{\Jy}{J_Y}
+\newcommand{\Jz}{J_Z}
+
+\begin{document}
+
+Введем следующие обозначения:
+\begin{gather}
+	\mu_1 = \frac{m_1}{2}, \quad 
+	\mu_2 = \frac{m_2 \lb 2 m_1 + m_3 \rb}{2 m_1 + m_2 + m_3} \notag
+\end{gather}
+
+Матрицы $\bba$, $\bbA$, $\bbI$, определяющие вид кинетической энергии в лагранжевой форме: 
+\begin{gather}
+	\bba =
+	\begin{bmatrix}
+		\mu_2 & 0 \\
+		0 & \mu_1 l^2
+	\end{bmatrix} \quad 
+	\bbA = 
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & \mu_1 l^2 \\
+		0 & 0 
+	\end{bmatrix} \quad
+	\bbI = 
+	\begin{bmatrix}
+		\mu_1 l^2 \cos^2 \theta + \mu_2 R^2 & 0 & -\mu_1 l^2 \sin \theta \cos \theta \\
+		0 & \mu_1 l^2 + \mu_2 R^2 & 0 \\
+		- \mu_1 l^2 \sin \theta \cos \theta & 0 & \mu_1 l^2 \sin^2 \theta
+	\end{bmatrix} \notag
+\end{gather}
+
+Используя формулы Фробениуса, получаем матрицы $\bbG_{11}$, $\bbG_{12}$, $\bbG_{22}$, определяющие кинетическую энергию в гамильтоновой форме:
+\begin{gather}
+	\bbG_{11} =
+	\begin{bmatrix}
+		\dfrac{1}{\mu_2 R^2} & 0 & \dfrac{1}{\mu_2 R^2 \tan \theta} \\
+		0 & \dfrac{1}{\mu_2 R^2} & 0 \\
+		\dfrac{1}{\mu_2 R^2 \tan \theta} & 0 & \dfrac{1}{\mu_2 R^2 \tan^2 \theta} + \dfrac{1}{\mu_1 l^2 \sin^2 \theta}
+	\end{bmatrix} \quad
+	\bbG_{12} =
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & - \dfrac{1}{\mu_2 R^2} \\
+		0 & 0
+	\end{bmatrix} \quad 
+	\bbG_{22} = 
+	\begin{bmatrix}
+		\dfrac{1}{\mu_2} & 0 \\
+		0 & \dfrac{1}{\mu_2 R^2} + \dfrac{1}{\mu_1 l^2}
+	\end{bmatrix} \notag
+\end{gather}
+
+Получаем гамильтониан системы CO$_2-$Ar в заданной молекулярной системе координат:
+\begin{gather}
+    H = \frac{1}{2 \mu_2} p_R^2 + \lb \frac{1}{2 \mu_2 R^2} + \frac{1}{2 \mu_1 l^2} \rb p_\theta^2 - \frac{1}{\mu_2 R^2} p_\theta \Jy + \frac{1}{2 \mu_2 R^2} \Jy^2 + \frac{1}{2 \mu_2 R^2} \Jx^2 + \frac{1}{2 \sin^2 \theta} \lb \frac{\cos^2 \theta}{\mu_2 R^2} + \frac{1}{\mu_1 l^2} \rb \Jz^2 + \notag \\
++ \frac{1}{\mu_2 R^2 \tan \theta} \Jx \Jz + U(R, \theta) \notag
+\end{gather}
+
+
+
+
+\end{document}
+

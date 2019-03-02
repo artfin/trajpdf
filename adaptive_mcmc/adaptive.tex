@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{graphicx}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% blackboar lettering
+\usepackage{dsfont}
+\usepackage{bbm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+
+\begin{document}
+
+\section{Adaptive Metropolis algorithm}
+
+Text from \cite{haario}.
+
+Suppose, that at time $t - 1$ we have sampled the states $X_0$, $X_1, \dots, X_{t_1}$, where $X_0$ is the initial state. Then a candidate point $Y$ is sampled from the proposal distribution $q_t(\cdot | X_0, \dots, X_{t-1})$, which now may depend on the whole history $(X_0, X_1, \dots, X_{t-1})$. The candiate point Y is accepted with probability
+\begin{gather}
+	\alpha(X_{t-1}, Y) = \min \lb 1, \frac{\pi(Y)}{\pi(X_{t-1})} \rb,
+\end{gather}
+in which case we set $X_t = Y$, and otherwise $X_t = X_{t-1}$.  Observe that the chosen probability for the acceptance resembles the familiar acceptance probability of the Metropolis algorithm. However, here the choice for the acceptance probability is not based on symmetry (reversibility) conditions since these cannot be satisfied in our case -- the corresponding stochastic chain is no longer Markovian. The exactness of the simulation is discussed separately. \par
+	The proposal distribution $q_t(\cdot|X_0, \dots, X_{t-1})$ employed in the AM algorithm is a Gaussian distribution with mean at the current point $X_{t-1}$ and covariance $C_t = C_t(X_0, \dots, X_{t-1})$. \par
+	The crucial thing regarding the adaptation is how the covariance of the proposal distribution depends on the history of the chain. In the AM algorithm this is solved setting $C_t = s_d \cov(X_0, \dots, X_{t-1}) + s_d \epsilon I_d$ after an initial period, where $s_d$ is a parameter that depends only on dimension $d$ and $\epsilon > 0$ is a constant we may choose very small. Here $I_d$ denotes the $d$-dimensional identity matrix. In order to start, we select an arbitrary, strictly positive definite, initial covariance $C_0$, according to our best prior knowledge (which may be quite poor). We select an index $t_0 > 0$ for the length of an initial period and define
+\begin{gather}
+	C_t = 
+	\begin{aligned}
+		C_0,  \quad t \leq t_0, \\
+		s_d \, \textbf{cov}( X_0, \dots, X_{t-1} + s_d \varepsilon I_d, \quad t > t0. 
+	\end{aligned}
+\end{gather}
+
+\end{document}

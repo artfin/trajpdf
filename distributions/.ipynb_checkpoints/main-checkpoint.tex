@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+
+\input{Preamble.tex}
+
+\usepackage{bm}
+%\usepackage{breqn}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\section{Начальные распределения для задачи двух тел}
+
+\input{diatomics_exact.tex}
+
+\input{rotation_matrix.tex}
+
+\input{mcmc_diatomics.tex}
+
+\input{parallel_mh.tex}
+
+\input{co2ar_exact.tex}
+
+\input{co2ar_bound.tex}
+
+\input{weights.tex}
+
+\newpage
+\section{Литература}
+\begin{enumerate}
+	\item Yildirim I. Bayesian Inference: Metropolis-Hastings Sampling. MIT Online Library
+	\item Gilks, W.R., Richardson, S., \& Spiegelhalter, D.J. (1996). \textit{Markov Chain Monte Carlo in Practice}. London: Chapman and Hall.
+	\item  Kirk D. Graphics Gems III. III. 4. Fast random rotation matrices. 
+	\item Н. А. Смирнова. Методы статистической термодинамики в физической химии. (гл. 4)
+
+	\item Marsaglia G. (1972). "Choosing a Point from the Surface of a Sphere". \textit{Annals of Mathematical Statistics}. \textbf{42} (2): 645-645.
+\end{enumerate}
+
+\newpage
+
+\titleformat{\section}{\large\bfseries}{\appendixname~\thesection .}{0.5em}{}
+
+\begin{appendices}
+\addtocontents{toc}{\setcounter{tocdepth}{-1}}
+
+\section{Приложение А. Распределения в лабораторной системе координат} \label{app1}
+
+\input{app_distr_laboratory.tex}
+
+\section{Приложение B. О действии равномерно распределенной матрицы поворота на гауссов вектор} \label{app2}
+
+\input{app_gauss.tex}
+
+\section{Приложение C. О равномерном на сфере распределении} \label{app3}
+
+\input{app_sphere.tex}
+
+\section{Приложение D. Угол между равномерно на сфере распределенными векторами} \label{app4}
+
+\input{app_angle.tex}
+
+\end{appendices}
+
+
+\end{document}

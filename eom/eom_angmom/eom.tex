@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{bbm}
+
+\usepackage{array}
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\itshape\bfseries}{\thesubsection.}{0.5em}{}
+
+\newcommand{\mf}{\mathbf}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bba}{\mathbbm{a}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\EOmega}{\boldsymbol{\Omega}_{\rm \textbf{e}}}
+\newcommand{\pe}{\mf{p_e}}
+
+\def\hh{_{\rm H}}
+
+\makeatletter
+\def\env@dmatrix{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \extrarowheight=2ex
+  \array{*\c@MaxMatrixCols{>{\displaystyle}c}}}
+
+\newenvironment{dmatrix}
+  {\env@dmatrix}
+  {\endarray\hskip-\arraycolsep}
+
+\newenvironment{bdmatrix}
+  {\left[\env@dmatrix}
+  {\endmatrix\right]}
+% and other matrix environments are similar
+\makeatother
+
+\begin{document}
+
+Запишем гамильтониан в следующей форме
+\begin{gather}
+    H = \frac{1}{2} \mf{p}^\top \bbG_{22} \lb \mf{q} \rb \mf{p} + \mf{J}^\top \bbG_{12} \lb \mf{q} \rb \mf{p} + \frac{1}{2} \mf{J}^\top \bbG_{11} \lb \mf{q} \rb \,\mf{J} + U(\mf{q}), \label{eq:hamiltonian}
+\end{gather}
+где $\mf{q}, \mf{p}, \mf{J}$ -- векторы внутренних координат, сопряженных им импульсов и углового момента. 
+
+Матрицы $\bbG_{11}$, $\bbG_{12}$, $\bbG_{22}$ связаны с матрицами, опредялющими кинетическую энергию в Лагранжевой форме, следующими соотношениями:
+\begin{gather}
+	\begin{aligned}
+		\bbG_{11} &= \lb \bbI - \bbA \bba^{-1} \bbA^\top \rb^{-1} \\ 
+		\bbG_{12} &= -\bbI^{-1} \bbA \bbG_{22} = - \bbG_{11} \bbA \bba^{-1}, \\
+		\bbG_{22} &= \lb \bba - \bbA^\top \bbI^{-1} \bbA \rb^{-1}
+\end{aligned}
+	\label{eq:Gmatrices}
+\end{gather}
+
+Рассмотрим сначала производные гамильтониана по вектору обобщенных импульсов $\mf{p}$ и углового момента $\mf{J}$: 
+\begin{gather}
+    \frac{\partial H}{\partial \mf{p}} = \bbG_{22}(\mf{q}) \mf{p} + \bbG_{12}^\top (\mf{q}) \mf{J} \\ 
+    \frac{\partial H}{\partial \mf{J}} = \bbG_{12}(\mf{q}) \mf{p} + \bbG_{11}(\mf{q}) \mf{J}
+\end{gather}
+При дифференцировании гамильтониана по обобщенным координатам $\mf{q}$ основную сложность представляют матрицы $\bbG_\text{ij}(\mf{q})$. При выводе этих производных были привлечены формулы из теории функциональных матриц.
+Рассмотрим дифференцируемую, обратимую матрицу $\bbA(\mf{q})$ векторного аргумента $\mf{q}$. Производная обратной матрицы $\bbA^{-1}(\mf{q})$ по переменной $\mf{q}$ связана с производной матрицы $\bbA(\mf{q})$ следующим выражением 
+\begin{gather}
+		\frac{\partial}{\partial \mf{q}} \bbA^{-1}(\mf{q}) = -\bbA^{-1}(\mf{q})\left[ \frac{\partial}{\partial \mf{q}} \bbA(\mf{q}) \right] \bbA^{-1} (\mf{q}). 
+\end{gather}
+
+Рассмотрим производную матрицы $\bbG_{11}(\mf{q})$ по вектору внутренних координат $\mf{q}$. 
+\begin{gather}
+	\frac{\partial}{\partial \mf{q}} \bbG_{11} = \frac{\partial}{\partial \mf{q}} \left[ \lb \bbI - \bbA \bba^{-1} \bbA^\top \rb^{-1} \right] = - \lb \bbI - \bbA \bba^{-1} \bbA^\top \rb^{-1} \left[ \frac{\partial}{\partial \mf{q}} \lb \bbI - \bbA \bba^{-1} \bbA^\top \rb \right] \lb \bbI - \bbA \bba^{-1} \bbA^\top \rb^{-1}, 
+\end{gather}
+или, более кратко,
+\begin{gather}
+	\frac{\partial}{\partial \mf{q}} \bbG_{11} = - \bbG_{11} \left[ \frac{\partial}{\partial \mf{q}} \lb \bbI - \bbA \bba^{-1} \bbA^\top \rb \right] \bbG_{11}. \label{eq:diffG11}
+\end{gather}
+
+При дифференцировании произведения матриц также действует правило Лейбница, используя которое раскрываем производную в (\ref{eq:diffG11}).
+\begin{gather}
+	\frac{\partial}{\partial \mf{q}} \bbG_{11} = -\bbG_{11} \left[ \frac{\partial \, \bbI}{\partial \mf{q}} - \frac{\partial \bbA}{\partial \mf{q}} \bba^{-1} \bbA^\top + \bbA \bba^{-1} \frac{\partial \bba}{\partial \mf{q}} \bba^{-1} \bbA^\top - \bbA \bba^{-1} \frac{\partial \bbA^\top}{\partial \mf{q}} \right] \bbG_{11}. 
+\end{gather}
+
+Аналогично, получаем выражения для производных матриц $\bbG_{12}(\mf{q})$ и $\bbG_{22}(\mf{q})$ по $\mf{q}$
+\begin{gather}
+	\frac{\partial}{\partial \mf{q}} \bbG_{22} = -\bbG_{22} \left[ \frac{\partial \bba}{\partial \mf{q}} - \frac{\partial \bbA^\top}{\partial \mf{q}} \bbI^{-1} \bbA + \bbA^\top \bbI^{-1} \frac{\partial \, \bbI}{\partial \mf{q}} \bbI^{-1} \bbA - \bbA^\top \bbI^{-1} \frac{\partial \bbA}{\partial \mf{q}} \right] \bbG_{22}, \\
+	\frac{\partial}{\partial \mf{q}} \bbG_{12} = - \left [ \frac{\partial}{\partial \mf{q}} \bbG_{11} \right] \bbA \bba^{-1} - \bbG_{11} \frac{\partial \bbA}{\partial \mf{q}} \bba^{-1} + \bbG_{11} \bbA \bba^{-1} \frac{\partial \bba}{\partial \mf{q}} \bba^{-1} = \\
+	= \bbG_{22} \left[ \frac{\partial \bba}{\partial \mf{q}} - \frac{\partial \bbA^\top}{\partial \mf{q}} \bbI^{-1} \bbA + \bbA^\top \bbI^{-1} \frac{\partial \, \bbI}{\partial \mf{q}} \bbI^{-1} \bbA - \bbA^\top \bbI^{-1} \frac{\partial \bbA}{\partial \mf{q}} \right] \bbG_{22} \bbA \bba^{-1} - \bbG_{11} \frac{\partial \bbA}{\partial \mf{q}} \bba^{-1} + \bbG_{11} \bbA \bba^{-1} \frac{\partial \bba}{\partial \mf{q}} \bba^{-1}. 
+\end{gather}
+
+Итак, получив производные матриц $\bbG_\text{ij}$ по $\mf{q}$, мы можем получить производные гамильтониана по $\mf{q}$ по выражению
+\begin{gather}
+    \frac{\partial H}{\partial \mf{q}} = \frac{1}{2} \mf{p}^\top \frac{\partial \bbG_{22}}{\partial \mf{q}} \mf{p} + \mf{J}^\top \frac{\partial \bbG_{12}}{\partial \mf{q}} \mf{p} + \frac{1}{2} \mf{J}^\top \frac{\partial \bbG_{11}}{\partial \mf{q}} \mf{J} + \frac{\partial U}{\partial \mf{q}}.
+\end{gather}
+
+\end{document}
+

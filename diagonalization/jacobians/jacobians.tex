@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{graphicx}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% blackboar lettering
+\usepackage{dsfont}
+\usepackage{bbm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\usepackage{titlesec}
+
+% for appendix environment
+\usepackage[titletoc,toc,title,page]{appendix}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mH}{\mathcal{H}}
+
+\begin{document}
+
+Попытаюсь сохранить обозначения, которые вы использовали в последней имеющейся у меня версии текста по поводу якобианов. \par
+Исходно кинетическая энергия $T_\mL$ представлена в виде квадратичной формы
+\begin{gather}
+	T_\mL = \frac{1}{2} \boldsymbol{v}^\dagger \Pi \boldsymbol{v} \notag
+\end{gather}
+
+Кинетическая энергия $T_\mH$, соответствующая $T_\mL$, также может записана как квадратичная форма
+\begin{gather}
+	T_\mH = \frac{1}{2} \boldsymbol{p}^\dagger \Pi^{-1} \boldsymbol{p} \notag
+\end{gather}
+
+Вы рассматриваете неособенное линейное преобразование $\boldsymbol{u} = \mathbb{K} \boldsymbol{v}$, приводящее квадратичную форму $T_\mL$ к диагональному виду
+\begin{gather}
+	T_\mL = \frac{1}{2} \boldsymbol{u}^\dagger \Pi_d \boldsymbol{u} = \frac{1}{2} \boldsymbol{u}^\dagger \lb \mathbb{K}^{-1} \rb^\dagger \Pi \mathbb{K}^{-1} \boldsymbol{u} \notag
+\end{gather}
+
+Квадратичная форма $T_\mH$, порожденная квадратичной формой $T_\mL$ также диагональна 
+\begin{gather}
+		T_\mH = \frac{1}{2} \boldsymbol{\Pi}^\dagger \Pi_d^{-1} \boldsymbol{\Pi}, \notag
+\end{gather}
+где
+\begin{gather}
+	\boldsymbol{\Pi} = \Pi_d \boldsymbol{u} = \lb \mathbb{K}^{-1} \rb^\dagger \boldsymbol{p}. \notag
+\end{gather}
+
+Но нас ведь интересуют якобианы, которые приводят квадратичные формы к суммы совершенно голых квадратов. Осуществим переход к голым квадратам через промежуточный этап с голыми квадратами с одной второй перед ними. Преобразование переменных $\boldsymbol{\omega} = \Pi_d^{-\frac{1}{2}} \boldsymbol{p}$ приводит квадратичную форму $T_\mL$ к виду
+\begin{gather}
+	T_\mL = \frac{1}{2} \boldsymbol{\omega}^\dagger \boldsymbol{\omega} \notag
+\end{gather}
+Квадратичная форма $T_\mH$ приходит к аналогичному виду
+\begin{gather}
+	T_\mH = \frac{1}{2} \boldsymbol{\zeta}^\dagger \boldsymbol{\zeta},  \notag
+\end{gather}
+где
+\begin{gather}
+	\boldsymbol{\zeta} = \Pi_d^\frac{1}{2} \boldsymbol{\Pi} \notag
+\end{gather}
+
+Наконец, преобразование $\boldsymbol{\xi} = \frac{1}{\sqrt{2}} \boldsymbol{\omega}$ приводит квадратичную форму $T_\mL$ к голым квадратам
+\begin{gather}
+	T_\mL = \boldsymbol{\xi}^\dagger \boldsymbol{\xi} \notag
+\end{gather}
+
+Аналогичное преобразование $\boldsymbol{\eta} = \frac{1}{\sqrt{2}} \boldsymbol{\zeta}$ приводит квадратичную форму $T_\mH$ к голым квадратам
+\begin{gather}
+	T_\mH = \boldsymbol{\eta}^\dagger \boldsymbol{\eta} \notag
+\end{gather}
+
+Итак, рассмотрим якобианы полных преобразований переменных, приводящих квадратичные формы $T_\mL$ и $T_\mH$ к голым квадратам, в виде произведения трех якобианов частичных преобразований:
+\begin{gather}
+	Yac_\mL = \det \mathbb{K}^{-1} \cdot \lb \det \Pi_d \rb ^{-\frac{1}{2}} \cdot 2^\frac{s}{2} \notag \\
+	Yac_\mH = \det \mathbb{K} \cdot \lb \det \Pi_d \rb^\frac{1}{2} \cdot 2^\frac{s}{2}, \notag
+\end{gather}
+
+где через $s$ было обозначено количество квадратов. Их произведение дает
+\begin{gather}
+	Yac_\mL \cdot Yac_\mH = 2^\frac{s}{2} \cdot 2^\frac{s}{2} = 2^s. \notag
+\end{gather}
+
+
+\end{document}
