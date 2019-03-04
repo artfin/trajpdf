@@ -1,0 +1,310 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% page margin
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{bbm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% modifying page layout using fancyhdr
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\rhead{\fancyplain{}{\rightmark }}
+\cfoot{\fancyplain{}{\thepage }}
+
+\newcommand{\mf}{\mathbf}
+
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\lsq}{\left[}
+\newcommand{\rsq}{\right]}
+
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bba}{\mathbbm{a}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\EOmega}{\boldsymbol{\Omega}_{\rm \textbf{e}}}
+\newcommand{\mfpe}{\mf{p_e}}
+\newcommand{\mfpet}{\mf{p_e^+}}
+\newcommand{\mfq}{\mf{q}}
+\newcommand{\mfp}{\mf{p}}
+\newcommand{\mfJ}{\mf{J}}
+
+\DeclareMathAlphabet{\mymathbb}{U}{BOONDOX-ds}{m}{n}
+\newcommand{\bbzero}{\mymathbb{0}}
+\newcommand{\bbone}{\mymathbb{1}}
+
+\def\hh{_{\rm H}}
+
+\usepackage{array}
+\makeatletter
+\def\env@dmatrix{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \extrarowheight=2ex
+  \array{*\c@MaxMatrixCols{>{\displaystyle}c}}}
+
+\newenvironment{dmatrix}
+  {\env@dmatrix}
+  {\endarray\hskip-\arraycolsep}
+
+\newenvironment{bdmatrix}
+  {\left[\env@dmatrix}
+  {\endmatrix\right]}
+\makeatother
+
+\begin{document}
+
+Рассмотрим колебательно-вращательный гамильтониан в следующей форме
+\begin{gather}
+    H = \frac{1}{2} \mfp^+ \bbG_{22} \mfp + \mfJ^+ \bbG_{12} \mfp + \frac{1}{2} \mfJ^+ \bbG_{11} \mfJ \notag
+\end{gather}
+в блочном виде
+\begin{gather}
+    H = \frac{1}{2} \begin{bmatrix} \mfJ^+ & \mfp^+ \end{bmatrix}
+    \begin{bmatrix}
+        \bbG_{11} & \bbG_{12} \\
+        \bbG_{12}^+ & \bbG_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \mfJ \\
+        \mfp
+   \end{bmatrix} = 
+   \frac{1}{2} \begin{bmatrix} \mfJ^+ & \mfp^+ \end{bmatrix}
+   \bbB^{-1}
+   \begin{bmatrix}
+        \mfJ \\
+        \mfp
+   \end{bmatrix}, \notag
+\end{gather}
+где 
+\begin{gather}
+    \bbB = 
+    \begin{bmatrix}
+        \bbI & \bbA \\
+        \bbA^+ & \bba
+    \end{bmatrix}. \notag
+\end{gather}
+
+В результате дифференцирования гамильтониана по блочному вектору $\displaystyle \begin{bmatrix} \mfJ \\ \mfp \end{bmatrix}$ получим блочный вектор производных $\displaystyle \begin{bdmatrix} \frac{\partial H}{\partial \mfJ} \\ \frac{\partial H}{\partial \mfp} \end{bdmatrix}$:
+\begin{gather}
+    \begin{bdmatrix}
+        \frac{\partial H}{\partial \mfJ} \\
+        \frac{\partial H}{\partial \mfp}
+    \end{bdmatrix} = 
+    \bbB^{-1}
+    \begin{bmatrix}
+        \mfJ \\
+        \mfp
+    \end{bmatrix}. \notag
+\end{gather}
+
+Для ясности перепишем это соотношение покомпонентно
+\begin{gather}
+    \begin{aligned}
+        \frac{\partial H}{\partial \mfJ} &= \bbG_{11} \mfJ + \bbG_{12} \mfp \\
+        \frac{\partial H}{\partial \mfp} &= \bbG_{12}^+ \mfJ + \bbG_{22} \mfp.
+    \end{aligned} \notag 
+\end{gather}
+
+Напомним, что производная обратной матрицы $\displaystyle \frac{d}{d\mfq} \bbM^{-1}(\mfq)$ связана с производной $\displaystyle \frac{d}{d\mfq} \bbM(\mfq)$ следующим соотношением
+\begin{gather}
+    \frac{d}{d\mfq} \bbM^{-1}(\mfq) = -\bbM^{-1}(\mfq) \lsq \frac{d}{d\mfq} \bbM(\mfq) \rsq \bbM^{-1}(\mfq). \notag
+\end{gather}
+Воспользуемся этим соотношением при дифференцировании гамильтониана в блочном виде по вектору обобщенных координат $\mfq$.
+\begin{gather}
+    \frac{\partial H}{\partial \mfq} = - \frac{1}{2}
+    \begin{bmatrix}
+        \mfJ^+ & \mfp^+ 
+    \end{bmatrix}
+    \bbB^{-1} \frac{\partial \bbB}{\partial \mfq} \bbB^{-1}
+    \begin{bmatrix}
+        \mfJ \\
+        \mfp
+    \end{bmatrix} \notag
+\end{gather}
+
+
+Рассмотрим, как будут выглядеть уравнения для производных, если переписать гамильтониан при помощи Эйлеровых углов $\EOmega$ и импульсов $\mfpe$. Блочный вектор $\displaystyle \begin{bmatrix} \mfpe \\ \mfp \end{bmatrix}$ связан с блочным вектором $\displaystyle \begin{bmatrix} \mfJ \\ \mfp \end{bmatrix}$ следующей матрицей
+\begin{gather}
+    \begin{bmatrix}
+        \mfpe \\
+        \mfp
+    \end{bmatrix} =
+    \begin{bmatrix}
+        \bbW & \bbzero \\
+        \bbzero & \bbone \\ 
+    \end{bmatrix}
+    \begin{bmatrix}
+        \mfJ \\
+        \mfp 
+    \end{bmatrix}, \quad 
+    \bbW = 
+	\begin{bdmatrix}
+		\frac{\sin \psi}{\sin \theta} & \cos \psi & - \frac{\cos \theta \sin \psi}{\sin \theta} \\
+		\frac{\cos \psi}{\sin \theta} & - \sin \psi & - \frac{\cos \theta \cos \psi}{\sin \theta} \\
+		0 & 0 & 1
+	\end{bdmatrix}. 
+    \notag
+\end{gather}
+
+Подставим это соотношение в гамильтониан
+\begin{gather}
+    H = \frac{1}{2} \begin{bmatrix} \mfpe^+ & \mfp^+ \end{bmatrix}
+    \begin{bmatrix}
+        \bbW^+ & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \begin{bmatrix}
+        \bbG_{11} & \bbG_{12} \\
+        \bbG_{12}^+ & \bbG_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \bbW & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \begin{bmatrix}
+        \mfpe \\
+        \mfp
+    \end{bmatrix}. \notag
+\end{gather}
+
+Продифференцируем гамильтониан по блочному вектору $\displaystyle \begin{bmatrix} \mfpe \\ \mfp \end{bmatrix}$:
+\begin{gather}
+    \begin{bdmatrix}
+        \frac{\partial H}{\partial \mfpe} \\
+        \frac{\partial H}{\partial \mfp}
+    \end{bdmatrix} =
+    \begin{bmatrix}
+        \bbW^+ & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \begin{bmatrix}
+        \bbG_{11} & \bbG_{12} \\
+        \bbG_{12}^+ & \bbG_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \bbW & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \begin{bmatrix}
+        \mfpe \\
+        \mfp
+    \end{bmatrix}. \notag
+\end{gather}
+
+Производная гамильтониана по вектору обобщенных координат $\mfq$ также получается простой
+\begin{gather}
+    \frac{\partial H}{\partial \mfq} = -\frac{1}{2} \begin{bmatrix} \mfpe^+ & \mfp^+ \end{bmatrix} 
+    \begin{bmatrix}
+        \bbW^+ & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \bbB^{-1} \frac{\partial \bbB}{\partial \mfq} \bbB^{-1}
+    \begin{bmatrix}
+        \bbW & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \begin{bmatrix}
+        \mfpe \\
+        \mfp
+    \end{bmatrix}. \notag
+\end{gather}
+
+Так как от углов Эйлера $\EOmega$ зависит только матрица $\bbW$, то производная по ним представляет собой сумму двух слагаемых: 
+\begin{gather}
+    \frac{\partial H}{\partial \EOmega} = 
+    \frac{1}{2} \begin{bmatrix} \mfpe^+ & \mfp^+ \end{bmatrix} 
+    \begin{bdmatrix}
+        \frac{\partial \bbW^+}{\partial \EOmega} & \bbzero \\
+        \bbzero & \bbzero
+    \end{bdmatrix}
+    \bbB^{-1}
+    \begin{bmatrix}
+        \bbW & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \begin{bmatrix}
+        \mfpe \\
+        \mfp
+    \end{bmatrix} + \notag \\
+    + \frac{1}{2} \begin{bmatrix} \mfpe^+ & \mfp^+ \end{bmatrix} 
+    \begin{bmatrix}
+        \bbW & \bbzero \\
+        \bbzero & \bbzero
+    \end{bmatrix}
+    \bbB^{-1}
+    \begin{bdmatrix}
+        \frac{\partial \bbW}{\partial \EOmega} & \bbzero \\
+        \bbzero & \bbone
+    \end{bdmatrix}
+    \begin{bmatrix}
+        \mfpe \\
+        \mfp
+    \end{bmatrix}. \notag
+\end{gather}
+
+Легко заметить, что слагаемые переходят друг друга при транспонировании, а т.к. они являются скалярами, то они равны. Следовательно, выражение для этой производной сводится к удвоенному слагаемому  
+\begin{gather}
+    \frac{\partial H}{\partial \EOmega} = 
+    \begin{bmatrix} \mfpe^+ & \mfp^+ \end{bmatrix} 
+    \begin{bdmatrix}
+        \frac{\partial \bbW^+}{\partial \EOmega} & \bbzero \\
+        \bbzero & \bbzero
+    \end{bdmatrix}
+    \bbB^{-1}
+    \begin{bmatrix}
+        \bbW & \bbzero \\
+        \bbzero & \bbone
+    \end{bmatrix}
+    \begin{bmatrix}
+        \mfpe \\
+        \mfp
+    \end{bmatrix}. \notag 
+\end{gather}
+
+Последняя производная не представляется в той же степени в матричном виде, как остальные производные. Двигаясь по компонентам вектора $\EOmega$ мы будем получать разные производные $\displaystyle \frac{\partial \bbW}{\partial \EOmega}$, которые являются матрицами, и после подстановки их в квадратичную форму будем получать число. То есть, для того, чтобы получить три производные по Эйлеровым углам в рамках одного вычисления, необходимо составить трехмерный тензор $\displaystyle \frac{\partial \bbW}{\partial \EOmega}$ и осуществить свертку по двум индексам в ходе вычисления по формуле выше. (С вычислительной точки зрения это не даст никаких преимуществ, потому что операции с матрицами в специализированных библиотеках оптимизированы намного лучше чем операции с тензорами.) Если раскрыть это матричное произведение используя индивидуальные матрицы, то выражение существенно упрощается
+\begin{gather}
+    \frac{\partial H}{\partial \EOmega} = \mfpet \frac{\partial \bbW^+}{\partial \EOmega} \lb \bbG_{11} \bbW \mfpe + \bbG_{12} \mfp \rb \notag.
+\end{gather}
+
+Заметим, что выражение в скобках может быть выражено через производную $\displaystyle \frac{\partial H}{\partial \mfpe}$
+\begin{gather}
+    \frac{\partial H}{\partial \mfpe} = \bbW^+ \lb \bbG_{11} \bbW \mfpe + \bbG_{12} \mfp \rb \quad \implies \quad 
+    \bbV \frac{\partial H}{\partial \mfpe} = \bbG_{11} \bbW \mfpe + \bbG_{12} \mfp, \notag
+\end{gather}
+
+где
+\begin{gather}
+    \bbV = \lb \bbW^+ \rb^{-1} = 
+    \begin{bmatrix}
+        \sin \theta \sin \psi & \cos \psi & 0 \\
+        \sin \theta \cos \psi & -\sin \psi & 0 \\
+        \cos \theta & 0 & 1
+    \end{bmatrix}. \notag
+\end{gather}
+
+Таким образом, производные гамильтониана по Эйлеровым углам могут быть найдены через производные по Эйлеровым импульсам по следующим соотношениям
+\begin{gather}
+    \frac{\partial H}{\partial \EOmega} = \mfpet \frac{\partial \bbW^+}{\partial \EOmega} \bbV \frac{\partial H}{\partial \mfpe}. \notag 
+\end{gather}
+
+
+\end{document}
+
